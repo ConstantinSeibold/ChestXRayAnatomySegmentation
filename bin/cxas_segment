@@ -18,9 +18,6 @@ def main():
     parser.add_argument("-o", "--output",metavar="directory", dest="output",
                         help="Output directory for segmentation masks", type=str, required=True)
     
-    parser.add_argument("-s", "--store_seg", action='store_true', dest="store_seg",
-                        help="Wether to also store segmentation masks")
-    
     parser.add_argument("-ot", "--output_type", choices=["json", "npy", "npz", "jpg", "png", "dicom-seg", 
                                                    ],
                         help="Designates the storage type of segmentations if they are stored ", default='png')
@@ -50,7 +47,7 @@ def main():
                 filename = args.input,  
                 output_directory = args.output,
                 create = True, 
-                do_store = args.store_seg,
+                do_store = True,
                 storage_type = args.output_type,
             )
     else:
