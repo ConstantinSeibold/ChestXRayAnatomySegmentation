@@ -3,7 +3,7 @@ import colorcet as cc
 from pathlib import Path
 
 this_directory = Path(__file__).parent
-paxray_labels = json.load(open('cxas/paxray_labels.json'))
+paxray_labels = json.load(open(os.path.join(str(this_directory), 'data/paxray_labels.json')))
 id2label_dict = paxray_labels['label_dict']
 
 thoracic_spine = ["thoracic spine",

@@ -4,10 +4,11 @@ import torch.nn.functional as F
 import os
 import pandas as pd
 import numpy as np
-from cxas.models import get_model
-from cxas.file_io import FileLoader, FileSaver, get_folder_loader
-from cxas.extraction import Extractor
 from tqdm import tqdm
+
+from .file_io import FileLoader, FileSaver, get_folder_loader
+from .models import get_model
+from .extraction import Extractor
 
 class CXAS(nn.Module):
     def __init__(self, 

@@ -1,5 +1,5 @@
 import gdown, os, torch
-from cxas.label_mapper import id2label_dict
+from ..label_mapper import id2label_dict
 
 model_urls = {
     'UNet_ResNet50_default': 'https://drive.google.com/file/d/1Y9zubvMzkYHoAqz-NvV6vniH5FKAF2iV/view?usp=drive_link'
@@ -30,8 +30,12 @@ def get_unet(model_name):
     return BackboneUNet(model_name, len(id2label_dict.keys()))
 
 def download_weights(model_name:str)->None:
-    os.makedirs('./weights/', exist_ok=True)
-    out_path = './weights/{}'.format(model_name+'.pth')
+    if "CXAS_PATH" in os.environ:
+        store_path = os.path.join(os.environ['CXAS_PATH'],'.cxas')
+    else:
+        store_path = os.path.join(os.environ['HOME'],'.cxas')
+    os.makedirs(os.path.join(store_path, 'weights/'), exist_ok=True)
+    out_path = os.path.join(store_path, 'weights/{}'.format(model_name+'.pth'))
     if os.path.isfile(out_path):
         return
     else:
@@ -39,7 +43,11 @@ def download_weights(model_name:str)->None:
         return
 
 def load_weights(model, model_name:str):
-    out_path = './weights/{}'.format(model_name+'.pth')
+    if "CXAS_PATH" in os.environ:
+        store_path = os.path.join(os.environ['CXAS_PATH'],'.cxas')
+    else:
+        store_path = os.path.join(os.environ['HOME'],'.cxas')
+    out_path = os.path.join(store_path, 'weights/{}'.format(model_name+'.pth'))
     assert os.path.isfile(out_path)
     
     checkpoint = torch.load(out_path, map_location='cuda:0')

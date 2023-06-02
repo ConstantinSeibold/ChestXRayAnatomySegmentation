@@ -14,6 +14,10 @@ from cxas.io_utils.dicomseg_2d import write_dicom_seg
 from cxas.io_utils.create_annotations import get_coco_json_format, \
     create_category_annotation, image_annotations_info
 from cxas.io_utils.mask_to_coco import binary_mask_to_rle, toBox, mask_to_annotation
+from pathlib import Path
+
+this_directory = Path(__file__).parent
+
 
 class FolderDataset(Dataset):
     def __init__(self, path:str, gpus:str):
@@ -181,7 +185,7 @@ class FileSaver():
         os.makedirs(out_dir,exist_ok=True)
         
         write_dicom_seg(
-                            metainfo = 'cxas/metainfo.json',
+                            metainfo = os.path.join(str(this_directory), 'data/metainfo.json'),
                             dcm_file = file_name,
                             mask = mask.astype(np.uint8),
                             out_dir = out_dir,
