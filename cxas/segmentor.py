@@ -325,16 +325,18 @@ class CXAS(nn.Module):
                         img_id += 1
                 else:
                     self.store_prediction(predictions, output_directory, storage_type)
-
+        
+        pd.DataFrame(scores).to_csv(os.path.join(output_directory, input_directory_name.split('/')[-1]+'.csv' if input_directory_name[-1]!='/' else
+                                    input_directory_name[:-1].split('/')[-1]+'.csv'))
+        
         if (storage_type == 'json') and store_pred:
             os.makedirs(output_directory,exist_ok=True)
-            out_path = os.path.join(output_directory, input_directory_name.split('/')[-1]+'.json')
+            out_path = os.path.join(output_directory, 
+                                    input_directory_name.split('/')[-1] if input_directory_name[-1]!='/' else
+                                    input_directory_name[:-1].split('/')[-1]+'.json')
             with open(out_path,"w") as outfile:
                 json.dump(coco_format, outfile)
 
-        pd.DataFrame(scores).to_csv(os.path.join(output_directory, input_directory_name.split('/')[-1]+'.csv'))
-        
-    
     def forward(self, image_batch) -> dict:
         """
         """

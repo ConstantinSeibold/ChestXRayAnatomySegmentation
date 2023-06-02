@@ -12,8 +12,8 @@ import SimpleITK as sitk
 import numpy as np
 from cxas.io_utils.dicomseg_2d import write_dicom_seg
 from cxas.io_utils.create_annotations import get_coco_json_format, \
-    create_category_annotation, image_annotations_info
-from cxas.io_utils.mask_to_coco import binary_mask_to_rle, toBox, mask_to_annotation
+    create_category_annotation
+from cxas.io_utils.mask_to_coco import toBox, mask_to_annotation
 from pathlib import Path
 
 this_directory = Path(__file__).parent
@@ -179,9 +179,9 @@ class FileSaver():
                                      ) -> None:
         """
         """
-        assert file_name.split('/')[-1].split('.')[-1] == 'dcm', 'Input file has to be dicom to be stored \
-            as dicom-seg, it was --{}--'.format(file_name.split('/')[-1].split('.')[-1])
-        out_dir = os.path.join(outdir, file_name.split('/')[-1].split('.')[0])
+        assert os.path.splitext(file_name)[-1] == 'dcm', 'Input file has to be dicom to be stored \
+            as dicom-seg, it was --{}--'.format(os.path.splitext(file_name)[-1])
+        out_dir = os.path.join(outdir, os.path.splitext(file_name)[0])
         os.makedirs(out_dir,exist_ok=True)
         
         write_dicom_seg(
@@ -201,12 +201,12 @@ class FileSaver():
         """
         """
         assert len(mask.shape) == 3
-        fileroot = file_name.split('/')[-1].split('.')[0]
+        fileroot = os.path.splitext(file_name)[0]
         outdir = os.path.join(outdir, fileroot)
         os.makedirs(outdir,exist_ok=True)
         
         for i in range(len(mask)):
-            out_path = os.path.join(outdir, fileroot + '_' + id2label_dict[str(i)] + '.jpg')
+            out_path = os.path.join(outdir, id2label_dict[str(i)] + '.jpg')
             Image.fromarray(mask[i]).convert('1').save(out_path)
     
     def export_prediction_as_png(self, 
@@ -217,12 +217,12 @@ class FileSaver():
         """
         """
         assert len(mask.shape) == 3
-        fileroot = file_name.split('/')[-1].split('.')[0]
+        fileroot = os.path.splitext(file_name)[0]
         outdir = os.path.join(outdir, fileroot)
         os.makedirs(outdir,exist_ok=True)
         
         for i in range(len(mask)):
-            out_path = os.path.join(outdir, fileroot + '_' + id2label_dict[str(i)] + '.png')
+            out_path = os.path.join(outdir, id2label_dict[str(i)] + '.png')
             Image.fromarray(mask[i]).convert('1').save(out_path)
 
     def export_prediction_as_numpy(self, 
@@ -233,7 +233,7 @@ class FileSaver():
         """
         """
         os.makedirs(outdir,exist_ok=True)
-        out_path = os.path.join(outdir, file_name.split('/')[-1].split('.')[0]+'.npy')
+        out_path = os.path.join(outdir, os.path.splitext(file_name)[0]+'.npy')
         np.save(out_path, mask)
     
     def export_prediction_as_npz(self, 
@@ -242,7 +242,7 @@ class FileSaver():
                                  file_name:str
                                 ) -> None:
         os.makedirs(outdir,exist_ok=True)
-        out_path = os.path.join(outdir, file_name.split('/')[-1].split('.')[0]+'.npz')
+        out_path = os.path.join(outdir, os.path.splitext(file_name)[0]+'.npz')
         np.savez_compressed(out_path, mask)
 
     
@@ -267,7 +267,7 @@ class FileSaver():
                                     ) 
         
         os.makedirs(outdir,exist_ok=True)
-        out_path = os.path.join(outdir, file_name.split('/')[-1].split('.')[0]+'.json')
+        out_path = os.path.join(outdir, os.path.splitext(file_name)[0]+'.json')
         
         with open(out_path,"w") as outfile:
             json.dump(coco_format, outfile)

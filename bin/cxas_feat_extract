@@ -38,6 +38,12 @@ def main():
 
     args = parser.parse_args()
 
+    if args.gpus != 'cpu':
+        import torch
+        if not torch.cuda.is_available():
+            print('No GPU is available. Switching to CPU.')
+            args.gpus = 'cpu'
+            
     model = CXAS(
             model_name = args.model,
             gpus       = args.gpus
@@ -58,7 +64,7 @@ def main():
                 output_directory = args.output,
                 feat_to_extract = args.feature,
                 create = True, 
-                do_store = args.store_seg,
+                do_store = True,
                 storage_type = args.output_type,
             )
     else:

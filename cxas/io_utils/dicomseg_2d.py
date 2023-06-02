@@ -66,8 +66,7 @@ def write_dicom_seg(
 
         out = writer.write(segmentation, source_images)
         out_path = os.path.join(out_dir, 
-                                dcm_file[0].split('/')[-1].split('.')[0]\
-                                +'_'+id_label_dict[str(i)]\
+                                id_label_dict[str(i)]\
                                +'.dcm'
                                )
         out.save_as(out_path)

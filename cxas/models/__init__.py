@@ -10,17 +10,20 @@ def get_model(model_name, gpus=''):
     
     model = model_getter[model_name.split('_')[0]](model_name)
     download_weights(model_name)
-    model = load_weights(model, model_name)
+    model = load_weights(model, model_name, map_location = 'cpu')
     
-    gpus = [int(i) for i in gpus.split(',') if len(i)>0]
-    
-    if len(gpus) > 1:
-        assert (torch.cuda.is_available())
-        model.to(gpus[0])
-        model = torch.nn.DataParallel(model,device_ids =gpus).cuda()
-    elif len(gpus)==1:
-        assert (torch.cuda.is_available())
-        model.to(gpus[0])
+    if 'cpu' in gpus:
+        model.to(torch.device('cpu'))
+    else:
+        gpus = [int(i) for i in gpus.split(',') if len(i)>0]
+
+        if len(gpus) > 1:
+            assert (torch.cuda.is_available())
+            model.to(gpus[0])
+            model = torch.nn.DataParallel(model,device_ids =gpus).cuda()
+        elif len(gpus)==1:
+            assert (torch.cuda.is_available())
+            model.to(gpus[0])
         
     return model
 
@@ -42,7 +45,7 @@ def download_weights(model_name:str)->None:
         gdown.download(model_urls[model_name], out_path, quiet=False, fuzzy=True)
         return
 
-def load_weights(model, model_name:str):
+def load_weights(model, model_name:str, map_location:str='cuda:0'):
     if "CXAS_PATH" in os.environ:
         store_path = os.path.join(os.environ['CXAS_PATH'],'.cxas')
     else:
@@ -50,7 +53,7 @@ def load_weights(model, model_name:str):
     out_path = os.path.join(store_path, 'weights/{}'.format(model_name+'.pth'))
     assert os.path.isfile(out_path)
     
-    checkpoint = torch.load(out_path, map_location='cuda:0')
+    checkpoint = torch.load(out_path, map_location=map_location)
     # import pdb; pdb.set_trace()
     if 'module' in list(checkpoint['model'].keys())[0] :
         for i in list(checkpoint['model'].keys()):
