@@ -1,12 +1,12 @@
 # Chest X-Ray Anatomy Segmentation
-![Title Image](./images/CXAS_logo.png)
+![Title Image](./readme_images/CXAS_logo.png)
 
 This repository provides a way to generate fine-grained segmentations and extract understandable features of Chest X-Rays. 
 Models were trained using [Multi-Label Segmentation]().
 
 We provide demos with gradio for Chest X-Ray [**anatomy segmentation**]() and [**feature extraction**]().
 
-![Overview](./images/Label_Overview.png)
+![Overview](./readme_images/Label_Overview.png)
 
 
 ## Installation
@@ -121,8 +121,11 @@ This work builds on the following papers:
 
 > [**Accurate Fine-Grained Segmentation of Human Anatomy in Radiographs via Volumetric Pseudo-Labeling**]()<br>
 >**Purpose:** *The interpretation of chest radiographs (CXR) remains a challenge due to ambiguous overlapping structures such as the lungs, heart, and bones hindering the annotation. To address this, we propose a novel method for extracting fine-grained anatomical structures in CXR using pseudo-labeling of three-dimensional computer tomography (CTs). *
+
 >**Methods:** *We created a large-scale dataset of 10,021 thoracic CTs, encompassing 157 labels, and applied an ensemble of 3D anatomy segmentation models to extract anatomical pseudo-labels. These labels were projected onto a two-dimensional plane, resembling CXR, enabling the training of detailed semantic segmentation models without any manual annotation effort.*
+
 >**Results:** *Our resulting segmentation models demonstrated remarkable performance, with a high average model-annotator agreement between two radiologists with mIoU scores of 0.93 and 0.85 for frontal and lateral anatomies, whereas the inter-annotator agreement remained at 0.95 and 0.83 mIoU. Additionally, our anatomical segmentations allowed for the accurate extraction of relevant explainable medical features such as the Cardio-Thoracic-Ratio.*
+
 >**Conclusion:** *Our method of volumetric pseudo-labeling paired with CT projection offers a promising approach for detailed anatomical segmentation of CXR with a high agreement with human annotators. This technique can have important clinical implications, particularly in the analysis of various thoracic pathologies.*
 
 > [**Detailed Annotations of Chest X-Rays via CT Projection for Report Understanding**](https://bmvc2022.mpi-inf.mpg.de/58/)<br>
