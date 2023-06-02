@@ -6,8 +6,7 @@ Models were trained using [Multi-Label Segmentation]().
 
 We provide demos with gradio for Chest X-Ray [**anatomy segmentation**]() and [**feature extraction**]().
 
-![Overview](./readme_images/Label_Overview.png)
-
+<img src="./readme_images/overview(12).png" alt="drawing" style="width:900px;"/>
 
 ## Installation
 
