@@ -1,5 +1,8 @@
+<img src="./readme_images/CXAS_logo.png" align='right' alt="drawing" style="width:100px;"/>
+
 # Chest X-Ray Anatomy Segmentation
-<img src="./readme_images/CXAS_logo.png" alt="drawing" style="width:200px;"/>
+
+
 
 This repository provides a way to generate fine-grained segmentations and extract understandable features of Chest X-Rays. 
 Models were trained using [Multi-Label Segmentation]().
