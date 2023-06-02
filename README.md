@@ -36,13 +36,13 @@ cxas_segment -i {desired input directory or file} -o {desired output directory}
 
 <details>
 <summary>Setting options</summary>
-    - "-i"/"--input" : Either path to file or to directory to be processed. [**required**]
-    - "-o"/"--output": Output directory for segmentation masks  [**required**]
-    - "-ot"/"--output_type": Designates the storage type of segmentations if they are stored. [default = 'png']
-                              choices=["json", "npy", "npz", "jpg", "png", "dicom-seg"]
-    - "-g"/"--gpus": Select specific GPU/CPU to process the input. [default = "0"]
-    - "-m"/"--model": Select Model used for inference. [default="UNet_ResNet50_default"]
-                      choices=["UNet_ResNet50_default"]    
+- "-i"/"--input" : Either path to file or to directory to be processed. [**required**]
+- "-o"/"--output": Output directory for segmentation masks  [**required**]
+- "-ot"/"--output_type": Designates the storage type of segmentations if they are stored. [default = 'png']
+                          choices=["json", "npy", "npz", "jpg", "png", "dicom-seg"]
+- "-g"/"--gpus": Select specific GPU/CPU to process the input. [default = "0"]
+- "-m"/"--model": Select Model used for inference. [default="UNet_ResNet50_default"]
+                  choices=["UNet_ResNet50_default"]    
 </details>
 
 ### Running Feature Extraction from terminal
@@ -50,21 +50,21 @@ cxas_segment -i {desired input directory or file} -o {desired output directory}
 Extract anatomical features from X-Ray images \(.jpg,.png,.dcm\) and store the results \(.csv\):
 
 ```
-cxas_feat_extract -i {desired input directory or file} -o {desired output directory} -f {desired storage data format}
+cxas_feat_extract -i {desired input directory or file} -o {desired output directory} -f {desired features to extract}
 ```
 
 <details>
 <summary>Setting options</summary>
-    - "-i"/"--input" : Either path to file or to directory to be processed. [**required**]
-    - "-o"/"--output": Output directory for segmentation masks  [**required**]
-    - "-f", "--feature": Select which features are supposed to be extracted. [**required**]
-                         choices = ["SCD", "CTR", "Spine-Center Distance","Cardio-Thoracic Ratio"]
-    - "-ot"/"--output_type": Designates the storage type of segmentations if they are stored. [default = 'png']
-                              choices=["json", "npy", "npz", "jpg", "png", "dicom-seg"]
-    - "-g"/"--gpus": Select specific GPU/CPU to process the input. [default = "0"]
-    - "-m"/"--model": Select Model used for inference. [default="UNet_ResNet50_default"]
-                      choices=["UNet_ResNet50_default"]     
-    - "-s"/"--store_seg": "Wether to also store segmentation masks" [default = False]    
+- "-i"/"--input" : Either path to file or to directory to be processed. [**required**]
+- "-o"/"--output": Output directory for segmentation masks  [**required**]
+- "-f", "--feature": Select which features are supposed to be extracted. [**required**]
+                     choices = ["SCD", "CTR", "Spine-Center Distance","Cardio-Thoracic Ratio"]
+- "-ot"/"--output_type": Designates the storage type of segmentations if they are stored. [default = 'png']
+                          choices=["json", "npy", "npz", "jpg", "png", "dicom-seg"]
+- "-g"/"--gpus": Select specific GPU/CPU to process the input. [default = "0"]
+- "-m"/"--model": Select Model used for inference. [default="UNet_ResNet50_default"]
+                  choices=["UNet_ResNet50_default"]     
+- "-s"/"--store_seg": "Wether to also store segmentation masks" [default = False]    
 </details>
 
 ### Running either from terminal
@@ -72,23 +72,23 @@ cxas_feat_extract -i {desired input directory or file} -o {desired output direct
 Extract anatomical features from X-Ray images \(.jpg,.png,.dcm\) and store the results \(.csv\):
 
 ```
-cxas_feat_extract -i {desired input directory or file} -o {desired output directory} -f {desired storage data format}
+cxas -i {desired input directory or file} -o {desired output directory} -mode {"segment" or "exract"} -f {required if mode == 'extract'}
 ```
 
 <details>
 <summary>Setting options</summary>
-    - "-i"/"--input" : Either path to file or to directory to be processed. [**required**]
-    - "-o"/"--output": Output directory for segmentation masks  [**required**]
-    - "--mode": Select whether to segment images or extract features. [default="segment"]
-                choices=["segment", 'extract']
-    - "-f", "--feature": Select which features are supposed to be extracted.
-                         choices = ["SCD", "CTR", "Spine-Center Distance","Cardio-Thoracic Ratio"]
-    - "-ot"/"--output_type": Designates the storage type of segmentations if they are stored. [default = 'png']
-                              choices=["json", "npy", "npz", "jpg", "png", "dicom-seg"]
-    - "-g"/"--gpus": Select specific GPU/CPU to process the input. [default = "0"]
-    - "-m"/"--model": Select Model used for inference. [default="UNet_ResNet50_default"]
-                      choices=["UNet_ResNet50_default"]     
-    - "-s"/"--store_seg": "Wether to also store segmentation masks" [default = False]       
+- "-i"/"--input" : Either path to file or to directory to be processed. [**required**]
+- "-o"/"--output": Output directory for segmentation masks  [**required**]
+- "--mode": Select whether to segment images or extract features. [default="segment"]
+            choices=["segment", 'extract']
+- "-f", "--feature": Select which features are supposed to be extracted.
+                     choices = ["SCD", "CTR", "Spine-Center Distance","Cardio-Thoracic Ratio"]
+- "-ot"/"--output_type": Designates the storage type of segmentations if they are stored. [default = 'png']
+                          choices=["json", "npy", "npz", "jpg", "png", "dicom-seg"]
+- "-g"/"--gpus": Select specific GPU/CPU to process the input. [default = "0"]
+- "-m"/"--model": Select Model used for inference. [default="UNet_ResNet50_default"]
+                  choices=["UNet_ResNet50_default"]     
+- "-s"/"--store_seg": "Wether to also store segmentation masks" [default = False]       
 </details>
 ## Foundation
 
