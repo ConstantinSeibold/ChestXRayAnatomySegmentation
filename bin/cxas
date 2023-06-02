@@ -1,0 +1,90 @@
+#!/usr/bin/env python
+import sys
+import os
+import argparse
+from pkg_resources import require
+from pathlib import Path
+
+from cxas import CXAS
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Segment 159 anatomical structures in X-Ray images.",
+                                     epilog="Written by Constantin Seibold. If you use this tool please cite accordingly.")
+
+    parser.add_argument("-i", "--input",metavar="filepath", dest="input",
+                        help="Either path to file or to directory to be processed.", type=str, required=True)
+    
+    parser.add_argument("-o", "--output",metavar="directory", dest="output",
+                        help="Output directory for segmentation masks", type=str, required=True)
+    
+    parser.add_argument("-f", "--feature", choices=["SCD", "CTR", 
+                                                    "Spine-Center Distance","Cardio-Thoracic Ratio", 
+                                                   ],
+                    help="Select which features are supposed to be extracted.", default= None)
+    
+    parser.add_argument("-s", "--store_seg", action='store_true', dest="store_seg",
+                        help="Wether to also store segmentation masks")
+    
+    parser.add_argument("-ot", "--output_type", choices=["json", "npy", "npz", "jpg", "png", "dicom-seg", 
+                                                   ],
+                        help="Designates the storage type of segmentations if they are stored ", default='png')
+    
+    parser.add_argument("-g", "--gpus",
+                    help="Select specific GPU/CPU to process the input.", default="0")
+    
+    parser.add_argument("--mode", choices=["segment", 'extract'],
+                    help="Select whether to segment images or extract features.", default="segment")
+    
+    parser.add_argument("-m", "--model", choices=["UNet_ResNet50_default"],
+                    help="Select Model used for inference.", default="UNet_ResNet50_default")
+
+    args = parser.parse_args()
+
+    model = CXAS(
+            model_name = args.model,
+            gpus       = args.gpus
+        )
+    if args.mode == 'segment':
+        if os.path.isdir(args.input):
+            model.process_folder(
+                    input_directory_name = args.input,  
+                    output_directory = args.output,
+                    create = True, 
+                    storage_type = args.output_type,
+                )
+        elif os.path.isfile(args.input):
+            model.process_file(
+                    filename = args.input,  
+                    output_directory = args.output,
+                    create = True, 
+                    do_store = args.store_seg,
+                    storage_type = args.output_type,
+                )
+        else:
+            print('{} is neither file nor directory...'.format(args.input))
+    elif args.mode == 'extract':
+        assert args.feature is not None
+        if os.path.isdir(args.input):
+            model.extract_features_for_folder(
+                    input_directory_name = args.input,  
+                    output_directory = args.output,
+                    feat_to_extract = args.feature,
+                    create = True, 
+                    store_pred = args.store_seg,
+                    storage_type = args.output_type,
+                )
+        elif os.path.isfile(args.input):
+            model.extract_features_for_file(
+                    filename = args.input,  
+                    output_directory = args.output,
+                    feat_to_extract = args.feature,
+                    create = True, 
+                    do_store = args.store_seg,
+                    storage_type = args.output_type,
+                )
+        else:
+            print('{} is neither file nor directory...'.format(args.input))
+
+if __name__ == "__main__":
+    main()
