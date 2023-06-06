@@ -6,7 +6,7 @@ this_directory = Path(__file__).parent
 long_description = (this_directory / "docs/shortREADME.rst").read_text()
 
 setup(name='cxas',
-        version='0.0.7',
+        version='0.0.9',
         description='Segmentation of 159 anatomical classes for Chest X-Rays.',
         long_description = long_description,
         long_description_content_type="text/x-rst",
