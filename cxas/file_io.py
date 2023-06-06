@@ -69,8 +69,11 @@ class FileLoader():
             'png': self.load_image,
             'dcm': self.load_dicom,
         }
-
-        self.gpus = [int(i) for i in gpus.split(',') if len(i)>0]
+        
+        if 'cpu' in gpus:
+            self.gpus = 'cpu'
+        else:
+            self.gpus = [int(i) for i in gpus.split(',') if len(i)>0]
         
     def to_gpu(self, 
                array: torch.tensor
@@ -79,7 +82,7 @@ class FileLoader():
         :param array:
         :return: 
         """
-        if len(self.gpus)>0:
+        if len(self.gpus)>0 and self.gpus != 'cpu':
             assert (torch.cuda.is_available())
             return array.to(torch.device('cuda:{}'.format(self.gpus[0])))
         else:
@@ -181,7 +184,7 @@ class FileSaver():
         """
         assert os.path.splitext(file_name)[-1] == 'dcm', 'Input file has to be dicom to be stored \
             as dicom-seg, it was --{}--'.format(os.path.splitext(file_name)[-1])
-        out_dir = os.path.join(outdir, os.path.splitext(file_name)[0])
+        out_dir = os.path.join(outdir, os.path.splitext(file_name)[0].split('/')[-1])
         os.makedirs(out_dir,exist_ok=True)
         
         write_dicom_seg(
@@ -201,7 +204,7 @@ class FileSaver():
         """
         """
         assert len(mask.shape) == 3
-        fileroot = os.path.splitext(file_name)[0]
+        fileroot = os.path.splitext(file_name)[0].split('/')[-1]
         outdir = os.path.join(outdir, fileroot)
         os.makedirs(outdir,exist_ok=True)
         
@@ -217,7 +220,7 @@ class FileSaver():
         """
         """
         assert len(mask.shape) == 3
-        fileroot = os.path.splitext(file_name)[0]
+        fileroot = os.path.splitext(file_name)[0].split('/')[-1]
         outdir = os.path.join(outdir, fileroot)
         os.makedirs(outdir,exist_ok=True)
         
@@ -233,7 +236,7 @@ class FileSaver():
         """
         """
         os.makedirs(outdir,exist_ok=True)
-        out_path = os.path.join(outdir, os.path.splitext(file_name)[0]+'.npy')
+        out_path = os.path.join(outdir, os.path.splitext(file_name)[0].split('/')[-1]+'.npy')
         np.save(out_path, mask)
     
     def export_prediction_as_npz(self, 
@@ -242,7 +245,7 @@ class FileSaver():
                                  file_name:str
                                 ) -> None:
         os.makedirs(outdir,exist_ok=True)
-        out_path = os.path.join(outdir, os.path.splitext(file_name)[0]+'.npz')
+        out_path = os.path.join(outdir, os.path.splitext(file_name)[0].split('/')[-1]+'.npz')
         np.savez_compressed(out_path, mask)
 
     
@@ -267,7 +270,7 @@ class FileSaver():
                                     ) 
         
         os.makedirs(outdir,exist_ok=True)
-        out_path = os.path.join(outdir, os.path.splitext(file_name)[0]+'.json')
+        out_path = os.path.join(outdir, os.path.splitext(file_name)[0].split('/')[-1]+'.json')
         
         with open(out_path,"w") as outfile:
             json.dump(coco_format, outfile)
