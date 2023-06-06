@@ -7,7 +7,7 @@
 This repository provides a way to generate fine-grained segmentations and extract understandable features of Chest X-Rays. 
 Models were trained using [Multi-Label Segmentation]().
 
-We will provide demos with gradio for Chest X-Ray [**anatomy segmentation**]() and [**feature extraction**]().
+We will provide demos with gradio for Chest X-Ray [**anatomy segmentation**](https://huggingface.co/spaces/cmseibold/cxas-demo).
 
 <img src="./readme_images/overview(12).png" alt="drawing" style="width:900px;"/>
 
