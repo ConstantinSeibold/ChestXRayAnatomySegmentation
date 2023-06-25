@@ -1,6 +1,7 @@
 import numpy as np
 import json
 from pycocotools import mask
+from copy import deepcopy
 
 # Function to convert binary mask to COCO RLE format
 def binary_mask_to_rle(
@@ -11,7 +12,14 @@ def binary_mask_to_rle(
     mask_encoded = mask.encode(np.asfortranarray(binary_mask.astype(np.uint8)))
     mask_encoded['counts'] = mask_encoded['counts'].decode('utf-8')
     return mask_encoded
-
+                      
+def rle_to_binary_mask(rle_mask):
+    rle_mask_copy = deepcopy(rle_mask)
+    # print(rle_mask)
+    rle_mask_copy['counts'] = rle_mask_copy['counts'].encode('utf-8')
+    binary_mask = coco_mask.decode(rle_mask_copy)
+    return binary_mask
+  
 def mask_to_annotation(
                         mask:np.array, 
                         base_ann_id:int=1,
