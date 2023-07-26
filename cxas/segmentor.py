@@ -227,16 +227,13 @@ class CXAS(nn.Module):
             draw=draw,
         )
         
-        print('The {} for the file {} is '.format(feat_to_extract, filename.split('/')[-1]),feat_dict['score'])
+        if 'score' in feat_dict.keys():
+            print('The {} for the file {} is '.format(feat_to_extract, filename.split('/')[-1]),feat_dict['score'])
         
         if do_store:
-            scores = [{'score':self.extractor.extract(
-                                        file = predictions['segmentation_preds'][0].cpu().bool().numpy(),
-                                        method = feat_to_extract,
-                                        draw=False,
-                                    )['score'],
-                                'filename': predictions['filename'][0],
-                               }]
+            scores = [{**{key:feat_dict[key] for key in feat_dict.keys() if key != 'drawing'},
+                            'filename': predictions['filename'][0],
+                           }]
             pd.DataFrame(scores).to_csv(os.path.join(output_directory, filename.split('/')[-1].split('.')[0]+'.csv'))
         
         return feat_dict
@@ -281,7 +278,7 @@ class CXAS(nn.Module):
             from cxas.io_utils.create_annotations import get_coco_json_format, \
                 create_category_annotation
             from cxas.io_utils.mask_to_coco import binary_mask_to_rle, toBox, mask_to_annotation
-            from cxaslabel_mapper import id2label_dict, category_ids
+            from cxas.label_mapper import id2label_dict, category_ids
             import json
 
             coco_format = get_coco_json_format()
@@ -299,11 +296,12 @@ class CXAS(nn.Module):
                 predictions = self.model(file_dict)
                 
             for i in range(len(predictions['segmentation_preds'])):
-                scores += [{'score':self.extractor.extract(
+                extractions = self.extractor.extract(
                                     file = predictions['segmentation_preds'][i].cpu().bool().numpy(),
                                     method = feat_to_extract,
                                     draw=False,
-                                )['score'],
+                                )
+                scores += [{**{key:extractions[key] for key in extractions.keys() if key != 'drawing'},
                             'filename': predictions['filename'][i],
                            }]
             

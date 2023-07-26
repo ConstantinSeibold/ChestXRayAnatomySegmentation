@@ -1,5 +1,11 @@
+from .compactness import get_all_compactness
+from .area import get_all_areas
+from .centroid import get_centroids
 from .cardiothoracic_ratio import get_cardiothoracic_ratio
 from .spinecenter_distance import get_spine_center_distance
+from .perimeter import get_all_perimeters
+from .bounding_box import get_all_bounding_boxes
+from .convexity import get_all_convexities
 import numpy as np
 
 class Extractor():
@@ -11,6 +17,13 @@ class Extractor():
             'CTR': get_cardiothoracic_ratio,
             'Spine-Center Distance': get_spine_center_distance,
             'SCD': get_spine_center_distance,
+            'perimeter': get_all_perimeters,
+            'compactness': get_all_compactness,
+            'area': get_all_areas,
+            'centroid': get_centroids,
+            'box': get_all_bounding_boxes,
+            'convexity': get_all_convexities,
+
         }
     
     def extract(self, 

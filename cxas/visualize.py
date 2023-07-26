@@ -115,7 +115,7 @@ def visualize_mask(class_names: list,
     ----------
         class_names: List of classes of interest
         mask:  Mask in shape [classes (159), width, height]
-        image:    Image in shape [classes (159), width, height]
+        image:    Image in shape [3, width, height]
         img_size: Desired image size
         cat: Whether to display image and visualization side by side
         axis:   axis at which image and visualization are shown side by side

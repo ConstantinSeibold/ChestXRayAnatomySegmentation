@@ -10,6 +10,20 @@ def get_centers(mask, ids):
     centers = [get_center_of_mask(mask[id][0]) for id in ids if mask[id][0].sum()>0]
     return centers
 
+def get_area(mask, spacing_x, spacing_y):
+    return (mask*spacing_x*spacing_y).sum()
+
+def get_perimeter_from_contour(cnt, conversion_factor):
+    segment_lengths = []
+    for i in range(len(cnt)-1):
+        x1, y1 = cnt[i][0]
+        x2, y2 = cnt[i+1][0]
+        segment_length = np.sqrt((x2-x1)**2 + (y2-y1)**2) * conversion_factor
+        segment_lengths.append(segment_length)
+
+    # Calculate total perimeter
+    perimeter = sum(segment_lengths)
+    return perimeter
 
 def sort_by_distance(reference_point, coordinates):
     distances = []
