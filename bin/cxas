@@ -18,9 +18,17 @@ def main():
     parser.add_argument("-o", "--output",metavar="directory", dest="output",
                         help="Output directory for segmentation masks", type=str, required=True)
     
-    parser.add_argument("-f", "--feature", choices=["SCD", "CTR", 
-                                                    "Spine-Center Distance","Cardio-Thoracic Ratio", 
-                                                   ],
+    parser.add_argument("-f", "--feature", choices=["SCD", 
+                                                    "CTR", 
+                                                    "Spine-Center Distance",
+                                                    "Cardio-Thoracic Ratio",
+                                                    'perimeter',
+                                                    'compactness',
+                                                    'area',
+                                                    'centroid',
+                                                    'box',
+                                                    'convexity',
+                                                    ],
                     help="Select which features are supposed to be extracted.", default= None)
     
     parser.add_argument("-s", "--store_seg", action='store_true', dest="store_seg",
