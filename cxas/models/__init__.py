@@ -36,7 +36,8 @@ def download_weights(model_name:str)->None:
     if "CXAS_PATH" in os.environ:
         store_path = os.path.join(os.environ['CXAS_PATH'],'.cxas')
     else:
-        store_path = os.path.join(os.environ['HOME'],'.cxas')
+        home_directory = os.environ.get('USERPROFILE') or os.path.expanduser("~")
+        store_path = os.path.join(home_directory, '.cxas')
     os.makedirs(os.path.join(store_path, 'weights/'), exist_ok=True)
     out_path = os.path.join(store_path, 'weights/{}'.format(model_name+'.pth'))
     if os.path.isfile(out_path):
@@ -49,7 +50,8 @@ def load_weights(model, model_name:str, map_location:str='cuda:0'):
     if "CXAS_PATH" in os.environ:
         store_path = os.path.join(os.environ['CXAS_PATH'],'.cxas')
     else:
-        store_path = os.path.join(os.environ['HOME'],'.cxas')
+        home_directory = os.environ.get('USERPROFILE') or os.path.expanduser("~")
+        store_path = os.path.join(home_directory, '.cxas')
     out_path = os.path.join(store_path, 'weights/{}'.format(model_name+'.pth'))
     assert os.path.isfile(out_path)
     
