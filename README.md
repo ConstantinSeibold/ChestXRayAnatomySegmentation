@@ -4,6 +4,7 @@
 <a href=https://arxiv.org/abs/2306.03934><img src="https://img.shields.io/badge/arxiv-2306.03934-orange?logo=arxiv&logoColor=white"/></a>
 <a href=https://pepy.tech/project/cxas><img src="https://static.pepy.tech/badge/cxas"/></a>
 <a href="https://drive.google.com/drive/folders/1AEJAaPTxVMx9iofY4J4f2x5gpJqE61I2?usp=sharing"><img src="https://img.shields.io/badge/GDrive-Dataset-blue?logo=googledrive"/></a>
+<a href=https://huggingface.co/spaces/cmseibold/cxas-demo><img src="https://huggingface.co/datasets/huggingface/badges/resolve/main/open-in-hf-spaces-sm.svg"/></a>
 </p>
 
 
