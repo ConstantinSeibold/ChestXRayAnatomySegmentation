@@ -17,7 +17,7 @@ def rle_to_binary_mask(rle_mask):
     rle_mask_copy = deepcopy(rle_mask)
     # print(rle_mask)
     rle_mask_copy['counts'] = rle_mask_copy['counts'].encode('utf-8')
-    binary_mask = coco_mask.decode(rle_mask_copy)
+    binary_mask = mask.decode(rle_mask_copy)
     return binary_mask
   
 def mask_to_annotation(
