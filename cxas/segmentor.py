@@ -337,7 +337,18 @@ class CXAS(nn.Module):
 
     def forward(self, image_batch) -> dict:
         """
+        Forward pass function for processing image batches.
+
+        Args:
+            image_batch (dict or numpy.ndarray): Input image batch. If it's not a dictionary,
+                assumes the input is a numpy array and wraps it in a dictionary under the key 'data'.
+
+        Returns:
+            dict: Result of forward pass through the model.
         """
-        if type(image_batch) is not dict:
+        # If the input is not a dictionary, wrap it in a dictionary under the key 'data'
+        if not isinstance(image_batch, dict):
             image_batch = {'data': image_batch}
+
+        # Perform forward pass through the model and return the result
         return self.model(image_batch)
