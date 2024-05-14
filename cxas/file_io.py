@@ -20,9 +20,19 @@ from pathlib import Path
 
 this_directory = Path(__file__).parent
 
-
 class FolderDataset(Dataset):
+    """
+    Dataset class to load images from a folder.
+    """
+
     def __init__(self, path: str, gpus: str):
+        """
+        Initialize the FolderDataset.
+
+        Args:
+            path (str): Path to the folder containing images.
+            gpus (str): GPU(s) to use for processing.
+        """
         super(Dataset, self).__init__()
         file_types = ["jpg", "png", "dcm"]
         self.fileloader = FileLoader("")
@@ -33,6 +43,15 @@ class FolderDataset(Dataset):
         ]
 
     def collate_fn(self, batch):
+        """
+        Custom collate function for batching.
+
+        Args:
+            batch: List of samples to batch.
+
+        Returns:
+            dict: Batched data.
+        """
         out_dict = {}
         for b in batch:
             for k in b.keys():
@@ -48,17 +67,44 @@ class FolderDataset(Dataset):
         return out_dict
 
     def __getitem__(self, index):
+        """
+        Get a sample from the dataset.
+
+        Args:
+            index (int): Index of the sample.
+
+        Returns:
+            dict: Sample data.
+        """
         return self.fileloader.load_file(self.files[index])
 
     def __len__(
         self,
     ):
+        """
+        Get the length of the dataset.
+
+        Returns:
+            int: Length of the dataset.
+        """
         return len(self.files)
+
 
 
 def get_folder_loader(
     path: str, gpus: str, batch_size: int
 ) -> torch.utils.data.DataLoader:
+    """
+    Get DataLoader for a folder dataset.
+
+    Args:
+        path (str): Path to the folder containing images.
+        gpus (str): GPU(s) to use for processing.
+        batch_size (int): Batch size.
+
+    Returns:
+        torch.utils.data.DataLoader: DataLoader for the folder dataset.
+    """
     dataset = FolderDataset(path, gpus)
     loader = torch.utils.data.DataLoader(
         dataset,
@@ -69,10 +115,18 @@ def get_folder_loader(
     )
     return loader
 
-
 class FileLoader:
+    """
+    Class to load files (images or DICOM) from disk.
+    """
+
     def __init__(self, gpus: str):
-        """ """
+        """
+        Initialize the FileLoader.
+
+        Args:
+            gpus (str): GPU(s) to use for processing.
+        """
         self.base_size = 512
         self.file_types = {
             "jpg": self.load_image,
@@ -87,8 +141,13 @@ class FileLoader:
 
     def to_gpu(self, array: torch.tensor) -> torch.tensor:
         """
-        :param array:
-        :return:
+        Move tensor to GPU.
+
+        Args:
+            array (torch.tensor): Input tensor.
+
+        Returns:
+            torch.tensor: Tensor moved to GPU if available.
         """
         if len(self.gpus) > 0 and self.gpus != "cpu":
             assert torch.cuda.is_available()
@@ -97,7 +156,15 @@ class FileLoader:
             return array
 
     def normalize(self, array: torch.tensor) -> torch.tensor:
-        """ """
+        """
+        Normalize image tensor.
+
+        Args:
+            array (torch.tensor): Input tensor.
+
+        Returns:
+            torch.tensor: Normalized tensor.
+        """
         assert array.shape[0] == 3, f"{array.shape}"
         # ImageNet normalization
         # Array to be assumed in range [0,1]
@@ -109,6 +176,15 @@ class FileLoader:
         return array
 
     def load_file(self, file_path: str) -> dict:
+        """
+        Load file based on its extension.
+
+        Args:
+            file_path (str): Path to the file.
+
+        Returns:
+            dict: Loaded file data.
+        """
         assert file_path.split(".")[-1].lower() in list(
             self.file_types.keys()
         ), f"filetype not supported: {file_path.split('.')[-1].lower()}"
@@ -116,7 +192,15 @@ class FileLoader:
         return self.file_types[file_path.split(".")[-1].lower()](file_path)
 
     def load_image(self, image_path: str) -> dict:
-        """ """
+        """
+        Load image from file.
+
+        Args:
+            image_path (str): Path to the image file.
+
+        Returns:
+            dict: Image data.
+        """
         array = np.array(Image.open(image_path).convert(mode="RGB"))
         array = np.transpose(array, [2, 0, 1])
         original_array = np.copy(array)
@@ -132,7 +216,15 @@ class FileLoader:
         }
 
     def load_dicom(self, image_path: str) -> dict:
-        """ """
+        """
+        Load DICOM image.
+
+        Args:
+            image_path (str): Path to the DICOM file.
+
+        Returns:
+            dict: DICOM image data.
+        """
         image = sitk.ReadImage(image_path)
         array_view = sitk.GetArrayFromImage(image).astype(np.float32)
         assert (len(array_view.shape) == 3) and (array_view.shape[0] == 1)
@@ -152,10 +244,16 @@ class FileLoader:
 
 
 class FileSaver:
+    """
+    Class to save prediction results.
+    """
+
     def __init__(
         self,
     ):
-        """ """
+        """
+        Initialize the FileSaver.
+        """
         self.save_modes = {
             "npz": self.export_prediction_as_npz,
             "npy": self.export_prediction_as_numpy,
@@ -168,6 +266,15 @@ class FileSaver:
     def save_prediction(
         self, mask: np.array, outdir: str, file_name: str, mode: str
     ) -> None:
+        """
+        Save prediction results.
+
+        Args:
+            mask (np.array): Prediction mask.
+            outdir (str): Output directory.
+            file_name (str): File name.
+            mode (str): Save mode.
+        """
         assert mode in list(self.save_modes.keys())
         assert len(mask.shape) == 3
         self.save_modes[mode](mask, outdir, file_name)
@@ -175,7 +282,14 @@ class FileSaver:
     def export_prediction_as_dicomseg(
         self, mask: np.array, outdir: str, file_name: str
     ) -> None:
-        """ """
+        """
+        Export prediction as DICOM segmentation.
+
+        Args:
+            mask (np.array): Prediction mask.
+            outdir (str): Output directory.
+            file_name (str): File name.
+        """
         assert (
             os.path.splitext(file_name)[-1] == ".dcm"
         ), "Input file has to be dicom to be stored \
@@ -196,7 +310,14 @@ class FileSaver:
     def export_prediction_as_jpg(
         self, mask: np.array, outdir: str, file_name: str
     ) -> None:
-        """ """
+        """
+        Export prediction as JPG images.
+
+        Args:
+            mask (np.array): Prediction mask.
+            outdir (str): Output directory.
+            file_name (str): File name.
+        """
         assert len(mask.shape) == 3
         fileroot = os.path.splitext(file_name)[0].split("/")[-1]
         outdir = os.path.join(outdir, fileroot)
@@ -209,7 +330,14 @@ class FileSaver:
     def export_prediction_as_png(
         self, mask: np.array, outdir: str, file_name: str
     ) -> None:
-        """ """
+        """
+        Export prediction as PNG images.
+
+        Args:
+            mask (np.array): Prediction mask.
+            outdir (str): Output directory.
+            file_name (str): File name.
+        """
         assert len(mask.shape) == 3
         fileroot = os.path.splitext(file_name)[0].split("/")[-1]
         outdir = os.path.join(outdir, fileroot)
@@ -222,7 +350,14 @@ class FileSaver:
     def export_prediction_as_numpy(
         self, mask: np.array, outdir: str, file_name: str
     ) -> None:
-        """ """
+        """
+        Export prediction as NumPy arrays.
+
+        Args:
+            mask (np.array): Prediction mask.
+            outdir (str): Output directory.
+            file_name (str): File name.
+        """
         os.makedirs(outdir, exist_ok=True)
         out_path = os.path.join(
             outdir, os.path.splitext(file_name)[0].split("/")[-1] + ".npy"
@@ -232,6 +367,14 @@ class FileSaver:
     def export_prediction_as_npz(
         self, mask: np.array, outdir: str, file_name: str
     ) -> None:
+        """
+        Export prediction as compressed NumPy arrays.
+
+        Args:
+            mask (np.array): Prediction mask.
+            outdir (str): Output directory.
+            file_name (str): File name.
+        """
         os.makedirs(outdir, exist_ok=True)
         out_path = os.path.join(
             outdir, os.path.splitext(file_name)[0].split("/")[-1] + ".npz"
@@ -246,6 +389,16 @@ class FileSaver:
         img_id: int = 1,
         base_ann_id: int = 1,
     ) -> None:
+        """
+        Export prediction as JSON in COCO format.
+
+        Args:
+            mask (np.array): Prediction mask.
+            outdir (str): Output directory.
+            file_name (str): File name.
+            img_id (int, optional): Image ID. Defaults to 1.
+            base_ann_id (int, optional): Base annotation ID. Defaults to 1.
+        """
         coco_format = get_coco_json_format()
         coco_format["categories"] = create_category_annotation(category_ids)
 
