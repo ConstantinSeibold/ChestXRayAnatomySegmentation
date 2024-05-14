@@ -1,13 +1,22 @@
 # https://github.com/chrise96/image-to-coco-json-converter/tree/master
 
-from PIL import Image                                      # (pip install Pillow)
-import numpy as np                                         # (pip install numpy)
-from skimage import measure                                # (pip install scikit-image)
+from PIL import Image
+import numpy as np
+from skimage import measure
 import os
 import json
 
 
 def create_category_annotation(category_dict):
+    """
+    Create category annotations in COCO JSON format.
+
+    Args:
+        category_dict (dict): Dictionary containing category names and IDs.
+
+    Returns:
+        list: List of category annotations.
+    """
     category_list = []
 
     for key, value in category_dict.items():
@@ -21,7 +30,13 @@ def create_category_annotation(category_dict):
     return category_list
 
 def get_coco_json_format():
-    # Standard COCO format 
+    """
+    Get the standard COCO JSON format.
+
+    Returns:
+        dict: COCO JSON format skeleton.
+    """
+    # Standard COCO format
     coco_format = {
         "info": {},
         "licenses": [],
