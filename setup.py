@@ -41,6 +41,9 @@ setup(
         "pandas",
         "tqdm",
     ],
+    extras_require={
+        "radiomics": ["pyradiomics==3.0.1"],
+    },
     zip_safe=False,
     keywords="chest x-ray anatomy segmntation pytorch",
     classifiers=[
