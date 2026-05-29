@@ -338,8 +338,10 @@ class CXAS(nn.Module):
             base_ann_id = 1
 
         for file_dict in tqdm(dataloader):
-            if len(self.gpus) > 0:
-                file_dict["data"] = file_dict["data"].to(self.gpus[0])
+            if (type(self.gpus) is list) and len(self.gpus) > 0:
+                file_dict["data"] = file_dict["data"].to("{}".format(self.gpus[0]))
+            else:
+                file_dict["data"] = file_dict["data"].to(self.gpus)
 
             with torch.no_grad():
                 predictions = self.model(file_dict)
