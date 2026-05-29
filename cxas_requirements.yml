@@ -121,7 +121,7 @@ dependencies:
       - param==1.13.0
       - pycocotools==2.0.6
       - pyct==0.5.0
-      - pydicom==2.0.0
+      - pydicom==2.4.5
       - pydicom-seg==0.4.1
       - pykwalify==1.8.0
       - pyparsing==3.0.9

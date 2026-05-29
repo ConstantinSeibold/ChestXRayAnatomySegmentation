@@ -31,7 +31,7 @@ setup(
         "torchvision",
         "numpy",
         "SimpleITK",
-        "pydicom==2.0.0",
+        "pydicom>=2.4.5,<3",
         "pydicom_seg==0.4.1",
         "scikit-image",
         "scikit-learn",
