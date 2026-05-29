@@ -23,13 +23,13 @@ def get_radiomics(mask, img=None, draw=False):
     extractor.enableAllImageTypes()
 
     out = {}
-    try:
-        for class_idx in tqdm(range(mask.shape[0])):
-            mask_channel = mask[class_idx:class_idx+1]
+    for class_idx in tqdm(range(mask.shape[0])):
+        mask_channel = mask[class_idx:class_idx+1]
 
-            if not mask_channel.sum():
-                continue
+        if not mask_channel.sum():
+            continue
 
+        try:
             mask_sitk = sitk.GetImageFromArray(mask_channel.astype(np.uint8))
 
             result = extractor.execute(image_sitk, mask_sitk, label=1)
@@ -46,7 +46,7 @@ def get_radiomics(mask, img=None, draw=False):
                         out[out_key] = list_value if len(list_value) > 1 else list_value[0]
                 else:
                     out[out_key] = value
-    except: 
-        pass
+        except Exception as e:
+            logger.error(f"radiomics extraction failed for class {class_idx}: {e}")
 
     return out
