@@ -48,6 +48,7 @@ all_vertebrae = [
     "vertebrae C4",
     "vertebrae C5",
     "vertebrae C6",
+    "vertebrae C7",
 ]
 
 cervical_spine = [
@@ -57,6 +58,7 @@ cervical_spine = [
     "vertebrae C4",
     "vertebrae C5",
     "vertebrae C6",
+    "vertebrae C7",
 ]
 
 lumbar_spine = [
