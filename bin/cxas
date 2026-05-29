@@ -28,6 +28,7 @@ def main():
                                                     'centroid',
                                                     'box',
                                                     'convexity',
+                                                    'radiomics',
                                                     ],
                     help="Select which features are supposed to be extracted.", default= None)
     
