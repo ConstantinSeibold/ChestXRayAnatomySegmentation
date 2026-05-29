@@ -55,6 +55,27 @@ def get_unet(model_name):
     return BackboneUNet(model_name, len(id2label_dict.keys()))
 
 
+def _is_valid_checkpoint(path: str) -> bool:
+    """
+    Check that a weight file is an actual torch checkpoint rather than, e.g., the
+    HTML error page gdown saves when Google Drive blocks the download (quota or
+    permission). Torch checkpoints are zip archives ("PK") or legacy pickles
+    (0x80); HTML pages start with "<".
+
+    Args:
+        path (str): Path to the weight file.
+
+    Returns:
+        bool: True if the file looks like a torch checkpoint.
+    """
+    try:
+        with open(path, "rb") as f:
+            magic = f.read(2)
+    except OSError:
+        return False
+    return magic[:2] == b"PK" or magic[:1] == b"\x80"
+
+
 def download_weights(model_name: str) -> None:
     """
     Function to download model weights.
@@ -69,10 +90,23 @@ def download_weights(model_name: str) -> None:
     os.makedirs(os.path.join(store_path, "weights/"), exist_ok=True)
     out_path = os.path.join(store_path, "weights/{}".format(model_name + ".pth"))
     if os.path.isfile(out_path):
-        return
-    else:
-        gdown.download(model_urls[model_name], out_path, quiet=False, fuzzy=True)
-        return
+        if _is_valid_checkpoint(out_path):
+            return
+        # A previous run saved a corrupt file (e.g. a Google Drive error page);
+        # drop it so it gets downloaded again.
+        os.remove(out_path)
+    result = gdown.download(model_urls[model_name], out_path, quiet=False, fuzzy=True)
+    if result is None or not _is_valid_checkpoint(out_path):
+        if os.path.isfile(out_path):
+            os.remove(out_path)
+        raise RuntimeError(
+            "Failed to download valid model weights for '{}' from {}. The download "
+            "was likely blocked by Google Drive (quota or permission). Please "
+            "download the file manually and place it at '{}'.".format(
+                model_name, model_urls[model_name], out_path
+            )
+        )
+    return
 
 
 def load_weights(model, model_name: str, map_location: str = "cuda:0"):
