@@ -245,7 +245,7 @@ class CXAS(nn.Module):
 
         feat_dict = self.extractor.extract(
             file=predictions["segmentation_preds"][0].cpu().bool().numpy(),
-            image=predictions['data'][0].mean(0,keepdim=True),
+            image=predictions['data'][0].mean(0,keepdim=True).cpu().numpy(),
             method=feat_to_extract,
             draw=draw,
         )
@@ -347,7 +347,7 @@ class CXAS(nn.Module):
             for i in range(len(predictions["segmentation_preds"])):
                 extractions = self.extractor.extract(
                     file=predictions["segmentation_preds"][i].cpu().bool().numpy(),
-                    image=predictions['data'][0].mean(0,keepdim=True),
+                    image=predictions['data'][0].mean(0,keepdim=True).cpu().numpy(),
                     method=feat_to_extract,
                     draw=False,
                 )
