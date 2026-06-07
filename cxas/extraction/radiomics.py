@@ -5,7 +5,6 @@ from cxas.label_mapper import id2label_dict
 import numpy as np
 import SimpleITK as sitk
 import pandas as pd
-from radiomics import featureextractor
 import os
 import torch.nn.functional as F
 from tqdm import tqdm
@@ -15,9 +14,18 @@ logger = logging.getLogger("radiomics")
 logger.setLevel(logging.ERROR)
 
 def get_radiomics(mask, img=None, draw=False):
-    
+
+    try:
+        from radiomics import featureextractor
+    except ImportError as e:
+        raise ImportError(
+            "The 'radiomics' feature requires pyradiomics, which is an optional "
+            "dependency. Install it with `pip install cxas[radiomics]` "
+            "(or `pip install pyradiomics==3.0.1`)."
+        ) from e
+
     image_sitk = sitk.GetImageFromArray(img)
-    
+
     extractor = featureextractor.RadiomicsFeatureExtractor()
     extractor.enableAllFeatures()
     extractor.enableAllImageTypes()
