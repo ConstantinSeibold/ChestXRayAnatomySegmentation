@@ -247,11 +247,12 @@ year      = {2022},
 url       = {https://bmvc2022.mpi-inf.mpg.de/0058.pdf}
 }
 
-@inproceedings{Seibold_2023_CXAS,
-author    = {Constantin Seibold, Alexander Jaus, Matthias Fink,
-Moon Kim, Simon Reiß, Jens Kleesiek*, Rainer Stiefelhagen*},
-title     = {Accurate Fine-Grained Segmentation of Human Anatomy in Radiographs via Volumetric Pseudo-Labeling},
-year      = {2023},
+@article{seibold2023accurate,
+  title={Accurate fine-grained segmentation of human anatomy in radiographs via volumetric pseudo-labeling},
+  author={Seibold, Constantin and Jaus, Alexander and Fink, Matthias A and Kim, Moon and Rei{\ss}, Simon and Herrmann, Ken and Kleesiek, Jens and Stiefelhagen, Rainer},
+  journal={arXiv preprint arXiv:2306.03934},
+  year={2023}
 }
+
 
 ```
