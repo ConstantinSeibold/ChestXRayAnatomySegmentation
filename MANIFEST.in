@@ -1,0 +1,3 @@
+include docs/shortREADME.rst
+include README.md
+recursive-include cxas/data *.json *.npz
