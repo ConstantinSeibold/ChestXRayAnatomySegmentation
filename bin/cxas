@@ -2,7 +2,6 @@
 import sys
 import os
 import argparse
-from pkg_resources import require
 from pathlib import Path
 
 from cxas import CXAS

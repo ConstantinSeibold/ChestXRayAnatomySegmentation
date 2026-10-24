@@ -7,7 +7,7 @@ long_description = (this_directory / "docs/shortREADME.rst").read_text()
 
 setup(
     name="cxas",
-    version="0.0.19",
+    version="0.0.20",
     description="Segmentation of 159 anatomical classes for Chest X-Rays.",
     long_description=long_description,
     long_description_content_type="text/x-rst",
@@ -38,6 +38,8 @@ setup(
         "scikit-learn",
         "opencv-python",
         "colorcet",
+        "matplotlib",
+        "Pillow",
         "pycocotools",
         "pandas",
         "tqdm",
