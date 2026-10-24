@@ -13,6 +13,7 @@ setup(
     long_description_content_type="text/x-rst",
     url="https://github.com/ConstantinSeibold/ChestXRayAnatomySegmentation",
     author="Constantin Seibold",
+    license="MIT",
     author_email="constantin.seibold2@uk-essen.de",
     python_requires=">=3.9",
     packages=[
@@ -52,7 +53,7 @@ setup(
         "Programming Language :: Python",
         "Topic :: Scientific/Engineering",
         "Operating System :: Unix",
-        "License :: Free for non-commercial use",
+        "License :: OSI Approved :: MIT License",
     ],
     scripts=[
         "bin/cxas",
