@@ -18,6 +18,37 @@ from cxas.io_utils.create_annotations import (
 )
 from cxas.io_utils.mask_to_coco import toBox, mask_to_annotation
 from pathlib import Path
+import pydicom
+from pydicom.pixel_data_handlers.util import apply_modality_lut, apply_voi_lut
+
+
+def dicom_to_unit_array(ds, array: np.ndarray = None) -> np.ndarray:
+    """
+    Convert a single-frame DICOM radiograph to a float32 array in [0, 1].
+
+    Applies the modality LUT (rescale slope/intercept) and the VOI LUT or
+    window stored in the header, inverts MONOCHROME1 images so that bone
+    appears bright, and min-max scales the result.
+
+    Args:
+        ds (pydicom.Dataset): DICOM dataset.
+        array (np.ndarray, optional): Pixel data with the modality LUT already
+            applied, for transfer syntaxes pydicom cannot decode.
+
+    Returns:
+        np.ndarray: 2D float32 array in [0, 1].
+    """
+    if array is None:
+        array = apply_modality_lut(ds.pixel_array, ds)
+    assert array.ndim == 2, f"expected a single-frame grayscale image, got {array.shape}"
+    array = apply_voi_lut(array, ds, index=0)
+    array = array.astype(np.float32)
+    if ds.get("PhotometricInterpretation", "") == "MONOCHROME1":
+        array = array.max() - array
+    array = array - array.min()
+    if array.max() > 0:
+        array = array / array.max()
+    return array
 
 this_directory = Path(__file__).parent
 
@@ -234,12 +265,17 @@ class FileLoader:
         Returns:
             dict: DICOM image data.
         """
-        image = sitk.ReadImage(image_path)
-        array_view = sitk.GetArrayFromImage(image).astype(np.float32)
-        assert (len(array_view.shape) == 3) and (array_view.shape[0] == 1)
+        ds = pydicom.dcmread(image_path)
+        try:
+            pixels = None
+            ds.pixel_array
+        except Exception:
+            # compressed transfer syntax without a pydicom decoder: SimpleITK
+            # decodes it and applies the rescale slope/intercept
+            pixels = sitk.GetArrayFromImage(sitk.ReadImage(image_path))[0]
+        array_view = dicom_to_unit_array(ds, pixels)[None]
         orig_file_size = array_view.shape[-2:]
         tensor = torch.tensor(array_view).float()
-        tensor = (tensor - tensor.min()) / (tensor.max() - tensor.min())
         tensor = torch.cat([tensor, tensor, tensor], 0)
         original_array = (tensor.numpy() * 255).astype(np.uint8)
         array = self.normalize(tensor)
