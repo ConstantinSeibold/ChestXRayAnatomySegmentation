@@ -46,7 +46,7 @@ def parse_arguments() -> argparse.Namespace:
     
     parser.add_argument(
         "-m", "--model",
-        choices=["UNet_ResNet50_default"],
+        choices=["UNet_ResNet50_default", "M2F_anatomy_v2"],
         default="UNet_ResNet50_default",
         help="Model used for inference."
     )

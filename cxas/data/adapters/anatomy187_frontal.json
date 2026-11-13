@@ -1,0 +1,33 @@
+{
+  "version": "mask_fix_187.v1+quadrants_renamed.1",
+  "source": "CheXEvidence scoping_analysis/cache/instdesc/mask_fix_187.json",
+  "evidence": "side names swapped in the training annotations (mimic_anatomy_kp 181, subdiaph_quadrants 187) and a broken raw 'clavicle right'; verified by median mask centroid on PA images",
+  "relabel": {
+    "left hemidiaphragm": "right hemidiaphragm",
+    "right hemidiaphragm": "left hemidiaphragm",
+    "below left hemidiaphragm": "below right hemidiaphragm",
+    "below right hemidiaphragm": "below left hemidiaphragm",
+    "less obstructed left lung": "less obstructed right lung",
+    "less obstructed right lung": "less obstructed left lung",
+    "less obstructed lung base": "less obstructed upper zone lung",
+    "less obstructed upper zone lung": "less obstructed lung base",
+    "Upper Right Quadrant": "upper right image quadrant",
+    "Upper Left Quadrant": "upper left image quadrant",
+    "Lower Right Quadrant": "lower right image quadrant",
+    "Lower Left Quadrant": "lower left image quadrant"
+  },
+  "drop_raw": [
+    "clavicle right"
+  ],
+  "derive": {
+    "clavicle right": {
+      "op": "minus",
+      "from": "clavicles",
+      "minus": [
+        "clavicle left"
+      ],
+      "keep": "largest_component"
+    }
+  },
+  "quadrants_note": "the four quadrant classes tile the whole radiograph at the midline and mid-thorax (each ~23% of the image, lungs included; inherited from the MIMIC pseudo-labels), so they are named image quadrants, not abdominal quadrants. Sides are the patient's: on 11 IDC frontals 'right' lies at image x~0.26, 'upper' at y~0.25."
+}

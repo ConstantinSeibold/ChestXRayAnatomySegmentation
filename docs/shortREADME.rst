@@ -10,6 +10,25 @@ The project is available in PyPI. To install run:
 
 ``pip install cxas``
 
+Models (weights download on first use from https://huggingface.co/cmseibold/cxas-models and
+https://huggingface.co/cmseibold/cxr-landmarks, MIT licence):
+
+* ``UNet_ResNet50_default``: the original CXAS model, 159 structures (default of ``CXAS()``).
+* ``M2F_anatomy_v2`` (new in 0.1): Mask2Former anatomy models, one per view (frontal: 187 structures,
+  lateral: 177), at native image resolution; the view is read from DICOM or detected.
+* Named landmarks (new in 0.1): 132 clinically curated landmark definitions, 311 view-specific
+  structure-landmark pairs (``cxas.landmarks.LandmarkDetector``).
+
+--------------------------------------------
+DICOM in, DICOM SEG + SR out (new in 0.1)
+--------------------------------------------
+
+``cxas_idc -i {DICOM file or directory} -o {output directory}``
+
+Per radiograph: one multi-segment DICOM SEG, a TID 1500 Structured Report with the landmarks, and a
+``result.json``. Uses the GPU when available (``-g auto``). Docker images: ``cseibold/cxas:0.1.0-cu128``
+(GPU or CPU) and ``cseibold/cxas:0.1.0-cpu``.
+
 
 --------------------------------------
 Running Segmentation from terminal

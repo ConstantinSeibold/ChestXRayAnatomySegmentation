@@ -191,6 +191,47 @@ affine_matrix = result.affine_matrix        # 2x3 transformation matrix
 metadata = result.metadata                   # dict with transformation details
 ```
 
+## New in 0.1: Mask2Former anatomy models, named landmarks, DICOM SEG/SR output
+
+**Model `M2F_anatomy_v2`.** A Mask2Former anatomy segmentor on a DINOv3 ViT-S/16 encoder, one model per view:
+the frontal model knows 187 structures (the 159 CXAS classes plus sub-diaphragmatic regions, humeri, head and
+further lung subdivisions), the lateral model the 177 PAXRay++ structures. It predicts at the training resolution
+(shortest edge 512) and upsamples each structure's logits once, to the image's native resolution. The 159 CXAS
+classes fill the usual `segmentation_preds`, so feature extraction and registration work unchanged; the additional
+structures are returned in `extra_segmentation`. The view comes from the DICOM `ViewPosition`; when it is missing,
+CXAS decides it from the frontal model's lungs (99.5% correct on 400 MIMIC-CXR images).
+
+```python
+from cxas import CXAS
+model = CXAS(model_name="M2F_anatomy_v2", gpus="0")
+pred = model.process_file("image.dcm")
+pred["view"], pred["extra_segmentation"][0].keys()
+```
+
+**Named landmarks.** 132 clinically curated landmark definitions (311 view-specific structure–landmark pairs)
+from *Semantic landmark detection in chest radiographs* (Seibold, Havemann, Vinu, Fink; under review), predicted
+by its joint dense RAD-DINO model. The inference code ships with CXAS (from
+[cxr-landmarks](https://github.com/ConstantinSeibold/cxr-landmarks), which holds the training, label rules and
+evaluation); the landmark definitions and literature are in `cxas/landmarks/data/`:
+
+```python
+from cxas.landmarks import LandmarkDetector
+lms = LandmarkDetector(device="cuda:0").predict(image_rgb_uint8, view="frontal")
+# [{"class": "trachea", "landmark": "carina", "x": ..., "y": ..., "confidence": ...}, ...]
+```
+
+**DICOM in, DICOM out (Imaging Data Commons / MHub).** `cxas_idc` takes DICOM files or folders and writes, per
+radiograph, one multi-segment DICOM SEG (native resolution, lossless JPEG 2000) and one TID 1500 Structured
+Report with a POINT per landmark, both referencing the source image:
+
+```bash
+cxas_idc -i /data/dicom -o /data/out            # <out>/<SOPInstanceUID>/{seg.dcm, landmarks_sr.dcm, result.json}
+cxas_idc -i image.dcm -o out --no-landmarks --view frontal --cxas-classes-only
+```
+
+The model code ships with CXAS (`cxas/models/m2f`, plain PyTorch + transformers; trained with qseg), so
+`pip install cxas` is enough. The Docker image below additionally bakes in all weights.
+
 ## Docker Usage
 
 ```bash
@@ -207,15 +248,22 @@ docker run -p 8501:8501 cseibold/cxas:interactive
 
 This will launch a Streamlit app, accessible via *localhost:8501*, where you can interactively visualize segmentations.
 
-### For Processing Files or Folders:
-
-To process a folder or file for segmentation, use this command:
+### For DICOM processing (segmentation + landmarks, DICOM SEG / SR output):
 
 ```bash
-docker run --rm -v /path/to/your/input/:/app/input -v /path/to/your/output:/app/output cseibold/cxas:cli -i /app/input -o /app/output --mode segment -g cpu -s
+docker run --rm --gpus all -v /path/to/dicom:/data/in:ro -v /path/to/out:/data/out cseibold/cxas:0.1.0-cu128 -i /data/in -o /data/out
+docker run --rm           -v /path/to/dicom:/data/in:ro -v /path/to/out:/data/out cseibold/cxas:0.1.0-cu128 -i /data/in -o /data/out
 ```
 
-The *cseibold/cxas:cli* image behaves like the command line inputs for CXAS. The flags work as above.
+Images: `cseibold/cxas:0.1.0-cu128` (also `latest`; GPUs from Turing to Blackwell, falls back to the CPU) and
+`cseibold/cxas:0.1.0-cpu`, both linux/amd64 with all weights baked in (no network needed at run time). Build them
+yourself with `docker/build.sh`. Weights: https://huggingface.co/cmseibold/cxas-models and
+https://huggingface.co/cmseibold/cxr-landmarks (MIT).
+The `cu128` image uses the GPU (Turing to Blackwell) when the container gets one (`--gpus all`) and falls back to the CPU otherwise
+(`-g auto`, the default); the smaller `cpu` image is CPU-only. On CPU a radiograph takes about 6-15 s including
+the landmarks and the DICOM SEG.
+
+*The 2024 `cseibold/cxas:cli` and `:interactive` images are linux/arm64 only (they fail with `exec format error` on x86-64 hosts); use the 0.1.0 images.*
 
 
 

@@ -1,5 +1,6 @@
-# Base image: Use Python 3.9 slim (lightweight version of Python)
-FROM python:3.9-slim
+# Streamlit demo (UNet model). Build for amd64: docker build --platform linux/amd64 -t cxas:interactive .
+# The full DICOM/IDC image (segmentation + landmarks, DICOM SEG/SR) is docker/Dockerfile.
+FROM python:3.11-slim-bookworm
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -18,7 +19,7 @@ RUN apt-get update && \
     libjpeg-dev \
     zlib1g-dev \
     libpng-dev \
-    libgl1-mesa-glx \
+    libgl1 \
     libglib2.0-0 \
     ffmpeg \
     libsm6 \
@@ -28,8 +29,8 @@ RUN apt-get update && \
 # Install Python dependencies
 RUN pip install --upgrade pip && \
     pip install setuptools wheel && \
-    pip install torch torchvision torchaudio && \
-    pip install cxas==0.0.15 streamlit opencv-python-headless pillow numpy
+    pip install torch==2.5.1 torchvision==0.20.1 --index-url https://download.pytorch.org/whl/cpu && \
+    pip install cxas==0.0.20 streamlit==1.40.1 opencv-python-headless==4.10.0.84 pillow==11.0.0 "numpy<2"
 
 # Expose the default port for Streamlit (8501)
 EXPOSE 8501

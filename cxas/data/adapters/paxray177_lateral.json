@@ -1,0 +1,15 @@
+{
+  "version": "paxlat_adapter.v2",
+  "source": "CheXEvidence scoping_analysis/instdesc/silver/paxlat_adapter.py",
+  "evidence": "on 24 lateral QA images raw 'upper zone lung' sits at median y 0.70 and raw 'lung base' at 0.25: the two plain zones are swapped in the lateral output; PAXRay++ has no whole-lung or lobe classes on laterals, so they are derived from the zones",
+  "relabel": {"upper zone lung": "lung base", "lung base": "upper zone lung"},
+  "drop_raw": ["lung upper lobe left", "lung upper lobe right", "lung lower lobe left", "lung lower lobe right", "lung middle lobe right"],
+  "derive": {
+    "lung": {"op": "union", "parts": ["apical zone lung", "upper zone lung", "mid zone lung", "lung base"], "only_if_missing": true},
+    "lung upper lobe left": {"op": "union", "parts": ["apical zone lung", "upper zone lung", "mid zone lung"]},
+    "lung upper lobe right": {"op": "union", "parts": ["apical zone lung", "upper zone lung", "mid zone lung"]},
+    "lung lower lobe left": {"op": "union", "parts": ["upper zone lung", "mid zone lung", "lung base"]},
+    "lung lower lobe right": {"op": "union", "parts": ["upper zone lung", "mid zone lung", "lung base"]},
+    "lung middle lobe right": {"op": "union", "parts": ["mid zone lung", "lung base"]}
+  }
+}

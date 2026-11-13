@@ -19,7 +19,7 @@ from cxas.io_utils.create_annotations import (
 from cxas.io_utils.mask_to_coco import toBox, mask_to_annotation
 from pathlib import Path
 import pydicom
-from pydicom.pixel_data_handlers.util import apply_modality_lut, apply_voi_lut
+from pydicom.pixels import apply_modality_lut, apply_voi_lut
 
 
 def dicom_to_unit_array(ds, array: np.ndarray = None) -> np.ndarray:
@@ -49,6 +49,20 @@ def dicom_to_unit_array(ds, array: np.ndarray = None) -> np.ndarray:
     if array.max() > 0:
         array = array / array.max()
     return array
+
+def view_of_dicom(ds) -> str:
+    """'frontal' | 'lateral' from ViewPosition (0018,5101), else from the view code sequence; None if unknown."""
+    from cxas.models.qseg_backend import view_from_position
+
+    vp = str(ds.get("ViewPosition", "") or "")
+    if not vp:
+        try:
+            vp = str(ds.ViewCodeSequence[0].CodeMeaning)
+        except (AttributeError, IndexError):
+            vp = ""
+    v = view_from_position(vp, default="")
+    return v or None
+
 
 this_directory = Path(__file__).parent
 
@@ -285,6 +299,7 @@ class FileLoader:
             "orig_data": original_array,
             "filename": image_path,
             "file_size": orig_file_size,
+            "view": view_of_dicom(ds),
         }
 
 

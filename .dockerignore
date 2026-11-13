@@ -1,0 +1,6 @@
+.venv-dev
+.weights_stage.*
+**/__pycache__
+*.egg-info
+.git
+weights

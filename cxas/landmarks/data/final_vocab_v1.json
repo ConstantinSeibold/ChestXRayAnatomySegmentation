@@ -1,0 +1,3082 @@
+{
+ "version": "v1 (Delphi round 1)",
+ "vocab": {
+  "frontal": {
+   "heart": [
+    "left_cardiac_border",
+    "right_cardiac_border",
+    "cardiophrenic_cardiac_left",
+    "cardiophrenic_cardiac_right",
+    "apex",
+    "waist_cardiac",
+    "cardiophrenic_left_limb_heart",
+    "cardiophrenic_left_limb_diaphragm",
+    "cardiophrenic_right_limb_heart",
+    "cardiophrenic_right_limb_diaphragm"
+   ],
+   "left lung": [
+    "ctr_thorax",
+    "costophrenic_pulmonary",
+    "lateral_margin",
+    "hilum",
+    "costophrenic_limb_wall",
+    "costophrenic_limb_diaphragm"
+   ],
+   "right lung": [
+    "ctr_thorax",
+    "costophrenic_pulmonary",
+    "lateral_margin",
+    "hilum",
+    "costophrenic_limb_wall",
+    "costophrenic_limb_diaphragm"
+   ],
+   "left hemidiaphragm": [
+    "dome"
+   ],
+   "right hemidiaphragm": [
+    "dome"
+   ],
+   "right apical zone lung": [
+    "apex",
+    "center"
+   ],
+   "left apical zone lung": [
+    "apex",
+    "center"
+   ],
+   "trachea": [
+    "right_tracheobronchial_angle",
+    "clavicular_level",
+    "axis_upper",
+    "axis_lower"
+   ],
+   "upper mediastinum": [
+    "mw_right"
+   ],
+   "aortic arch": [
+    "knob",
+    "summit",
+    "ap_window_aortic"
+   ],
+   "pulmonary trunc": [
+    "pa_segment"
+   ],
+   "tracheal bifurcation": [
+    "carina",
+    "left_main_bronchus",
+    "right_main_bronchus",
+    "subcarinal_limb_left",
+    "subcarinal_limb_right"
+   ],
+   "inferior vena cava": [
+    "ivc_ra_caval"
+   ],
+   "esophagus": [
+    "gej_esophageal"
+   ],
+   "stomach": [
+    "gastric_fundus_apex",
+    "center"
+   ],
+   "heart atrium left": [
+    "double_density",
+    "la_appendage"
+   ],
+   "clavicle left": [
+    "acromioclavicular_clavicular",
+    "sternoclavicular_clavicular"
+   ],
+   "clavicle right": [
+    "acromioclavicular_clavicular",
+    "sternoclavicular_clavicular"
+   ],
+   "vertebrae L1": [
+    "inferior_left",
+    "inferior_right",
+    "superior_left",
+    "superior_right"
+   ],
+   "vertebrae L2": [
+    "inferior_left",
+    "inferior_right",
+    "superior_left",
+    "superior_right"
+   ],
+   "vertebrae T1": [
+    "inferior_left",
+    "inferior_right",
+    "superior_left",
+    "superior_right"
+   ],
+   "vertebrae T2": [
+    "inferior_left",
+    "inferior_right",
+    "superior_left",
+    "superior_right"
+   ],
+   "vertebrae T3": [
+    "inferior_left",
+    "inferior_right",
+    "superior_left",
+    "superior_right"
+   ],
+   "vertebrae T4": [
+    "inferior_left",
+    "inferior_right",
+    "superior_left",
+    "superior_right"
+   ],
+   "vertebrae T5": [
+    "inferior_left",
+    "inferior_right",
+    "superior_left",
+    "superior_right"
+   ],
+   "vertebrae T6": [
+    "inferior_left",
+    "inferior_right",
+    "superior_left",
+    "superior_right"
+   ],
+   "vertebrae T7": [
+    "inferior_left",
+    "inferior_right",
+    "superior_left",
+    "superior_right"
+   ],
+   "vertebrae T8": [
+    "inferior_left",
+    "inferior_right",
+    "superior_left",
+    "superior_right"
+   ],
+   "vertebrae T9": [
+    "inferior_left",
+    "inferior_right",
+    "superior_left",
+    "superior_right"
+   ],
+   "vertebrae T10": [
+    "inferior_left",
+    "inferior_right",
+    "superior_left",
+    "superior_right"
+   ],
+   "vertebrae T11": [
+    "inferior_left",
+    "inferior_right",
+    "superior_left",
+    "superior_right"
+   ],
+   "vertebrae T12": [
+    "inferior_left",
+    "inferior_right",
+    "superior_left",
+    "superior_right"
+   ],
+   "anterior 10th rib right": [
+    "anterior_end"
+   ],
+   "anterior 10th rib left": [
+    "anterior_end"
+   ],
+   "anterior 9th rib right": [
+    "anterior_end"
+   ],
+   "anterior 9th rib left": [
+    "anterior_end"
+   ],
+   "anterior 8th rib right": [
+    "anterior_end"
+   ],
+   "anterior 8th rib left": [
+    "anterior_end"
+   ],
+   "anterior 7th rib right": [
+    "anterior_end"
+   ],
+   "anterior 7th rib left": [
+    "anterior_end"
+   ],
+   "anterior 6th rib right": [
+    "anterior_end"
+   ],
+   "anterior 6th rib left": [
+    "anterior_end"
+   ],
+   "anterior 5th rib right": [
+    "anterior_end"
+   ],
+   "anterior 5th rib left": [
+    "anterior_end"
+   ],
+   "anterior 4th rib right": [
+    "anterior_end"
+   ],
+   "anterior 4th rib left": [
+    "anterior_end"
+   ],
+   "anterior 3rd rib right": [
+    "anterior_end"
+   ],
+   "anterior 3rd rib left": [
+    "anterior_end"
+   ],
+   "anterior 2nd rib right": [
+    "anterior_end"
+   ],
+   "anterior 2nd rib left": [
+    "anterior_end"
+   ],
+   "anterior 1st rib right": [
+    "anterior_end"
+   ],
+   "anterior 1st rib left": [
+    "anterior_end"
+   ],
+   "posterior 12th rib right": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "posterior 12th rib left": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "posterior 11th rib right": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "posterior 11th rib left": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "posterior 10th rib right": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "posterior 10th rib left": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "posterior 9th rib right": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "posterior 9th rib left": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "posterior 8th rib right": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "posterior 8th rib left": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "posterior 7th rib right": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "posterior 7th rib left": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "posterior 6th rib right": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "posterior 6th rib left": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "posterior 5th rib right": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "posterior 5th rib left": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "posterior 4th rib right": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "posterior 4th rib left": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "posterior 3rd rib right": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "posterior 3rd rib left": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "posterior 2nd rib right": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "posterior 2nd rib left": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "posterior 1st rib right": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "posterior 1st rib left": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "right lung base": [
+    "center"
+   ],
+   "left lung base": [
+    "center"
+   ],
+   "right mid zone lung": [
+    "center"
+   ],
+   "left mid zone lung": [
+    "center"
+   ],
+   "right upper zone lung": [
+    "center"
+   ],
+   "left upper zone lung": [
+    "center"
+   ],
+   "lung middle lobe right": [
+    "minor_fissure"
+   ],
+   "scapula left": [
+    "inferior_angle"
+   ],
+   "scapula right": [
+    "inferior_angle"
+   ],
+   "aorta": [
+    "cl_0",
+    "cl_1",
+    "cl_2",
+    "cl_3"
+   ],
+   "ascending aorta": [
+    "cl_0",
+    "cl_1",
+    "cl_2"
+   ],
+   "descending aorta": [
+    "cl_0",
+    "cl_1",
+    "cl_2",
+    "cl_3"
+   ],
+   "duodenum": [
+    "center"
+   ],
+   "kidney left": [
+    "center"
+   ],
+   "kidney right": [
+    "center"
+   ],
+   "liver": [
+    "center"
+   ],
+   "pancreas": [
+    "center"
+   ],
+   "small bowel": [
+    "center"
+   ],
+   "sternum": [
+    "jugular_notch"
+   ]
+  },
+  "lateral": {
+   "diaphragm": [
+    "anterior_costophrenic",
+    "posterior_costophrenic",
+    "dome",
+    "anterior_costophrenic_limb_wall",
+    "anterior_costophrenic_limb_diaphragm",
+    "posterior_costophrenic_limb_wall",
+    "posterior_costophrenic_limb_diaphragm",
+    "sternodiaphragmatic_vertex",
+    "sternodiaphragmatic_limb_sternum",
+    "sternodiaphragmatic_limb_diaphragm"
+   ],
+   "anterior mediastinum": [
+    "retrosternal_anterior"
+   ],
+   "ascending aorta": [
+    "retrosternal_posterior",
+    "cl_0",
+    "cl_1",
+    "cl_2"
+   ],
+   "esophagus": [
+    "gej_esophageal"
+   ],
+   "stomach": [
+    "gastric_fundus_apex",
+    "center"
+   ],
+   "heart": [
+    "anterior_border",
+    "posterior_border",
+    "apex",
+    "hoffman_rigler"
+   ],
+   "sternum": [
+    "jugular_notch",
+    "sternal_angle",
+    "manubriosternal_limb_manubrium",
+    "manubriosternal_limb_body"
+   ],
+   "vertebrae L1": [
+    "antero_inferior",
+    "antero_superior",
+    "postero_inferior",
+    "postero_superior"
+   ],
+   "vertebrae L2": [
+    "antero_inferior",
+    "antero_superior",
+    "postero_inferior",
+    "postero_superior"
+   ],
+   "vertebrae T1": [
+    "antero_inferior",
+    "antero_superior",
+    "postero_inferior",
+    "postero_superior"
+   ],
+   "vertebrae T2": [
+    "antero_inferior",
+    "antero_superior",
+    "postero_inferior",
+    "postero_superior"
+   ],
+   "vertebrae T3": [
+    "antero_inferior",
+    "antero_superior",
+    "postero_inferior",
+    "postero_superior"
+   ],
+   "vertebrae T4": [
+    "antero_inferior",
+    "antero_superior",
+    "postero_inferior",
+    "postero_superior"
+   ],
+   "vertebrae T5": [
+    "antero_inferior",
+    "antero_superior",
+    "postero_inferior",
+    "postero_superior"
+   ],
+   "vertebrae T6": [
+    "antero_inferior",
+    "antero_superior",
+    "postero_inferior",
+    "postero_superior"
+   ],
+   "vertebrae T7": [
+    "antero_inferior",
+    "antero_superior",
+    "postero_inferior",
+    "postero_superior"
+   ],
+   "vertebrae T8": [
+    "antero_inferior",
+    "antero_superior",
+    "postero_inferior",
+    "postero_superior"
+   ],
+   "vertebrae T9": [
+    "antero_inferior",
+    "antero_superior",
+    "postero_inferior",
+    "postero_superior"
+   ],
+   "vertebrae T10": [
+    "antero_inferior",
+    "antero_superior",
+    "postero_inferior",
+    "postero_superior"
+   ],
+   "vertebrae T11": [
+    "antero_inferior",
+    "antero_superior",
+    "postero_inferior",
+    "postero_superior"
+   ],
+   "vertebrae T12": [
+    "antero_inferior",
+    "antero_superior",
+    "postero_inferior",
+    "postero_superior"
+   ],
+   "apical zone lung": [
+    "center",
+    "apex"
+   ],
+   "right apical zone lung": [
+    "center"
+   ],
+   "left apical zone lung": [
+    "center"
+   ],
+   "lung base": [
+    "center"
+   ],
+   "right lung base": [
+    "center"
+   ],
+   "left lung base": [
+    "center"
+   ],
+   "mid zone lung": [
+    "center"
+   ],
+   "right mid zone lung": [
+    "center"
+   ],
+   "left mid zone lung": [
+    "center"
+   ],
+   "upper zone lung": [
+    "center"
+   ],
+   "right upper zone lung": [
+    "center"
+   ],
+   "left upper zone lung": [
+    "center"
+   ],
+   "aorta": [
+    "cl_1",
+    "cl_2",
+    "cl_3"
+   ],
+   "descending aorta": [
+    "cl_0",
+    "cl_1",
+    "cl_2",
+    "cl_3"
+   ],
+   "duodenum": [
+    "center"
+   ],
+   "liver": [
+    "center"
+   ],
+   "pancreas": [
+    "center"
+   ],
+   "small bowel": [
+    "center"
+   ],
+   "aortic arch": [
+    "summit"
+   ],
+   "inferior vena cava": [
+    "ivc_ra_caval"
+   ]
+  }
+ },
+ "provenance": [
+  {
+   "view": "frontal",
+   "class": "heart",
+   "kp": "left_cardiac_border",
+   "source": "K001",
+   "group": "G01",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "heart",
+   "kp": "right_cardiac_border",
+   "source": "K002",
+   "group": "G01",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "left lung",
+   "kp": "ctr_thorax",
+   "source": "K003",
+   "group": "G01",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "right lung",
+   "kp": "ctr_thorax",
+   "source": "K004",
+   "group": "G01",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "left lung",
+   "kp": "costophrenic_pulmonary",
+   "source": "K007",
+   "group": "G02",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "right lung",
+   "kp": "costophrenic_pulmonary",
+   "source": "K009",
+   "group": "G02",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "diaphragm",
+   "kp": "anterior_costophrenic",
+   "source": "K011",
+   "group": "G02",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "diaphragm",
+   "kp": "posterior_costophrenic",
+   "source": "K012",
+   "group": "G02",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "heart",
+   "kp": "cardiophrenic_cardiac_left",
+   "source": "K014",
+   "group": "G03",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "heart",
+   "kp": "cardiophrenic_cardiac_right",
+   "source": "K015",
+   "group": "G03",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "left hemidiaphragm",
+   "kp": "dome",
+   "source": "K019",
+   "group": "G04",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "right hemidiaphragm",
+   "kp": "dome",
+   "source": "K019",
+   "group": "G04",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "diaphragm",
+   "kp": "dome",
+   "source": "K023",
+   "group": "G04",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "right apical zone lung",
+   "kp": "apex",
+   "source": "K025",
+   "group": "G05",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "left apical zone lung",
+   "kp": "apex",
+   "source": "K025",
+   "group": "G05",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "left lung",
+   "kp": "lateral_margin",
+   "source": "K027",
+   "group": "G05",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "right lung",
+   "kp": "lateral_margin",
+   "source": "K029",
+   "group": "G05",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "left lung",
+   "kp": "hilum",
+   "source": "K030",
+   "group": "G06",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "right lung",
+   "kp": "hilum",
+   "source": "K031",
+   "group": "G06",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "trachea",
+   "kp": "right_tracheobronchial_angle",
+   "source": "K041",
+   "group": "G07",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "upper mediastinum",
+   "kp": "mw_right",
+   "source": "K043",
+   "group": "G08",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "anterior mediastinum",
+   "kp": "retrosternal_anterior",
+   "source": "K053",
+   "group": "G08",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "ascending aorta",
+   "kp": "retrosternal_posterior",
+   "source": "K056",
+   "group": "G08",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "aortic arch",
+   "kp": "knob",
+   "source": "K073",
+   "group": "G09",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "aortic arch",
+   "kp": "summit",
+   "source": "K074",
+   "group": "G09",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "aortic arch",
+   "kp": "ap_window_aortic",
+   "source": "K078",
+   "group": "G10",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "pulmonary trunc",
+   "kp": "pa_segment",
+   "source": "K081",
+   "group": "G11",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "tracheal bifurcation",
+   "kp": "carina",
+   "source": "K083",
+   "group": "G12",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "tracheal bifurcation",
+   "kp": "left_main_bronchus",
+   "source": "K084",
+   "group": "G12",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "tracheal bifurcation",
+   "kp": "right_main_bronchus",
+   "source": "K085",
+   "group": "G12",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "trachea",
+   "kp": "clavicular_level",
+   "source": "K089",
+   "group": "G13",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "inferior vena cava",
+   "kp": "ivc_ra_caval",
+   "source": "K094",
+   "group": "G14",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "esophagus",
+   "kp": "gej_esophageal",
+   "source": "K098",
+   "group": "G15",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "stomach",
+   "kp": "gastric_fundus_apex",
+   "source": "K100",
+   "group": "G15",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "esophagus",
+   "kp": "gej_esophageal",
+   "source": "K104",
+   "group": "G15",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "stomach",
+   "kp": "gastric_fundus_apex",
+   "source": "K106",
+   "group": "G15",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "heart",
+   "kp": "apex",
+   "source": "K107",
+   "group": "G16",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "heart",
+   "kp": "waist_cardiac",
+   "source": "K108",
+   "group": "G16",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "heart atrium left",
+   "kp": "double_density",
+   "source": "K110",
+   "group": "G16",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "heart atrium left",
+   "kp": "la_appendage",
+   "source": "K111",
+   "group": "G16",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "heart",
+   "kp": "anterior_border",
+   "source": "K118",
+   "group": "G16",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "heart",
+   "kp": "posterior_border",
+   "source": "K120",
+   "group": "G16",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "sternum",
+   "kp": "jugular_notch",
+   "source": "K129",
+   "group": "G17",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "sternum",
+   "kp": "sternal_angle",
+   "source": "K130",
+   "group": "G17",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "clavicle left",
+   "kp": "acromioclavicular_clavicular",
+   "source": "K132",
+   "group": "G18",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "clavicle right",
+   "kp": "acromioclavicular_clavicular",
+   "source": "K132",
+   "group": "G18",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "clavicle left",
+   "kp": "sternoclavicular_clavicular",
+   "source": "K134",
+   "group": "G18",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "clavicle right",
+   "kp": "sternoclavicular_clavicular",
+   "source": "K134",
+   "group": "G18",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae L1",
+   "kp": "inferior_left",
+   "source": "K156",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae L2",
+   "kp": "inferior_left",
+   "source": "K156",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae L1",
+   "kp": "inferior_right",
+   "source": "K157",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae L2",
+   "kp": "inferior_right",
+   "source": "K157",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae L1",
+   "kp": "superior_left",
+   "source": "K158",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae L2",
+   "kp": "superior_left",
+   "source": "K158",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae L1",
+   "kp": "superior_right",
+   "source": "K159",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae L2",
+   "kp": "superior_right",
+   "source": "K159",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T1",
+   "kp": "inferior_left",
+   "source": "K165",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T2",
+   "kp": "inferior_left",
+   "source": "K165",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T3",
+   "kp": "inferior_left",
+   "source": "K165",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T4",
+   "kp": "inferior_left",
+   "source": "K165",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T5",
+   "kp": "inferior_left",
+   "source": "K165",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T6",
+   "kp": "inferior_left",
+   "source": "K165",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T7",
+   "kp": "inferior_left",
+   "source": "K165",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T8",
+   "kp": "inferior_left",
+   "source": "K165",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T9",
+   "kp": "inferior_left",
+   "source": "K165",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T10",
+   "kp": "inferior_left",
+   "source": "K165",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T11",
+   "kp": "inferior_left",
+   "source": "K165",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T12",
+   "kp": "inferior_left",
+   "source": "K165",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T1",
+   "kp": "inferior_right",
+   "source": "K166",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T2",
+   "kp": "inferior_right",
+   "source": "K166",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T3",
+   "kp": "inferior_right",
+   "source": "K166",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T4",
+   "kp": "inferior_right",
+   "source": "K166",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T5",
+   "kp": "inferior_right",
+   "source": "K166",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T6",
+   "kp": "inferior_right",
+   "source": "K166",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T7",
+   "kp": "inferior_right",
+   "source": "K166",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T8",
+   "kp": "inferior_right",
+   "source": "K166",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T9",
+   "kp": "inferior_right",
+   "source": "K166",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T10",
+   "kp": "inferior_right",
+   "source": "K166",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T11",
+   "kp": "inferior_right",
+   "source": "K166",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T12",
+   "kp": "inferior_right",
+   "source": "K166",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T1",
+   "kp": "superior_left",
+   "source": "K167",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T2",
+   "kp": "superior_left",
+   "source": "K167",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T3",
+   "kp": "superior_left",
+   "source": "K167",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T4",
+   "kp": "superior_left",
+   "source": "K167",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T5",
+   "kp": "superior_left",
+   "source": "K167",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T6",
+   "kp": "superior_left",
+   "source": "K167",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T7",
+   "kp": "superior_left",
+   "source": "K167",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T8",
+   "kp": "superior_left",
+   "source": "K167",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T9",
+   "kp": "superior_left",
+   "source": "K167",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T10",
+   "kp": "superior_left",
+   "source": "K167",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T11",
+   "kp": "superior_left",
+   "source": "K167",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T12",
+   "kp": "superior_left",
+   "source": "K167",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T1",
+   "kp": "superior_right",
+   "source": "K168",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T2",
+   "kp": "superior_right",
+   "source": "K168",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T3",
+   "kp": "superior_right",
+   "source": "K168",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T4",
+   "kp": "superior_right",
+   "source": "K168",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T5",
+   "kp": "superior_right",
+   "source": "K168",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T6",
+   "kp": "superior_right",
+   "source": "K168",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T7",
+   "kp": "superior_right",
+   "source": "K168",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T8",
+   "kp": "superior_right",
+   "source": "K168",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T9",
+   "kp": "superior_right",
+   "source": "K168",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T10",
+   "kp": "superior_right",
+   "source": "K168",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T11",
+   "kp": "superior_right",
+   "source": "K168",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "vertebrae T12",
+   "kp": "superior_right",
+   "source": "K168",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae L1",
+   "kp": "antero_inferior",
+   "source": "K189",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae L2",
+   "kp": "antero_inferior",
+   "source": "K189",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae L1",
+   "kp": "antero_superior",
+   "source": "K190",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae L2",
+   "kp": "antero_superior",
+   "source": "K190",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae L1",
+   "kp": "postero_inferior",
+   "source": "K192",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae L2",
+   "kp": "postero_inferior",
+   "source": "K192",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae L1",
+   "kp": "postero_superior",
+   "source": "K193",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae L2",
+   "kp": "postero_superior",
+   "source": "K193",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T1",
+   "kp": "antero_inferior",
+   "source": "K195",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T2",
+   "kp": "antero_inferior",
+   "source": "K195",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T3",
+   "kp": "antero_inferior",
+   "source": "K195",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T4",
+   "kp": "antero_inferior",
+   "source": "K195",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T5",
+   "kp": "antero_inferior",
+   "source": "K195",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T6",
+   "kp": "antero_inferior",
+   "source": "K195",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T7",
+   "kp": "antero_inferior",
+   "source": "K195",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T8",
+   "kp": "antero_inferior",
+   "source": "K195",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T9",
+   "kp": "antero_inferior",
+   "source": "K195",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T10",
+   "kp": "antero_inferior",
+   "source": "K195",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T11",
+   "kp": "antero_inferior",
+   "source": "K195",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T12",
+   "kp": "antero_inferior",
+   "source": "K195",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T1",
+   "kp": "antero_superior",
+   "source": "K196",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T2",
+   "kp": "antero_superior",
+   "source": "K196",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T3",
+   "kp": "antero_superior",
+   "source": "K196",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T4",
+   "kp": "antero_superior",
+   "source": "K196",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T5",
+   "kp": "antero_superior",
+   "source": "K196",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T6",
+   "kp": "antero_superior",
+   "source": "K196",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T7",
+   "kp": "antero_superior",
+   "source": "K196",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T8",
+   "kp": "antero_superior",
+   "source": "K196",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T9",
+   "kp": "antero_superior",
+   "source": "K196",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T10",
+   "kp": "antero_superior",
+   "source": "K196",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T11",
+   "kp": "antero_superior",
+   "source": "K196",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T12",
+   "kp": "antero_superior",
+   "source": "K196",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T1",
+   "kp": "postero_inferior",
+   "source": "K198",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T2",
+   "kp": "postero_inferior",
+   "source": "K198",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T3",
+   "kp": "postero_inferior",
+   "source": "K198",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T4",
+   "kp": "postero_inferior",
+   "source": "K198",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T5",
+   "kp": "postero_inferior",
+   "source": "K198",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T6",
+   "kp": "postero_inferior",
+   "source": "K198",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T7",
+   "kp": "postero_inferior",
+   "source": "K198",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T8",
+   "kp": "postero_inferior",
+   "source": "K198",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T9",
+   "kp": "postero_inferior",
+   "source": "K198",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T10",
+   "kp": "postero_inferior",
+   "source": "K198",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T11",
+   "kp": "postero_inferior",
+   "source": "K198",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T12",
+   "kp": "postero_inferior",
+   "source": "K198",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T1",
+   "kp": "postero_superior",
+   "source": "K199",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T2",
+   "kp": "postero_superior",
+   "source": "K199",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T3",
+   "kp": "postero_superior",
+   "source": "K199",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T4",
+   "kp": "postero_superior",
+   "source": "K199",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T5",
+   "kp": "postero_superior",
+   "source": "K199",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T6",
+   "kp": "postero_superior",
+   "source": "K199",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T7",
+   "kp": "postero_superior",
+   "source": "K199",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T8",
+   "kp": "postero_superior",
+   "source": "K199",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T9",
+   "kp": "postero_superior",
+   "source": "K199",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T10",
+   "kp": "postero_superior",
+   "source": "K199",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T11",
+   "kp": "postero_superior",
+   "source": "K199",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "lateral",
+   "class": "vertebrae T12",
+   "kp": "postero_superior",
+   "source": "K199",
+   "group": "G19",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "anterior 10th rib right",
+   "kp": "anterior_end",
+   "source": "K201",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "anterior 10th rib left",
+   "kp": "anterior_end",
+   "source": "K201",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "anterior 9th rib right",
+   "kp": "anterior_end",
+   "source": "K201",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "anterior 9th rib left",
+   "kp": "anterior_end",
+   "source": "K201",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "anterior 8th rib right",
+   "kp": "anterior_end",
+   "source": "K201",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "anterior 8th rib left",
+   "kp": "anterior_end",
+   "source": "K201",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "anterior 7th rib right",
+   "kp": "anterior_end",
+   "source": "K201",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "anterior 7th rib left",
+   "kp": "anterior_end",
+   "source": "K201",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "anterior 6th rib right",
+   "kp": "anterior_end",
+   "source": "K201",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "anterior 6th rib left",
+   "kp": "anterior_end",
+   "source": "K201",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "anterior 5th rib right",
+   "kp": "anterior_end",
+   "source": "K201",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "anterior 5th rib left",
+   "kp": "anterior_end",
+   "source": "K201",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "anterior 4th rib right",
+   "kp": "anterior_end",
+   "source": "K201",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "anterior 4th rib left",
+   "kp": "anterior_end",
+   "source": "K201",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "anterior 3rd rib right",
+   "kp": "anterior_end",
+   "source": "K201",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "anterior 3rd rib left",
+   "kp": "anterior_end",
+   "source": "K201",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "anterior 2nd rib right",
+   "kp": "anterior_end",
+   "source": "K201",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "anterior 2nd rib left",
+   "kp": "anterior_end",
+   "source": "K201",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "anterior 1st rib right",
+   "kp": "anterior_end",
+   "source": "K201",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "anterior 1st rib left",
+   "kp": "anterior_end",
+   "source": "K201",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 12th rib right",
+   "kp": "rib_head",
+   "source": "K206",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 12th rib left",
+   "kp": "rib_head",
+   "source": "K206",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 11th rib right",
+   "kp": "rib_head",
+   "source": "K206",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 11th rib left",
+   "kp": "rib_head",
+   "source": "K206",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 10th rib right",
+   "kp": "rib_head",
+   "source": "K206",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 10th rib left",
+   "kp": "rib_head",
+   "source": "K206",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 9th rib right",
+   "kp": "rib_head",
+   "source": "K206",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 9th rib left",
+   "kp": "rib_head",
+   "source": "K206",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 8th rib right",
+   "kp": "rib_head",
+   "source": "K206",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 8th rib left",
+   "kp": "rib_head",
+   "source": "K206",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 7th rib right",
+   "kp": "rib_head",
+   "source": "K206",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 7th rib left",
+   "kp": "rib_head",
+   "source": "K206",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 6th rib right",
+   "kp": "rib_head",
+   "source": "K206",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 6th rib left",
+   "kp": "rib_head",
+   "source": "K206",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 5th rib right",
+   "kp": "rib_head",
+   "source": "K206",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 5th rib left",
+   "kp": "rib_head",
+   "source": "K206",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 4th rib right",
+   "kp": "rib_head",
+   "source": "K206",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 4th rib left",
+   "kp": "rib_head",
+   "source": "K206",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 3rd rib right",
+   "kp": "rib_head",
+   "source": "K206",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 3rd rib left",
+   "kp": "rib_head",
+   "source": "K206",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 2nd rib right",
+   "kp": "rib_head",
+   "source": "K206",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 2nd rib left",
+   "kp": "rib_head",
+   "source": "K206",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 1st rib right",
+   "kp": "rib_head",
+   "source": "K206",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 1st rib left",
+   "kp": "rib_head",
+   "source": "K206",
+   "group": "G20",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "right apical zone lung",
+   "kp": "center",
+   "source": "K220",
+   "group": "G21",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "frontal",
+   "class": "left apical zone lung",
+   "kp": "center",
+   "source": "K220",
+   "group": "G21",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "frontal",
+   "class": "right lung base",
+   "kp": "center",
+   "source": "K221",
+   "group": "G21",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "frontal",
+   "class": "left lung base",
+   "kp": "center",
+   "source": "K221",
+   "group": "G21",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "frontal",
+   "class": "right mid zone lung",
+   "kp": "center",
+   "source": "K222",
+   "group": "G21",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "frontal",
+   "class": "left mid zone lung",
+   "kp": "center",
+   "source": "K222",
+   "group": "G21",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "frontal",
+   "class": "right upper zone lung",
+   "kp": "center",
+   "source": "K223",
+   "group": "G21",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "frontal",
+   "class": "left upper zone lung",
+   "kp": "center",
+   "source": "K223",
+   "group": "G21",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "apical zone lung",
+   "kp": "center",
+   "source": "K224",
+   "group": "G21",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "right apical zone lung",
+   "kp": "center",
+   "source": "K224",
+   "group": "G21",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "left apical zone lung",
+   "kp": "center",
+   "source": "K224",
+   "group": "G21",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "lung base",
+   "kp": "center",
+   "source": "K225",
+   "group": "G21",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "right lung base",
+   "kp": "center",
+   "source": "K225",
+   "group": "G21",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "left lung base",
+   "kp": "center",
+   "source": "K225",
+   "group": "G21",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "mid zone lung",
+   "kp": "center",
+   "source": "K226",
+   "group": "G21",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "right mid zone lung",
+   "kp": "center",
+   "source": "K226",
+   "group": "G21",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "left mid zone lung",
+   "kp": "center",
+   "source": "K226",
+   "group": "G21",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "upper zone lung",
+   "kp": "center",
+   "source": "K227",
+   "group": "G21",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "right upper zone lung",
+   "kp": "center",
+   "source": "K227",
+   "group": "G21",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "left upper zone lung",
+   "kp": "center",
+   "source": "K227",
+   "group": "G21",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "frontal",
+   "class": "lung middle lobe right",
+   "kp": "minor_fissure",
+   "source": "K231",
+   "group": "G22",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "scapula left",
+   "kp": "inferior_angle",
+   "source": "K243",
+   "group": "G24",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "scapula right",
+   "kp": "inferior_angle",
+   "source": "K243",
+   "group": "G24",
+   "decision": "keep"
+  },
+  {
+   "view": "frontal",
+   "class": "aorta",
+   "kp": "cl_0",
+   "source": "K245",
+   "group": "G25",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "frontal",
+   "class": "aorta",
+   "kp": "cl_1",
+   "source": "K246",
+   "group": "G25",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "frontal",
+   "class": "aorta",
+   "kp": "cl_2",
+   "source": "K247",
+   "group": "G25",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "frontal",
+   "class": "aorta",
+   "kp": "cl_3",
+   "source": "K248",
+   "group": "G25",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "frontal",
+   "class": "ascending aorta",
+   "kp": "cl_0",
+   "source": "K250",
+   "group": "G25",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "frontal",
+   "class": "ascending aorta",
+   "kp": "cl_1",
+   "source": "K251",
+   "group": "G25",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "frontal",
+   "class": "ascending aorta",
+   "kp": "cl_2",
+   "source": "K252",
+   "group": "G25",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "frontal",
+   "class": "descending aorta",
+   "kp": "cl_0",
+   "source": "K253",
+   "group": "G25",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "frontal",
+   "class": "descending aorta",
+   "kp": "cl_1",
+   "source": "K254",
+   "group": "G25",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "frontal",
+   "class": "descending aorta",
+   "kp": "cl_2",
+   "source": "K255",
+   "group": "G25",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "frontal",
+   "class": "descending aorta",
+   "kp": "cl_3",
+   "source": "K256",
+   "group": "G25",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "aorta",
+   "kp": "cl_1",
+   "source": "K258",
+   "group": "G25",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "aorta",
+   "kp": "cl_2",
+   "source": "K259",
+   "group": "G25",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "aorta",
+   "kp": "cl_3",
+   "source": "K260",
+   "group": "G25",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "ascending aorta",
+   "kp": "cl_0",
+   "source": "K262",
+   "group": "G25",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "ascending aorta",
+   "kp": "cl_1",
+   "source": "K263",
+   "group": "G25",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "ascending aorta",
+   "kp": "cl_2",
+   "source": "K264",
+   "group": "G25",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "descending aorta",
+   "kp": "cl_0",
+   "source": "K265",
+   "group": "G25",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "descending aorta",
+   "kp": "cl_1",
+   "source": "K266",
+   "group": "G25",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "descending aorta",
+   "kp": "cl_2",
+   "source": "K267",
+   "group": "G25",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "descending aorta",
+   "kp": "cl_3",
+   "source": "K268",
+   "group": "G25",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "frontal",
+   "class": "duodenum",
+   "kp": "center",
+   "source": "K269",
+   "group": "G26",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "frontal",
+   "class": "kidney left",
+   "kp": "center",
+   "source": "K270",
+   "group": "G26",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "frontal",
+   "class": "kidney right",
+   "kp": "center",
+   "source": "K270",
+   "group": "G26",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "frontal",
+   "class": "liver",
+   "kp": "center",
+   "source": "K271",
+   "group": "G26",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "frontal",
+   "class": "pancreas",
+   "kp": "center",
+   "source": "K272",
+   "group": "G26",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "frontal",
+   "class": "small bowel",
+   "kp": "center",
+   "source": "K273",
+   "group": "G26",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "frontal",
+   "class": "stomach",
+   "kp": "center",
+   "source": "K274",
+   "group": "G26",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "duodenum",
+   "kp": "center",
+   "source": "K275",
+   "group": "G26",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "liver",
+   "kp": "center",
+   "source": "K276",
+   "group": "G26",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "pancreas",
+   "kp": "center",
+   "source": "K277",
+   "group": "G26",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "small bowel",
+   "kp": "center",
+   "source": "K278",
+   "group": "G26",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "stomach",
+   "kp": "center",
+   "source": "K279",
+   "group": "G26",
+   "decision": "keep (attending override)"
+  },
+  {
+   "view": "lateral",
+   "class": "aortic arch",
+   "kp": "summit",
+   "source": "K074+L",
+   "group": "G09",
+   "decision": "view extension of K074"
+  },
+  {
+   "view": "lateral",
+   "class": "inferior vena cava",
+   "kp": "ivc_ra_caval",
+   "source": "K094+L",
+   "group": "G14",
+   "decision": "view extension of K094"
+  },
+  {
+   "view": "lateral",
+   "class": "heart",
+   "kp": "apex",
+   "source": "K107+L",
+   "group": "G16",
+   "decision": "view extension of K107"
+  },
+  {
+   "view": "lateral",
+   "class": "apical zone lung",
+   "kp": "apex",
+   "source": "K025+L",
+   "group": "G05",
+   "decision": "view extension of K025"
+  },
+  {
+   "view": "frontal",
+   "class": "sternum",
+   "kp": "jugular_notch",
+   "source": "K129+F",
+   "group": "G17",
+   "decision": "view extension of K129"
+  },
+  {
+   "view": "frontal",
+   "class": "left lung",
+   "kp": "costophrenic_limb_wall",
+   "source": "K007+costophrenic_limb_wall",
+   "group": "G02",
+   "decision": "angle limb of K007"
+  },
+  {
+   "view": "frontal",
+   "class": "left lung",
+   "kp": "costophrenic_limb_diaphragm",
+   "source": "K007+costophrenic_limb_diaphragm",
+   "group": "G02",
+   "decision": "angle limb of K007"
+  },
+  {
+   "view": "frontal",
+   "class": "right lung",
+   "kp": "costophrenic_limb_wall",
+   "source": "K009+costophrenic_limb_wall",
+   "group": "G02",
+   "decision": "angle limb of K009"
+  },
+  {
+   "view": "frontal",
+   "class": "right lung",
+   "kp": "costophrenic_limb_diaphragm",
+   "source": "K009+costophrenic_limb_diaphragm",
+   "group": "G02",
+   "decision": "angle limb of K009"
+  },
+  {
+   "view": "frontal",
+   "class": "heart",
+   "kp": "cardiophrenic_left_limb_heart",
+   "source": "K014+cardiophrenic_left_limb_heart",
+   "group": "G03",
+   "decision": "angle limb of K014"
+  },
+  {
+   "view": "frontal",
+   "class": "heart",
+   "kp": "cardiophrenic_left_limb_diaphragm",
+   "source": "K014+cardiophrenic_left_limb_diaphragm",
+   "group": "G03",
+   "decision": "angle limb of K014"
+  },
+  {
+   "view": "frontal",
+   "class": "heart",
+   "kp": "cardiophrenic_right_limb_heart",
+   "source": "K015+cardiophrenic_right_limb_heart",
+   "group": "G03",
+   "decision": "angle limb of K015"
+  },
+  {
+   "view": "frontal",
+   "class": "heart",
+   "kp": "cardiophrenic_right_limb_diaphragm",
+   "source": "K015+cardiophrenic_right_limb_diaphragm",
+   "group": "G03",
+   "decision": "angle limb of K015"
+  },
+  {
+   "view": "lateral",
+   "class": "diaphragm",
+   "kp": "anterior_costophrenic_limb_wall",
+   "source": "K011+anterior_costophrenic_limb_wall",
+   "group": "G02",
+   "decision": "angle limb of K011"
+  },
+  {
+   "view": "lateral",
+   "class": "diaphragm",
+   "kp": "anterior_costophrenic_limb_diaphragm",
+   "source": "K011+anterior_costophrenic_limb_diaphragm",
+   "group": "G02",
+   "decision": "angle limb of K011"
+  },
+  {
+   "view": "lateral",
+   "class": "diaphragm",
+   "kp": "posterior_costophrenic_limb_wall",
+   "source": "K012+posterior_costophrenic_limb_wall",
+   "group": "G02",
+   "decision": "angle limb of K012"
+  },
+  {
+   "view": "lateral",
+   "class": "diaphragm",
+   "kp": "posterior_costophrenic_limb_diaphragm",
+   "source": "K012+posterior_costophrenic_limb_diaphragm",
+   "group": "G02",
+   "decision": "angle limb of K012"
+  },
+  {
+   "view": "frontal",
+   "class": "tracheal bifurcation",
+   "kp": "subcarinal_limb_left",
+   "source": "K083+subcarinal_limb_left",
+   "group": "G12",
+   "decision": "angle limb of K083"
+  },
+  {
+   "view": "frontal",
+   "class": "tracheal bifurcation",
+   "kp": "subcarinal_limb_right",
+   "source": "K083+subcarinal_limb_right",
+   "group": "G12",
+   "decision": "angle limb of K083"
+  },
+  {
+   "view": "lateral",
+   "class": "diaphragm",
+   "kp": "sternodiaphragmatic_vertex",
+   "source": "K011+sternodiaphragmatic_vertex",
+   "group": "G02",
+   "decision": "angle limb of K011"
+  },
+  {
+   "view": "lateral",
+   "class": "diaphragm",
+   "kp": "sternodiaphragmatic_limb_sternum",
+   "source": "K011+sternodiaphragmatic_limb_sternum",
+   "group": "G02",
+   "decision": "angle limb of K011"
+  },
+  {
+   "view": "lateral",
+   "class": "diaphragm",
+   "kp": "sternodiaphragmatic_limb_diaphragm",
+   "source": "K011+sternodiaphragmatic_limb_diaphragm",
+   "group": "G02",
+   "decision": "angle limb of K011"
+  },
+  {
+   "view": "lateral",
+   "class": "sternum",
+   "kp": "manubriosternal_limb_manubrium",
+   "source": "K130+manubriosternal_limb_manubrium",
+   "group": "G17",
+   "decision": "angle limb of K130"
+  },
+  {
+   "view": "lateral",
+   "class": "sternum",
+   "kp": "manubriosternal_limb_body",
+   "source": "K130+manubriosternal_limb_body",
+   "group": "G17",
+   "decision": "angle limb of K130"
+  },
+  {
+   "view": "frontal",
+   "class": "trachea",
+   "kp": "axis_upper",
+   "source": "K089+axis_upper",
+   "group": "G13",
+   "decision": "angle limb of K089"
+  },
+  {
+   "view": "frontal",
+   "class": "trachea",
+   "kp": "axis_lower",
+   "source": "K089+axis_lower",
+   "group": "G13",
+   "decision": "angle limb of K089"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 1st rib left",
+   "kp": "rib_slope_limb",
+   "source": "K206+rib_slope_limb",
+   "group": "G20",
+   "decision": "angle limb of K206"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 1st rib right",
+   "kp": "rib_slope_limb",
+   "source": "K206+rib_slope_limb",
+   "group": "G20",
+   "decision": "angle limb of K206"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 2nd rib left",
+   "kp": "rib_slope_limb",
+   "source": "K206+rib_slope_limb",
+   "group": "G20",
+   "decision": "angle limb of K206"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 2nd rib right",
+   "kp": "rib_slope_limb",
+   "source": "K206+rib_slope_limb",
+   "group": "G20",
+   "decision": "angle limb of K206"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 3rd rib left",
+   "kp": "rib_slope_limb",
+   "source": "K206+rib_slope_limb",
+   "group": "G20",
+   "decision": "angle limb of K206"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 3rd rib right",
+   "kp": "rib_slope_limb",
+   "source": "K206+rib_slope_limb",
+   "group": "G20",
+   "decision": "angle limb of K206"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 4th rib left",
+   "kp": "rib_slope_limb",
+   "source": "K206+rib_slope_limb",
+   "group": "G20",
+   "decision": "angle limb of K206"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 4th rib right",
+   "kp": "rib_slope_limb",
+   "source": "K206+rib_slope_limb",
+   "group": "G20",
+   "decision": "angle limb of K206"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 5th rib left",
+   "kp": "rib_slope_limb",
+   "source": "K206+rib_slope_limb",
+   "group": "G20",
+   "decision": "angle limb of K206"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 5th rib right",
+   "kp": "rib_slope_limb",
+   "source": "K206+rib_slope_limb",
+   "group": "G20",
+   "decision": "angle limb of K206"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 6th rib left",
+   "kp": "rib_slope_limb",
+   "source": "K206+rib_slope_limb",
+   "group": "G20",
+   "decision": "angle limb of K206"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 6th rib right",
+   "kp": "rib_slope_limb",
+   "source": "K206+rib_slope_limb",
+   "group": "G20",
+   "decision": "angle limb of K206"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 7th rib left",
+   "kp": "rib_slope_limb",
+   "source": "K206+rib_slope_limb",
+   "group": "G20",
+   "decision": "angle limb of K206"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 7th rib right",
+   "kp": "rib_slope_limb",
+   "source": "K206+rib_slope_limb",
+   "group": "G20",
+   "decision": "angle limb of K206"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 8th rib left",
+   "kp": "rib_slope_limb",
+   "source": "K206+rib_slope_limb",
+   "group": "G20",
+   "decision": "angle limb of K206"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 8th rib right",
+   "kp": "rib_slope_limb",
+   "source": "K206+rib_slope_limb",
+   "group": "G20",
+   "decision": "angle limb of K206"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 9th rib left",
+   "kp": "rib_slope_limb",
+   "source": "K206+rib_slope_limb",
+   "group": "G20",
+   "decision": "angle limb of K206"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 9th rib right",
+   "kp": "rib_slope_limb",
+   "source": "K206+rib_slope_limb",
+   "group": "G20",
+   "decision": "angle limb of K206"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 10th rib left",
+   "kp": "rib_slope_limb",
+   "source": "K206+rib_slope_limb",
+   "group": "G20",
+   "decision": "angle limb of K206"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 10th rib right",
+   "kp": "rib_slope_limb",
+   "source": "K206+rib_slope_limb",
+   "group": "G20",
+   "decision": "angle limb of K206"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 11th rib left",
+   "kp": "rib_slope_limb",
+   "source": "K206+rib_slope_limb",
+   "group": "G20",
+   "decision": "angle limb of K206"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 11th rib right",
+   "kp": "rib_slope_limb",
+   "source": "K206+rib_slope_limb",
+   "group": "G20",
+   "decision": "angle limb of K206"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 12th rib left",
+   "kp": "rib_slope_limb",
+   "source": "K206+rib_slope_limb",
+   "group": "G20",
+   "decision": "angle limb of K206"
+  },
+  {
+   "view": "frontal",
+   "class": "posterior 12th rib right",
+   "kp": "rib_slope_limb",
+   "source": "K206+rib_slope_limb",
+   "group": "G20",
+   "decision": "angle limb of K206"
+  },
+  {
+   "view": "lateral",
+   "class": "heart",
+   "kp": "hoffman_rigler",
+   "source": "added",
+   "group": "",
+   "decision": "resident addition (comment on K120)"
+  }
+ ]
+}
