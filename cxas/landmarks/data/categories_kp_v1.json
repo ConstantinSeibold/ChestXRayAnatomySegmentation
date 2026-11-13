@@ -1,0 +1,2751 @@
+{
+ "source": "PAXRay++ kp_v1 category list (cxrlandmarks v1)",
+ "categories": [
+  {
+   "id": 0,
+   "name": "spine",
+   "supercategory": "spine",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 1,
+   "name": "cervical spine",
+   "supercategory": "cervical spine",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 2,
+   "name": "thoracic spine",
+   "supercategory": "thoracic spine",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 3,
+   "name": "lumbar spine",
+   "supercategory": "lumbar spine",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 4,
+   "name": "vertebrae C1",
+   "supercategory": "vertebrae C1",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 5,
+   "name": "vertebrae C2",
+   "supercategory": "vertebrae C2",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 6,
+   "name": "vertebrae C3",
+   "supercategory": "vertebrae C3",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 7,
+   "name": "vertebrae C4",
+   "supercategory": "vertebrae C4",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 8,
+   "name": "vertebrae C5",
+   "supercategory": "vertebrae C5",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 9,
+   "name": "vertebrae C6",
+   "supercategory": "vertebrae C6",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 10,
+   "name": "vertebrae C7",
+   "supercategory": "vertebrae C7",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 11,
+   "name": "vertebrae T1",
+   "supercategory": "vertebrae T1",
+   "keypoints": [
+    "superior_left",
+    "superior_right",
+    "inferior_left",
+    "inferior_right",
+    "antero_superior",
+    "antero_inferior",
+    "postero_superior",
+    "postero_inferior"
+   ],
+   "skeleton": [
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     3
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     6
+    ]
+   ],
+   "keypoint_groups": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "id": 12,
+   "name": "vertebrae T2",
+   "supercategory": "vertebrae T2",
+   "keypoints": [
+    "superior_left",
+    "superior_right",
+    "inferior_left",
+    "inferior_right",
+    "antero_superior",
+    "antero_inferior",
+    "postero_superior",
+    "postero_inferior"
+   ],
+   "skeleton": [
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     3
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     6
+    ]
+   ],
+   "keypoint_groups": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "id": 13,
+   "name": "vertebrae T3",
+   "supercategory": "vertebrae T3",
+   "keypoints": [
+    "superior_left",
+    "superior_right",
+    "inferior_left",
+    "inferior_right",
+    "antero_superior",
+    "antero_inferior",
+    "postero_superior",
+    "postero_inferior"
+   ],
+   "skeleton": [
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     3
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     6
+    ]
+   ],
+   "keypoint_groups": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "id": 14,
+   "name": "vertebrae T4",
+   "supercategory": "vertebrae T4",
+   "keypoints": [
+    "superior_left",
+    "superior_right",
+    "inferior_left",
+    "inferior_right",
+    "antero_superior",
+    "antero_inferior",
+    "postero_superior",
+    "postero_inferior"
+   ],
+   "skeleton": [
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     3
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     6
+    ]
+   ],
+   "keypoint_groups": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "id": 15,
+   "name": "vertebrae T5",
+   "supercategory": "vertebrae T5",
+   "keypoints": [
+    "superior_left",
+    "superior_right",
+    "inferior_left",
+    "inferior_right",
+    "antero_superior",
+    "antero_inferior",
+    "postero_superior",
+    "postero_inferior"
+   ],
+   "skeleton": [
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     3
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     6
+    ]
+   ],
+   "keypoint_groups": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "id": 16,
+   "name": "vertebrae T6",
+   "supercategory": "vertebrae T6",
+   "keypoints": [
+    "superior_left",
+    "superior_right",
+    "inferior_left",
+    "inferior_right",
+    "antero_superior",
+    "antero_inferior",
+    "postero_superior",
+    "postero_inferior"
+   ],
+   "skeleton": [
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     3
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     6
+    ]
+   ],
+   "keypoint_groups": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "id": 17,
+   "name": "vertebrae T7",
+   "supercategory": "vertebrae T7",
+   "keypoints": [
+    "superior_left",
+    "superior_right",
+    "inferior_left",
+    "inferior_right",
+    "antero_superior",
+    "antero_inferior",
+    "postero_superior",
+    "postero_inferior"
+   ],
+   "skeleton": [
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     3
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     6
+    ]
+   ],
+   "keypoint_groups": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "id": 18,
+   "name": "vertebrae T8",
+   "supercategory": "vertebrae T8",
+   "keypoints": [
+    "superior_left",
+    "superior_right",
+    "inferior_left",
+    "inferior_right",
+    "antero_superior",
+    "antero_inferior",
+    "postero_superior",
+    "postero_inferior"
+   ],
+   "skeleton": [
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     3
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     6
+    ]
+   ],
+   "keypoint_groups": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "id": 19,
+   "name": "vertebrae T9",
+   "supercategory": "vertebrae T9",
+   "keypoints": [
+    "superior_left",
+    "superior_right",
+    "inferior_left",
+    "inferior_right",
+    "antero_superior",
+    "antero_inferior",
+    "postero_superior",
+    "postero_inferior"
+   ],
+   "skeleton": [
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     3
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     6
+    ]
+   ],
+   "keypoint_groups": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "id": 20,
+   "name": "vertebrae T10",
+   "supercategory": "vertebrae T10",
+   "keypoints": [
+    "superior_left",
+    "superior_right",
+    "inferior_left",
+    "inferior_right",
+    "antero_superior",
+    "antero_inferior",
+    "postero_superior",
+    "postero_inferior"
+   ],
+   "skeleton": [
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     3
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     6
+    ]
+   ],
+   "keypoint_groups": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "id": 21,
+   "name": "vertebrae T11",
+   "supercategory": "vertebrae T11",
+   "keypoints": [
+    "superior_left",
+    "superior_right",
+    "inferior_left",
+    "inferior_right",
+    "antero_superior",
+    "antero_inferior",
+    "postero_superior",
+    "postero_inferior"
+   ],
+   "skeleton": [
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     3
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     6
+    ]
+   ],
+   "keypoint_groups": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "id": 22,
+   "name": "vertebrae T12",
+   "supercategory": "vertebrae T12",
+   "keypoints": [
+    "superior_left",
+    "superior_right",
+    "inferior_left",
+    "inferior_right",
+    "antero_superior",
+    "antero_inferior",
+    "postero_superior",
+    "postero_inferior"
+   ],
+   "skeleton": [
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     3
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     6
+    ]
+   ],
+   "keypoint_groups": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "id": 23,
+   "name": "vertebrae L1",
+   "supercategory": "vertebrae L1",
+   "keypoints": [
+    "superior_left",
+    "superior_right",
+    "inferior_left",
+    "inferior_right",
+    "antero_superior",
+    "antero_inferior",
+    "postero_superior",
+    "postero_inferior"
+   ],
+   "skeleton": [
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     3
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     6
+    ]
+   ],
+   "keypoint_groups": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "id": 24,
+   "name": "vertebrae L2",
+   "supercategory": "vertebrae L2",
+   "keypoints": [
+    "superior_left",
+    "superior_right",
+    "inferior_left",
+    "inferior_right",
+    "antero_superior",
+    "antero_inferior",
+    "postero_superior",
+    "postero_inferior"
+   ],
+   "skeleton": [
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     3
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     6,
+     5
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     6
+    ]
+   ],
+   "keypoint_groups": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "id": 25,
+   "name": "vertebrae L3",
+   "supercategory": "vertebrae L3",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 26,
+   "name": "vertebrae L4",
+   "supercategory": "vertebrae L4",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 27,
+   "name": "vertebrae L5",
+   "supercategory": "vertebrae L5",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 28,
+   "name": "rib_cartilage",
+   "supercategory": "rib_cartilage",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 29,
+   "name": "sternum",
+   "supercategory": "sternum",
+   "keypoints": [
+    "jugular_notch",
+    "sternal_angle",
+    "manubriosternal_limb_manubrium",
+    "manubriosternal_limb_body"
+   ],
+   "skeleton": [
+    [
+     1,
+     2
+    ]
+   ],
+   "keypoint_groups": [
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "id": 30,
+   "name": "clavicles",
+   "supercategory": "clavicles",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 31,
+   "name": "clavicle left",
+   "supercategory": "clavicle left",
+   "keypoints": [
+    "sternoclavicular_clavicular",
+    "acromioclavicular_clavicular"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "sternoclavicular_left",
+    "acromioclavicular_left"
+   ]
+  },
+  {
+   "id": 32,
+   "name": "clavicle right",
+   "supercategory": "clavicle right",
+   "keypoints": [
+    "sternoclavicular_clavicular",
+    "acromioclavicular_clavicular"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "sternoclavicular_right",
+    "acromioclavicular_right"
+   ]
+  },
+  {
+   "id": 33,
+   "name": "scapulas",
+   "supercategory": "scapulas",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 34,
+   "name": "scapula left",
+   "supercategory": "scapula left",
+   "keypoints": [
+    "inferior_angle"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 35,
+   "name": "scapula right",
+   "supercategory": "scapula right",
+   "keypoints": [
+    "inferior_angle"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 36,
+   "name": "posterior 12th rib right",
+   "supercategory": "posterior 12th rib right",
+   "keypoints": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "costovertebral_12_right",
+    ""
+   ]
+  },
+  {
+   "id": 37,
+   "name": "posterior 12th rib left",
+   "supercategory": "posterior 12th rib left",
+   "keypoints": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "costovertebral_12_left",
+    ""
+   ]
+  },
+  {
+   "id": 38,
+   "name": "anterior 11th rib right",
+   "supercategory": "anterior 11th rib right",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 39,
+   "name": "posterior 11th rib right",
+   "supercategory": "posterior 11th rib right",
+   "keypoints": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "costovertebral_11_right",
+    ""
+   ]
+  },
+  {
+   "id": 40,
+   "name": "anterior 11th rib left",
+   "supercategory": "anterior 11th rib left",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 41,
+   "name": "posterior 11th rib left",
+   "supercategory": "posterior 11th rib left",
+   "keypoints": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "costovertebral_11_left",
+    ""
+   ]
+  },
+  {
+   "id": 42,
+   "name": "anterior 10th rib right",
+   "supercategory": "anterior 10th rib right",
+   "keypoints": [
+    "anterior_end"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 43,
+   "name": "posterior 10th rib right",
+   "supercategory": "posterior 10th rib right",
+   "keypoints": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "costovertebral_10_right",
+    ""
+   ]
+  },
+  {
+   "id": 44,
+   "name": "anterior 10th rib left",
+   "supercategory": "anterior 10th rib left",
+   "keypoints": [
+    "anterior_end"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 45,
+   "name": "posterior 10th rib left",
+   "supercategory": "posterior 10th rib left",
+   "keypoints": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "costovertebral_10_left",
+    ""
+   ]
+  },
+  {
+   "id": 46,
+   "name": "anterior 9th rib right",
+   "supercategory": "anterior 9th rib right",
+   "keypoints": [
+    "anterior_end"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 47,
+   "name": "posterior 9th rib right",
+   "supercategory": "posterior 9th rib right",
+   "keypoints": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "costovertebral_9_right",
+    ""
+   ]
+  },
+  {
+   "id": 48,
+   "name": "anterior 9th rib left",
+   "supercategory": "anterior 9th rib left",
+   "keypoints": [
+    "anterior_end"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 49,
+   "name": "posterior 9th rib left",
+   "supercategory": "posterior 9th rib left",
+   "keypoints": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "costovertebral_9_left",
+    ""
+   ]
+  },
+  {
+   "id": 50,
+   "name": "anterior 8th rib right",
+   "supercategory": "anterior 8th rib right",
+   "keypoints": [
+    "anterior_end"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 51,
+   "name": "posterior 8th rib right",
+   "supercategory": "posterior 8th rib right",
+   "keypoints": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "costovertebral_8_right",
+    ""
+   ]
+  },
+  {
+   "id": 52,
+   "name": "anterior 8th rib left",
+   "supercategory": "anterior 8th rib left",
+   "keypoints": [
+    "anterior_end"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 53,
+   "name": "posterior 8th rib left",
+   "supercategory": "posterior 8th rib left",
+   "keypoints": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "costovertebral_8_left",
+    ""
+   ]
+  },
+  {
+   "id": 54,
+   "name": "anterior 7th rib right",
+   "supercategory": "anterior 7th rib right",
+   "keypoints": [
+    "anterior_end"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 55,
+   "name": "posterior 7th rib right",
+   "supercategory": "posterior 7th rib right",
+   "keypoints": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "costovertebral_7_right",
+    ""
+   ]
+  },
+  {
+   "id": 56,
+   "name": "anterior 7th rib left",
+   "supercategory": "anterior 7th rib left",
+   "keypoints": [
+    "anterior_end"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 57,
+   "name": "posterior 7th rib left",
+   "supercategory": "posterior 7th rib left",
+   "keypoints": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "costovertebral_7_left",
+    ""
+   ]
+  },
+  {
+   "id": 58,
+   "name": "anterior 6th rib right",
+   "supercategory": "anterior 6th rib right",
+   "keypoints": [
+    "anterior_end"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 59,
+   "name": "posterior 6th rib right",
+   "supercategory": "posterior 6th rib right",
+   "keypoints": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "costovertebral_6_right",
+    ""
+   ]
+  },
+  {
+   "id": 60,
+   "name": "anterior 6th rib left",
+   "supercategory": "anterior 6th rib left",
+   "keypoints": [
+    "anterior_end"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 61,
+   "name": "posterior 6th rib left",
+   "supercategory": "posterior 6th rib left",
+   "keypoints": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "costovertebral_6_left",
+    ""
+   ]
+  },
+  {
+   "id": 62,
+   "name": "anterior 5th rib right",
+   "supercategory": "anterior 5th rib right",
+   "keypoints": [
+    "anterior_end"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 63,
+   "name": "posterior 5th rib right",
+   "supercategory": "posterior 5th rib right",
+   "keypoints": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "costovertebral_5_right",
+    ""
+   ]
+  },
+  {
+   "id": 64,
+   "name": "anterior 5th rib left",
+   "supercategory": "anterior 5th rib left",
+   "keypoints": [
+    "anterior_end"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 65,
+   "name": "posterior 5th rib left",
+   "supercategory": "posterior 5th rib left",
+   "keypoints": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "costovertebral_5_left",
+    ""
+   ]
+  },
+  {
+   "id": 66,
+   "name": "anterior 4th rib right",
+   "supercategory": "anterior 4th rib right",
+   "keypoints": [
+    "anterior_end"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 67,
+   "name": "posterior 4th rib right",
+   "supercategory": "posterior 4th rib right",
+   "keypoints": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "costovertebral_4_right",
+    ""
+   ]
+  },
+  {
+   "id": 68,
+   "name": "anterior 4th rib left",
+   "supercategory": "anterior 4th rib left",
+   "keypoints": [
+    "anterior_end"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 69,
+   "name": "posterior 4th rib left",
+   "supercategory": "posterior 4th rib left",
+   "keypoints": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "costovertebral_4_left",
+    ""
+   ]
+  },
+  {
+   "id": 70,
+   "name": "anterior 3rd rib right",
+   "supercategory": "anterior 3rd rib right",
+   "keypoints": [
+    "anterior_end"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 71,
+   "name": "posterior 3rd rib right",
+   "supercategory": "posterior 3rd rib right",
+   "keypoints": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "costovertebral_3_right",
+    ""
+   ]
+  },
+  {
+   "id": 72,
+   "name": "anterior 3rd rib left",
+   "supercategory": "anterior 3rd rib left",
+   "keypoints": [
+    "anterior_end"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 73,
+   "name": "posterior 3rd rib left",
+   "supercategory": "posterior 3rd rib left",
+   "keypoints": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "costovertebral_3_left",
+    ""
+   ]
+  },
+  {
+   "id": 74,
+   "name": "anterior 2nd rib right",
+   "supercategory": "anterior 2nd rib right",
+   "keypoints": [
+    "anterior_end"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 75,
+   "name": "posterior 2nd rib right",
+   "supercategory": "posterior 2nd rib right",
+   "keypoints": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "costovertebral_2_right",
+    ""
+   ]
+  },
+  {
+   "id": 76,
+   "name": "anterior 2nd rib left",
+   "supercategory": "anterior 2nd rib left",
+   "keypoints": [
+    "anterior_end"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 77,
+   "name": "posterior 2nd rib left",
+   "supercategory": "posterior 2nd rib left",
+   "keypoints": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "costovertebral_2_left",
+    ""
+   ]
+  },
+  {
+   "id": 78,
+   "name": "anterior 1st rib right",
+   "supercategory": "anterior 1st rib right",
+   "keypoints": [
+    "anterior_end"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 79,
+   "name": "posterior 1st rib right",
+   "supercategory": "posterior 1st rib right",
+   "keypoints": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "costovertebral_1_right",
+    ""
+   ]
+  },
+  {
+   "id": 80,
+   "name": "anterior 1st rib left",
+   "supercategory": "anterior 1st rib left",
+   "keypoints": [
+    "anterior_end"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 81,
+   "name": "posterior 1st rib left",
+   "supercategory": "posterior 1st rib left",
+   "keypoints": [
+    "rib_head",
+    "rib_slope_limb"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "costovertebral_1_left",
+    ""
+   ]
+  },
+  {
+   "id": 82,
+   "name": "12th rib",
+   "supercategory": "12th rib",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 83,
+   "name": "posterior 11th rib",
+   "supercategory": "posterior 11th rib",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 84,
+   "name": "anterior 11th rib",
+   "supercategory": "anterior 11th rib",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 85,
+   "name": "posterior 10th rib",
+   "supercategory": "posterior 10th rib",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 86,
+   "name": "anterior 10th rib",
+   "supercategory": "anterior 10th rib",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 87,
+   "name": "posterior 9th rib",
+   "supercategory": "posterior 9th rib",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 88,
+   "name": "anterior 9th rib",
+   "supercategory": "anterior 9th rib",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 89,
+   "name": "posterior 8th rib",
+   "supercategory": "posterior 8th rib",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 90,
+   "name": "anterior 8th rib",
+   "supercategory": "anterior 8th rib",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 91,
+   "name": "posterior 7th rib",
+   "supercategory": "posterior 7th rib",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 92,
+   "name": "anterior 7th rib",
+   "supercategory": "anterior 7th rib",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 93,
+   "name": "posterior 6th rib",
+   "supercategory": "posterior 6th rib",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 94,
+   "name": "anterior 6th rib",
+   "supercategory": "anterior 6th rib",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 95,
+   "name": "posterior 5th rib",
+   "supercategory": "posterior 5th rib",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 96,
+   "name": "anterior 5th rib",
+   "supercategory": "anterior 5th rib",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 97,
+   "name": "posterior 4th rib",
+   "supercategory": "posterior 4th rib",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 98,
+   "name": "anterior 4th rib",
+   "supercategory": "anterior 4th rib",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 99,
+   "name": "posterior 3rd rib",
+   "supercategory": "posterior 3rd rib",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 100,
+   "name": "anterior 3rd rib",
+   "supercategory": "anterior 3rd rib",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 101,
+   "name": "posterior 2nd rib",
+   "supercategory": "posterior 2nd rib",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 102,
+   "name": "anterior 2nd rib",
+   "supercategory": "anterior 2nd rib",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 103,
+   "name": "posterior 1st rib",
+   "supercategory": "posterior 1st rib",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 104,
+   "name": "anterior 1st rib",
+   "supercategory": "anterior 1st rib",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 105,
+   "name": "diaphragm",
+   "supercategory": "diaphragm",
+   "keypoints": [
+    "dome",
+    "anterior_costophrenic",
+    "posterior_costophrenic",
+    "anterior_costophrenic_limb_wall",
+    "anterior_costophrenic_limb_diaphragm",
+    "posterior_costophrenic_limb_wall",
+    "posterior_costophrenic_limb_diaphragm",
+    "sternodiaphragmatic_vertex",
+    "sternodiaphragmatic_limb_sternum",
+    "sternodiaphragmatic_limb_diaphragm"
+   ],
+   "skeleton": [
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     1
+    ]
+   ],
+   "keypoint_groups": [
+    "",
+    "anterior_costophrenic",
+    "posterior_costophrenic",
+    "anterior_costophrenic",
+    "anterior_costophrenic",
+    "posterior_costophrenic",
+    "posterior_costophrenic",
+    "sternodiaphragmatic",
+    "sternodiaphragmatic",
+    "sternodiaphragmatic"
+   ]
+  },
+  {
+   "id": 106,
+   "name": "left hemidiaphragm",
+   "supercategory": "left hemidiaphragm",
+   "keypoints": [
+    "dome"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 107,
+   "name": "right hemidiaphragm",
+   "supercategory": "right hemidiaphragm",
+   "keypoints": [
+    "dome"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 108,
+   "name": "stomach",
+   "supercategory": "stomach",
+   "keypoints": [
+    "gastric_fundus_apex",
+    "center"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "",
+    ""
+   ]
+  },
+  {
+   "id": 109,
+   "name": "small bowel",
+   "supercategory": "small bowel",
+   "keypoints": [
+    "center"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 110,
+   "name": "duodenum",
+   "supercategory": "duodenum",
+   "keypoints": [
+    "center"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 111,
+   "name": "liver",
+   "supercategory": "liver",
+   "keypoints": [
+    "center"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 112,
+   "name": "pancreas",
+   "supercategory": "pancreas",
+   "keypoints": [
+    "center"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 113,
+   "name": "kidney left",
+   "supercategory": "kidney left",
+   "keypoints": [
+    "center"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 114,
+   "name": "kidney right",
+   "supercategory": "kidney right",
+   "keypoints": [
+    "center"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 115,
+   "name": "cardiomediastinum",
+   "supercategory": "cardiomediastinum",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 116,
+   "name": "upper mediastinum",
+   "supercategory": "upper mediastinum",
+   "keypoints": [
+    "mw_right"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 117,
+   "name": "lower mediastinum",
+   "supercategory": "lower mediastinum",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 118,
+   "name": "anterior mediastinum",
+   "supercategory": "anterior mediastinum",
+   "keypoints": [
+    "retrosternal_anterior"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "retrosternal"
+   ]
+  },
+  {
+   "id": 119,
+   "name": "middle mediastinum",
+   "supercategory": "middle mediastinum",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 120,
+   "name": "posterior mediastinum",
+   "supercategory": "posterior mediastinum",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 121,
+   "name": "heart",
+   "supercategory": "heart",
+   "keypoints": [
+    "right_cardiac_border",
+    "left_cardiac_border",
+    "apex",
+    "cardiophrenic_cardiac_left",
+    "cardiophrenic_cardiac_right",
+    "waist_cardiac",
+    "cardiophrenic_left_limb_heart",
+    "cardiophrenic_left_limb_diaphragm",
+    "cardiophrenic_right_limb_heart",
+    "cardiophrenic_right_limb_diaphragm",
+    "anterior_border",
+    "posterior_border",
+    "hoffman_rigler"
+   ],
+   "skeleton": [
+    [
+     1,
+     5
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     4,
+     2
+    ],
+    [
+     5,
+     3
+    ],
+    [
+     6,
+     1
+    ]
+   ],
+   "keypoint_groups": [
+    "",
+    "",
+    "",
+    "cardiophrenic_left",
+    "cardiophrenic_right",
+    "",
+    "cardiophrenic_left",
+    "cardiophrenic_left",
+    "cardiophrenic_right",
+    "cardiophrenic_right",
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "id": 122,
+   "name": "heart atrium left",
+   "supercategory": "heart atrium left",
+   "keypoints": [
+    "la_appendage",
+    "double_density"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "",
+    ""
+   ]
+  },
+  {
+   "id": 123,
+   "name": "heart atrium right",
+   "supercategory": "heart atrium right",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 124,
+   "name": "heart myocardium",
+   "supercategory": "heart myocardium",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 125,
+   "name": "heart ventricle left",
+   "supercategory": "heart ventricle left",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 126,
+   "name": "heart ventricle right",
+   "supercategory": "heart ventricle right",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 127,
+   "name": "aorta",
+   "supercategory": "aorta",
+   "keypoints": [
+    "cl_0",
+    "cl_1",
+    "cl_2",
+    "cl_3"
+   ],
+   "skeleton": [
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     3,
+     4
+    ]
+   ],
+   "keypoint_groups": [
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "id": 128,
+   "name": "ascending aorta",
+   "supercategory": "ascending aorta",
+   "keypoints": [
+    "cl_0",
+    "cl_1",
+    "cl_2",
+    "retrosternal_posterior"
+   ],
+   "skeleton": [
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "keypoint_groups": [
+    "",
+    "",
+    "",
+    "retrosternal"
+   ]
+  },
+  {
+   "id": 129,
+   "name": "descending aorta",
+   "supercategory": "descending aorta",
+   "keypoints": [
+    "cl_0",
+    "cl_1",
+    "cl_2",
+    "cl_3"
+   ],
+   "skeleton": [
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     3,
+     4
+    ]
+   ],
+   "keypoint_groups": [
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "id": 130,
+   "name": "aortic arch",
+   "supercategory": "aortic arch",
+   "keypoints": [
+    "knob",
+    "summit",
+    "ap_window_aortic"
+   ],
+   "skeleton": [
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     1
+    ]
+   ],
+   "keypoint_groups": [
+    "",
+    "",
+    "ap_window"
+   ]
+  },
+  {
+   "id": 131,
+   "name": "pulmonary artery",
+   "supercategory": "pulmonary artery",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 132,
+   "name": "pulmonary trunc",
+   "supercategory": "pulmonary trunc",
+   "keypoints": [
+    "pa_segment"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 133,
+   "name": "left pulmonary artery ",
+   "supercategory": "left pulmonary artery ",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 134,
+   "name": "right pulmonary artery ",
+   "supercategory": "right pulmonary artery ",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 135,
+   "name": "inferior vena cava",
+   "supercategory": "inferior vena cava",
+   "keypoints": [
+    "ivc_ra_caval"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "ivc_ra"
+   ]
+  },
+  {
+   "id": 136,
+   "name": "esophagus",
+   "supercategory": "esophagus",
+   "keypoints": [
+    "gej_esophageal"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "gej"
+   ]
+  },
+  {
+   "id": 137,
+   "name": "lung",
+   "supercategory": "lung",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 138,
+   "name": "right lung",
+   "supercategory": "right lung",
+   "keypoints": [
+    "lateral_margin",
+    "costophrenic_pulmonary",
+    "costophrenic_limb_wall",
+    "costophrenic_limb_diaphragm",
+    "hilum",
+    "ctr_thorax"
+   ],
+   "skeleton": [
+    [
+     1,
+     2
+    ]
+   ],
+   "keypoint_groups": [
+    "",
+    "costophrenic_right",
+    "costophrenic_right",
+    "costophrenic_right",
+    "",
+    "ctr_thorax"
+   ]
+  },
+  {
+   "id": 139,
+   "name": "left lung",
+   "supercategory": "left lung",
+   "keypoints": [
+    "lateral_margin",
+    "costophrenic_pulmonary",
+    "costophrenic_limb_wall",
+    "costophrenic_limb_diaphragm",
+    "hilum",
+    "ctr_thorax"
+   ],
+   "skeleton": [
+    [
+     1,
+     2
+    ]
+   ],
+   "keypoint_groups": [
+    "",
+    "costophrenic_left",
+    "costophrenic_left",
+    "costophrenic_left",
+    "",
+    "ctr_thorax"
+   ]
+  },
+  {
+   "id": 140,
+   "name": "lung base",
+   "supercategory": "lung base",
+   "keypoints": [
+    "center"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 141,
+   "name": "mid zone lung",
+   "supercategory": "mid zone lung",
+   "keypoints": [
+    "center"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 142,
+   "name": "upper zone lung",
+   "supercategory": "upper zone lung",
+   "keypoints": [
+    "center"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 143,
+   "name": "apical zone lung",
+   "supercategory": "apical zone lung",
+   "keypoints": [
+    "center",
+    "apex"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "",
+    ""
+   ]
+  },
+  {
+   "id": 144,
+   "name": "right upper zone lung",
+   "supercategory": "right upper zone lung",
+   "keypoints": [
+    "center"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 145,
+   "name": "right mid zone lung",
+   "supercategory": "right mid zone lung",
+   "keypoints": [
+    "center"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 146,
+   "name": "right lung base",
+   "supercategory": "right lung base",
+   "keypoints": [
+    "center"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 147,
+   "name": "right apical zone lung",
+   "supercategory": "right apical zone lung",
+   "keypoints": [
+    "center",
+    "apex"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "",
+    ""
+   ]
+  },
+  {
+   "id": 148,
+   "name": "left upper zone lung",
+   "supercategory": "left upper zone lung",
+   "keypoints": [
+    "center"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 149,
+   "name": "left mid zone lung",
+   "supercategory": "left mid zone lung",
+   "keypoints": [
+    "center"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 150,
+   "name": "left lung base",
+   "supercategory": "left lung base",
+   "keypoints": [
+    "center"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    ""
+   ]
+  },
+  {
+   "id": 151,
+   "name": "left apical zone lung",
+   "supercategory": "left apical zone lung",
+   "keypoints": [
+    "center",
+    "apex"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "",
+    ""
+   ]
+  },
+  {
+   "id": 152,
+   "name": "lung lower lobe left",
+   "supercategory": "lung lower lobe left",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 153,
+   "name": "lung upper lobe left",
+   "supercategory": "lung upper lobe left",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 154,
+   "name": "lung lower lobe right",
+   "supercategory": "lung lower lobe right",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 155,
+   "name": "lung middle lobe right",
+   "supercategory": "lung middle lobe right",
+   "keypoints": [
+    "minor_fissure"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "minor_fissure_right"
+   ]
+  },
+  {
+   "id": 156,
+   "name": "lung upper lobe right",
+   "supercategory": "lung upper lobe right",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 157,
+   "name": "less obstructed lung",
+   "supercategory": "less obstructed lung",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 158,
+   "name": "less obstructed right lung",
+   "supercategory": "less obstructed right lung",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 159,
+   "name": "less obstructed left lung",
+   "supercategory": "less obstructed left lung",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 160,
+   "name": "less obstructed lung base",
+   "supercategory": "less obstructed lung base",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 161,
+   "name": "less obstructed mid zone lung",
+   "supercategory": "less obstructed mid zone lung",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 162,
+   "name": "less obstructed upper zone lung",
+   "supercategory": "less obstructed upper zone lung",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 163,
+   "name": "less obstructed apical zone lung",
+   "supercategory": "less obstructed apical zone lung",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 164,
+   "name": "less obstructed right upper zone lung",
+   "supercategory": "less obstructed right upper zone lung",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 165,
+   "name": "less obstructed right mid zone lung",
+   "supercategory": "less obstructed right mid zone lung",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 166,
+   "name": "less obstructed right lung base",
+   "supercategory": "less obstructed right lung base",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 167,
+   "name": "less obstructed right apical zone lung",
+   "supercategory": "less obstructed right apical zone lung",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 168,
+   "name": "less obstructed left upper zone lung",
+   "supercategory": "less obstructed left upper zone lung",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 169,
+   "name": "less obstructed left mid zone lung",
+   "supercategory": "less obstructed left mid zone lung",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 170,
+   "name": "less obstructed left lung base",
+   "supercategory": "less obstructed left lung base",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 171,
+   "name": "less obstructed left apical zone lung",
+   "supercategory": "less obstructed left apical zone lung",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 172,
+   "name": "trachea",
+   "supercategory": "trachea",
+   "keypoints": [
+    "clavicular_level",
+    "right_tracheobronchial_angle",
+    "axis_upper",
+    "axis_lower"
+   ],
+   "skeleton": [],
+   "keypoint_groups": [
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  {
+   "id": 173,
+   "name": "tracheal bifurcation",
+   "supercategory": "tracheal bifurcation",
+   "keypoints": [
+    "carina",
+    "left_main_bronchus",
+    "right_main_bronchus",
+    "subcarinal_limb_left",
+    "subcarinal_limb_right"
+   ],
+   "skeleton": [
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     1
+    ]
+   ],
+   "keypoint_groups": [
+    "carina",
+    "",
+    "",
+    "carina",
+    "carina"
+   ]
+  },
+  {
+   "id": 174,
+   "name": "breast",
+   "supercategory": "breast",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 175,
+   "name": "breast left",
+   "supercategory": "breast left",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  },
+  {
+   "id": 176,
+   "name": "breast right",
+   "supercategory": "breast right",
+   "keypoints": [],
+   "skeleton": [],
+   "keypoint_groups": []
+  }
+ ]
+}
