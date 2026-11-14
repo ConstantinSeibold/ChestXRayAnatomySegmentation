@@ -292,9 +292,16 @@ docker run --rm -v /path/to/dicom:/data/in:ro -v /path/to/results:/data/out csei
 `cseibold/cxas:0.1.2-cpu` is smaller and CPU only. On a CPU, one radiograph takes about 6 to 15 seconds. Both run
 `cxas_idc`; to build them yourself, see [`docker/build.sh`](docker/build.sh).
 
-The older `cseibold/cxas:cli` and `cseibold/cxas:interactive` images (2024) only run on Apple-silicon Macs. To
-run the interactive Streamlit viewer on a standard machine, build it from the repository:
-`docker build -t cxas-interactive . && docker run -p 8501:8501 cxas-interactive`, then open `localhost:8501`.
+**Interactive viewer.** A small Streamlit app to upload an X-ray and browse the segmented structures. It is built on
+top of the CXAS image, so it needs no downloads either:
+
+```bash
+docker build -f docker/Dockerfile.streamlit -t cxas-interactive .
+docker run --rm -p 8501:8501 cxas-interactive          # then open http://localhost:8501
+```
+
+The older `cseibold/cxas:cli` and `cseibold/cxas:interactive` images (2024) only run on Apple-silicon Macs; use the
+images above instead.
 
 ## All command options
 
