@@ -98,8 +98,14 @@ def write_landmark_sr(
     algorithm_name: str = "CXAS landmarks",
     algorithm_version: str = "unknown",
     min_confidence: float = 0.0,
+    measurements: Optional[dict] = None,
+    units: Optional[dict] = None,
 ) -> Optional[str]:
-    """landmarks: [{class, landmark, x, y, confidence}] in source-image pixels -> TID 1500 SR at out_path."""
+    """landmarks: [{class, landmark, x, y, confidence}] in source-image pixels -> TID 1500 SR at out_path.
+
+    measurements / units: optional image-level measurements ({name: value}, {name: "deg"|"mm"|"ratio"|...}) from
+    cxas.landmarks.measurements; finite values with a physical or dimensionless unit go into one measurement group
+    (pixel-unit lengths are left out: a pixel is not a unit a reader can use)."""
     import highdicom as hd
     from highdicom.sr import (
         CodedConcept, Comprehensive3DSR, DeviceObserverIdentifyingAttributes, FindingSite, GraphicTypeValues,
@@ -136,6 +142,25 @@ def write_landmark_sr(
                                    meaning=str(lm["landmark"])[:64]),
             )],
         ))
+    if measurements:
+        from highdicom.sr import Measurement, MeasurementsAndQualitativeEvaluations
+        unit_code = {"mm": codes.UCUM.Millimeter, "deg": codes.UCUM.Degree, "ratio": codes.UCUM.NoUnits,
+                     "rib": codes.UCUM.NoUnits, "count": codes.UCUM.NoUnits}
+        items = []
+        for name, value in measurements.items():
+            u = (units or {}).get(name)
+            try:
+                v = float(value)
+            except (TypeError, ValueError):
+                continue
+            if u in unit_code and np.isfinite(v):
+                items.append(Measurement(
+                    name=CodedConcept(value=_slug(name), scheme_designator=PRIVATE_SCHEME, meaning=name[:64]),
+                    value=v, unit=unit_code[u]))
+        if items:
+            groups.append(MeasurementsAndQualitativeEvaluations(
+                tracking_identifier=TrackingIdentifier(uid=hd.UID(), identifier="Landmark-based measurements"),
+                measurements=items))
     if not groups:
         return None
     observer = ObserverContext(
