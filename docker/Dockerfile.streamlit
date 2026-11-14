@@ -1,0 +1,21 @@
+# CXAS interactive viewer (Streamlit): upload a chest X-ray, segment it, browse the structures.
+#
+# Built on the published CXAS image, so it has the same tested stack and all model weights (no download, no
+# local weights folder needed). Build from the repository root:
+#   docker build -f docker/Dockerfile.streamlit -t cxas-interactive .
+#   docker run --rm -p 8501:8501 cxas-interactive        # then open http://localhost:8501
+# Bump CXAS_IMAGE together with the package version.
+
+ARG CXAS_IMAGE=cseibold/cxas:0.1.2-cpu
+FROM ${CXAS_IMAGE}
+
+USER root
+RUN pip install --no-cache-dir "streamlit==1.40.1"
+COPY interactive_cxas_app.py /opt/cxas/app/interactive_cxas_app.py
+
+USER cxas
+WORKDIR /data
+EXPOSE 8501
+ENTRYPOINT []
+CMD ["streamlit", "run", "/opt/cxas/app/interactive_cxas_app.py", "--server.port=8501", "--server.address=0.0.0.0", \
+     "--server.headless=true", "--browser.gatherUsageStats=false"]
