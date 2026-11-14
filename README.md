@@ -251,19 +251,19 @@ This will launch a Streamlit app, accessible via *localhost:8501*, where you can
 ### For DICOM processing (segmentation + landmarks, DICOM SEG / SR output):
 
 ```bash
-docker run --rm --gpus all -v /path/to/dicom:/data/in:ro -v /path/to/out:/data/out cseibold/cxas:0.1.0-cu128 -i /data/in -o /data/out
-docker run --rm           -v /path/to/dicom:/data/in:ro -v /path/to/out:/data/out cseibold/cxas:0.1.0-cu128 -i /data/in -o /data/out
+docker run --rm --gpus all -v /path/to/dicom:/data/in:ro -v /path/to/out:/data/out cseibold/cxas:0.1.1-cu128 -i /data/in -o /data/out
+docker run --rm           -v /path/to/dicom:/data/in:ro -v /path/to/out:/data/out cseibold/cxas:0.1.1-cu128 -i /data/in -o /data/out
 ```
 
-Images: `cseibold/cxas:0.1.0-cu128` (also `latest`; GPUs from Turing to Blackwell, falls back to the CPU) and
-`cseibold/cxas:0.1.0-cpu`, both linux/amd64 with all weights baked in (no network needed at run time). Build them
+Images: `cseibold/cxas:0.1.1-cu128` (also `latest`; GPUs from Turing to Blackwell, falls back to the CPU) and
+`cseibold/cxas:0.1.1-cpu`, both linux/amd64 with all weights baked in (no network needed at run time). Build them
 yourself with `docker/build.sh`. Weights: https://huggingface.co/cmseibold/cxas-models and
 https://huggingface.co/cmseibold/cxr-landmarks (MIT).
 The `cu128` image uses the GPU (Turing to Blackwell) when the container gets one (`--gpus all`) and falls back to the CPU otherwise
 (`-g auto`, the default); the smaller `cpu` image is CPU-only. On CPU a radiograph takes about 6-15 s including
 the landmarks and the DICOM SEG.
 
-*The 2024 `cseibold/cxas:cli` and `:interactive` images are linux/arm64 only (they fail with `exec format error` on x86-64 hosts); use the 0.1.0 images.*
+*The 2024 `cseibold/cxas:cli` and `:interactive` images are linux/arm64 only (they fail with `exec format error` on x86-64 hosts); use the 0.1.x images.*
 
 
 
