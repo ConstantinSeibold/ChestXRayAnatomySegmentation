@@ -125,6 +125,11 @@ def _get(L, cls, kp):
     return L.get(cls, {}).get(kp)
 
 
+def _cross2(u, v) -> float:
+    """z-component of the cross product of two 2-D vectors (np.cross no longer accepts 2-D vectors in NumPy 2)."""
+    return float(u[0] * v[1] - u[1] * v[0])
+
+
 def _angle(v, a, b):
     u = np.subtract(a, v); w = np.subtract(b, v)
     nu, nw = np.linalg.norm(u), np.linalg.norm(w)
@@ -204,7 +209,7 @@ def measurements(L: dict, sx: float = 1.0, sy: float = 1.0) -> dict:
         if a and b and dm:
             ch = np.subtract(b, a); L_ = np.linalg.norm(ch)
             if L_ > 1e-6:
-                flats.append(abs(np.cross(ch, np.subtract(dm, a))) / L_ / L_)
+                flats.append(abs(_cross2(ch, np.subtract(dm, a))) / L_ / L_)
     m["dome_height"] = float(np.mean(flats)) if flats else np.nan
 
     # G04 hemidiaphragm asymmetry: (y of dome under left lung - under right lung) / thoracic width
@@ -274,7 +279,7 @@ def measurements_lat(L: dict, sx: float = 1.0, sy: float = 1.0) -> dict:
     # anterior-posterior sulcus chord, relative to the chord
     if ant and post and dome:
         ch = np.subtract(post, ant); L_ = np.linalg.norm(ch)
-        m["dome_height_lat"] = abs(np.cross(ch, np.subtract(dome, ant))) / L_ / L_ if L_ > 1e-6 else np.nan
+        m["dome_height_lat"] = abs(_cross2(ch, np.subtract(dome, ant))) / L_ / L_ if L_ > 1e-6 else np.nan
     else:
         m["dome_height_lat"] = np.nan
 

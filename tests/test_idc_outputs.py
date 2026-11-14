@@ -241,6 +241,17 @@ class TestLandmarkMeasurementsAndRegistration(unittest.TestCase):
         self.assertAlmostEqual(m["ctr"], 0.5)
         self.assertAlmostEqual(m["thorax_width_mm"], 160.0)
 
+    def test_dome_height_numpy2(self):
+        # np.cross rejects 2-D vectors in NumPy 2; these paths crashed every cxas_idc run with numpy >= 2.x
+        from cxas.landmarks.measurements import measure
+        lm = lambda c, k, x, y: {"class": c, "landmark": k, "x": x, "y": y, "confidence": 0.9}
+        frontal = [lm("right hemidiaphragm", "dome", 300, 700), lm("right lung", "costophrenic_pulmonary", 120, 760),
+                   lm("heart", "cardiophrenic_cardiac_right", 480, 760)]
+        self.assertAlmostEqual(measure(frontal, "frontal")["dome_height"], 60 / 360)
+        lateral = [lm("diaphragm", "anterior_costophrenic", 100, 700), lm("diaphragm", "posterior_costophrenic", 500, 700),
+                   lm("diaphragm", "dome", 300, 640)]
+        self.assertAlmostEqual(measure(lateral, "lateral")["dome_height_lat"], 60 / 400)
+
     def _ref(self, n=40, seed=0):
         rng = np.random.RandomState(seed)
         return {(f"c{i}", "p"): rng.uniform(80, 430, 2) for i in range(n)}

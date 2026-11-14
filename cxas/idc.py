@@ -120,8 +120,10 @@ def main(argv=None) -> int:
             if det is not None:
                 img = np.ascontiguousarray(np.asarray(pred["orig_data"]).transpose(1, 2, 0))
                 lms = det.predict(img, view=view)
-                for lm in lms:
-                    lm["in_sr"] = bool(lm["confidence"] >= a.landmark_min_confidence)
+                H, W = img.shape[:2]
+                for lm in lms:      # same rule as the SR writer: confident and inside the image
+                    lm["in_sr"] = bool(lm["confidence"] >= a.landmark_min_confidence
+                                       and 0 <= lm["x"] < W and 0 <= lm["y"] < H)
                 measures = measure(lms, view, spacing=spacing, min_confidence=a.landmark_min_confidence)
                 lms = landmarks_in_mm(lms, spacing)
                 sr_path = write_landmark_sr(f, lms, os.path.join(out_dir, "landmarks_sr.dcm"),
