@@ -74,8 +74,8 @@ The notebooks in [`demos/`](demos) walk through the most common tasks:
 |---|---|---|---|
 | [Anatomy segmentation](#anatomy-segmentation) | a mask for each of up to 187 structures | `cxas_segment` | `CXAS(...).process_file` |
 | [Named landmarks](#named-anatomical-landmarks) | 132 named anatomical points | `cxas_idc` | `LandmarkDetector` |
-| [Clinical measurements](#clinical-measurements) | cardiothoracic ratio, spine-centre distance, area, ... per structure | `cxas_feat_extract` | `CXAS(...).extract_features_for_file` |
-| [Registration](#registration) | images aligned to a common reference (via T4 and T10) | `cxas_register` | `Registrator` |
+| [Clinical measurements](#clinical-measurements) | cardiothoracic ratio, costophrenic angle, Cobb angle, areas, ... (in mm for DICOM) | `cxas_feat_extract`, `cxas_idc` | `extract_features_for_file`, `measure` |
+| [Registration](#registration) | images aligned to a common reference, frontal and lateral | `cxas_register` | `Registrator` |
 | [DICOM output](#dicom-in-dicom-out-imaging-data-commons-mhub) | DICOM SEG + Structured Report for viewers and the Imaging Data Commons | `cxas_idc` | |
 
 ## Anatomy segmentation
@@ -163,6 +163,10 @@ outlines. Training code and the full evaluation: [cxr-landmarks](https://github.
 
 ## Clinical measurements
 
+CXAS measures in two ways: from the outlines (segmentation) and from the landmarks.
+
+### From the outlines
+
 `cxas_feat_extract` (or `extract_features_for_file` in Python) computes measurements from the segmentation and
 saves them as a CSV table:
 
@@ -178,14 +182,65 @@ image that shows where the measurement was taken. The available features are des
 
 Measurements are taken on a 512 x 512 grid for both models, so their numbers are comparable between models.
 
+**In millimetres.** If the image is a DICOM file with a pixel size in its header, every length and area also comes
+in mm and mm² (columns ending in `_mm` / `_mm2`), next to the pixel values. CXAS uses `PixelSpacing` (calibrated
+to the patient) if present, otherwise `ImagerPixelSpacing` corrected for the X-ray magnification, otherwise
+`ImagerPixelSpacing` as is (measured at the detector, so anatomy appears roughly 5-15% larger); the column
+`spacing_source` says which. PNG and JPG images, and DICOMs without these tags, stay in pixels.
+
+### From the landmarks
+
+The landmarks give the measurements radiologists take on a chest X-ray, as defined in the clinical literature and
+evaluated in the landmark paper:
+
+| Frontal | Lateral |
+|---|---|
+| cardiothoracic ratio (`ctr`) | Hoffman-Rigler sign for an enlarged heart (`hoffman_rigler`) |
+| costophrenic angle, blunted by pleural fluid (`cp_angle_max`, degrees) | depth of the posterior costophrenic sulcus (`post_sulcus_depth`) |
+| rib level of the right hemidiaphragm, for inspiration (`rib_level`) | flattening of the diaphragm (`dome_height_lat`) |
+| flattening and height difference of the hemidiaphragms (`dome_height`, `dome_dy`) | retrosternal clear space (`retrosternal`) |
+| patient rotation (`rotation_index`) | height loss of the vertebral bodies (`hloss_max`) |
+| Cobb angle for scoliosis (`cobb_axis`, degrees) | thoracic kyphosis (`kyphosis_axis`, degrees) |
+| width of the aortic knob (`knob_width`) | chest depth and sternovertebral distance (`ap_depth`, `sv_dist`) |
+
+With a frontal and a lateral of the same patient, `haller_index(...)` gives the radiographic Haller index for
+pectus excavatum.
+
+```python
+from cxas.landmarks import LandmarkDetector
+from cxas.landmarks.measurements import measure, CRITERIA
+
+landmarks = LandmarkDetector(device="cuda:0").predict(image, view="frontal")
+m = measure(landmarks, view="frontal", spacing={"row_mm": 0.15, "col_mm": 0.15})   # spacing is optional
+m["ctr"], m["cp_angle_max"], m["thorax_width_mm"]
+CRITERIA["cardiomegaly"]   # which measurement, which direction is abnormal, threshold (CTR > 0.5), source
+```
+
+`cxas_idc` computes all of them for every radiograph, writes them into `result.json` and into the DICOM report as
+proper measurements with units. These are research measurements: their thresholds come from the literature and
+were tested against radiology reports, not validated for diagnosis.
+
 ## Registration
 
-`cxas_register` aligns chest X-rays to a common reference using two vertebrae (T4 and T10) found by the
-segmentation. It also fixes images that are inverted or rotated before aligning them.
+`cxas_register` aligns chest X-rays to a common reference, so the same anatomy ends up in the same place in every
+image. It also fixes images that are inverted or rotated before aligning them. There are two methods:
+
+- **T4/T10** (the default, as before): aligns two vertebrae found by the segmentation. Frontal X-rays only.
+- **Landmarks** (`--method landmarks`, new): aligns all named landmarks at once (around 190 on a frontal, 90 on a
+  lateral), weighted by their confidence and ignoring the few that are clearly misplaced. It works for lateral
+  X-rays too: laterals facing either way are turned to face the same way. When the DICOM does not say whether an
+  image is frontal or lateral, CXAS figures it out.
+
+On 600 MIMIC-CXR radiographs, the landmark method lined up anatomy that was not used for the fit about 20% more
+tightly than T4/T10 on frontals and registered every image (T4/T10 failed on 7 of 300); on laterals it reduced the
+spread of the anatomy by 60%. Its reference positions come from 529 public radiographs of the
+[Imaging Data Commons](https://portal.imaging.datacommons.cancer.gov/) (CC BY); see
+[`scripts/build_landmark_reference.py`](scripts/build_landmark_reference.py).
 
 ```bash
-cxas_register -i images/ -o registered/
-cxas_register --build-reference -i reference_images/ --reference-out my_reference.npz   # your own reference
+cxas_register -i images/ -o registered/                       # T4/T10
+cxas_register -i images/ -o registered/ --method landmarks    # all landmarks, frontal and lateral
+cxas_register --build-reference -i reference_images/ --reference-out my_reference.npz   # your own T4/T10 reference
 ```
 
 For each image you get the aligned image, the 2 x 3 transformation matrix and a JSON file with the details.
@@ -195,7 +250,7 @@ from cxas import CXAS
 from cxas.registration import Registrator
 from cxas.file_io import FileLoader
 
-registrator = Registrator(CXAS(model_name="UNet_ResNet50_default", gpus="0"))
+registrator = Registrator(CXAS(model_name="UNet_ResNet50_default", gpus="0"), method="landmarks")
 result = registrator.register_single(FileLoader("0").load_file("image.jpg"))
 result.registered_image, result.affine_matrix, result.metadata
 ```
@@ -206,8 +261,9 @@ result.registered_image, result.affine_matrix, result.metadata
 unique DICOM ID) with three files:
 
 - `seg.dcm`: a DICOM Segmentation with every structure, at the image's full resolution.
-- `landmarks_sr.dcm`: a DICOM Structured Report with the landmarks.
-- `result.json`: the same results as plain JSON.
+- `landmarks_sr.dcm`: a DICOM Structured Report with the landmarks and the [measurements](#from-the-landmarks).
+- `result.json`: the same results as plain JSON, with coordinates and lengths also in mm when the DICOM has a pixel
+  size.
 
 Both DICOM files point to the original image, so DICOM viewers and the Imaging Data Commons show them on top of it.
 
@@ -286,6 +342,8 @@ The same options as above, plus `--mode segment` or `--mode extract` (default `s
 | `--save-mask` | also save the aligned segmentation | off |
 | `--build-reference` | build a reference from the input images instead of registering | off |
 | `--reference-out` | where to save a built reference | `reference_features.npz` |
+| `--method` | `t4t10` or `landmarks` | `t4t10` |
+| `--view` | `frontal` or `lateral`, for `--method landmarks` | from the DICOM, else detected |
 | `-m`, `--model` | `UNet_ResNet50_default` or `M2F_anatomy_v2` | `UNet_ResNet50_default` |
 | `-g`, `--gpus` | GPU number, or `cpu` | `cpu` |
 </details>
@@ -313,7 +371,9 @@ The same options as above, plus `--mode segment` or `--mode extract` (default `s
 - **Docker images for standard servers** (x86-64), with or without GPU. The 2024 images only ran on Apple-silicon Macs.
 - **Model weights on Hugging Face** ([cxas-models](https://huggingface.co/cmseibold/cxas-models),
   [cxr-landmarks](https://huggingface.co/cmseibold/cxr-landmarks), MIT licence) instead of Google Drive.
-- **Fixes** (since 0.1.2): `cxas_feat_extract` and `cxas_register` accept the new models; drawing the CTR and the
+- **New in 0.1.2:** measurements in mm for DICOM files with a pixel size; the landmark-based clinical measurements
+  (also in the DICOM report); registration with all landmarks, for frontal and lateral X-rays.
+- **Fixed in 0.1.2:** `cxas_feat_extract` and `cxas_register` accept the new models; drawing the CTR and the
   spine-centre distance, and registration on a GPU, work again.
 
 Nothing was removed; the UNet remains the default. CXAS 0.1 needs Python 3.10 or newer.
