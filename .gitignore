@@ -6,3 +6,4 @@ __pycache__
 docs/build
 .venv-dev/
 .weights_stage.*/
+dist/
