@@ -113,9 +113,20 @@ class Registrator:
     ) -> torch.Tensor:
         """Extract pooled features from backbone."""
         with torch.no_grad():
-            backbone = self.model.model.backbone
+            backbone = getattr(self.model.model, "backbone", None)
+            if backbone is None:
+                # The orientation/colour reference (reference_features.npz) holds UNet features, so the check runs on
+                # the UNet backbone whichever model segments; loaded once, only when the segmentor is not the UNet.
+                backbone = self._unet_backbone(data.device)
             backbone_dict = backbone(data)
             return backbone_dict["feats_pooled"]
+
+    def _unet_backbone(self, device):
+        if getattr(self, "_unet_bb", None) is None:
+            from ..models import get_model
+            gpus = "cpu" if device.type == "cpu" else str(device.index or 0)
+            self._unet_bb = get_model("UNet_ResNet50_default", gpus).backbone.eval()
+        return self._unet_bb
 
     def _correct_orientation(
         self,
@@ -182,7 +193,8 @@ class Registrator:
         if isinstance(filename, list):
             filename = filename[0]
 
-        data = file_dict["data"]
+        # the folder loader keeps images on the CPU; run on the model's device
+        data = file_dict["data"].to(self._get_device())
         orig_data = file_dict["orig_data"]
         if isinstance(orig_data, list):
             orig_data = orig_data[0]
@@ -207,12 +219,15 @@ class Registrator:
             with torch.no_grad():
                 predictions = self.model.model({
                     "data": data_corrected,
+                    # the query-based models predict from the original image
+                    "orig_data": [np.ascontiguousarray(np.transpose(orig_corrected, (2, 0, 1)))],
                     "filename": [filename],
                     "file_size": [file_size]
                 })
 
-            # Get segmentation at 512x512 (model output size)
-            segmentation = predictions["segmentation_preds"][0].cpu().numpy()
+            # Segmentation on the 512x512 grid of the model input (M2F_anatomy_v2 predicts at native resolution)
+            from ..segmentor import to_feature_grid
+            segmentation = to_feature_grid(predictions["segmentation_preds"][0], data_corrected[0])
 
             # Step 3: Landmark extraction
             landmarks = self.landmark_extractor.extract(segmentation)

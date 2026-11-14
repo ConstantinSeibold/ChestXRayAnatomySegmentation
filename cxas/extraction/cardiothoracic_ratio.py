@@ -1,7 +1,7 @@
 import numpy as np
 from PIL import Image
 from cxas.label_mapper import label_mapper
-from cxas.extraction.draw_helpers import draw_point, draw_line
+from cxas.extraction.draw_helpers import as_pil, draw_point, draw_line
 
 
 def get_cardiothoracic_ratio(npy, img=None, draw=False):
@@ -88,7 +88,7 @@ def get_cardiothoracic_ratio(npy, img=None, draw=False):
         if img is None:
             img = Image.new("RGB", (npy.shape[1], npy.shape[2]), "black")
         else:
-            pass
+            img = as_pil(img)
 
         width = 8
 

@@ -12,6 +12,18 @@ from .extraction import Extractor
 from .helper import set_gpus, get_available_devices, find_max_overlap
 
 
+def to_feature_grid(mask: torch.Tensor, data: torch.Tensor) -> np.ndarray:
+    """Masks on the 512 x 512 grid of the model input, where features (and their units) are defined.
+
+    The UNet already predicts on that grid; M2F_anatomy_v2 predicts at the image's own resolution, so its masks are
+    resized (nearest) for feature extraction. Areas, perimeters and coordinates then mean the same with either model.
+    """
+    mask = mask.cpu().bool()
+    if tuple(mask.shape[-2:]) != tuple(data.shape[-2:]):
+        mask = F.interpolate(mask[None].float(), size=tuple(data.shape[-2:]), mode="nearest")[0].bool()
+    return mask.numpy()
+
+
 class CXAS(nn.Module):
     def __init__(self, model_name: str = "UNet_ResNet50_default", gpus: str = ""):
         """
@@ -244,7 +256,7 @@ class CXAS(nn.Module):
         )
 
         feat_dict = self.extractor.extract(
-            file=predictions["segmentation_preds"][0].cpu().bool().numpy(),
+            file=to_feature_grid(predictions["segmentation_preds"][0], predictions["data"][0]),
             image=predictions['data'][0].mean(0,keepdim=True).cpu().numpy(),
             method=feat_to_extract,
             draw=draw,
@@ -348,7 +360,7 @@ class CXAS(nn.Module):
 
             for i in range(len(predictions["segmentation_preds"])):
                 extractions = self.extractor.extract(
-                    file=predictions["segmentation_preds"][i].cpu().bool().numpy(),
+                    file=to_feature_grid(predictions["segmentation_preds"][i], predictions["data"][i]),
                     image=predictions['data'][i].mean(0,keepdim=True).cpu().numpy(),
                     method=feat_to_extract,
                     draw=False,
