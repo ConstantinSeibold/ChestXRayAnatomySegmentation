@@ -7,3 +7,5 @@ docs/build
 .venv-dev/
 .weights_stage.*/
 dist/
+demos/example_data/
+demos/out/

@@ -65,8 +65,10 @@ landmarks = LandmarkDetector(device="cuda:0").predict(image, view="frontal")
 
 The notebooks in [`demos/`](demos) walk through the most common tasks:
 [basic usage](demos/BasicUsage.ipynb), [folders of images](demos/ProcessDirectory.ipynb),
-[feature extraction](demos/ExtractFeatures.ipynb), [visualising results](demos/VisualizingResults.ipynb) and
-[registration](demos/Registration.ipynb).
+[measurements from the segmentation](demos/ExtractFeatures.ipynb), [visualising results](demos/VisualizingResults.ipynb),
+[registration](demos/Registration.ipynb), [landmarks and measurements](demos/Landmarks.ipynb) and
+[DICOM in, DICOM out on the Imaging Data Commons](demos/IDC_DicomInDicomOut.ipynb). They download their example
+images (CC BY) from the Imaging Data Commons on first run, so they need `pip install idc-index`.
 
 ## What CXAS gives you
 
