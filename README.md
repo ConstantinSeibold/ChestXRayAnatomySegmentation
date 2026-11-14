@@ -287,11 +287,11 @@ Ready-made images with all models inside, so no downloads are needed when they r
 docker run --rm --gpus all -v /path/to/dicom:/data/in:ro -v /path/to/results:/data/out cseibold/cxas:latest -i /data/in -o /data/out
 
 # CPU only (smaller image)
-docker run --rm -v /path/to/dicom:/data/in:ro -v /path/to/results:/data/out cseibold/cxas:0.1.2-cpu -i /data/in -o /data/out
+docker run --rm -v /path/to/dicom:/data/in:ro -v /path/to/results:/data/out cseibold/cxas:0.1.3-cpu -i /data/in -o /data/out
 ```
 
-`cseibold/cxas:latest` (= `0.1.2-cu128`) uses an NVIDIA GPU when there is one and the CPU otherwise.
-`cseibold/cxas:0.1.2-cpu` is smaller and CPU only. On a CPU, one radiograph takes about 6 to 15 seconds. Both run
+`cseibold/cxas:latest` (= `0.1.3-cu128`) uses an NVIDIA GPU when there is one and the CPU otherwise.
+`cseibold/cxas:0.1.3-cpu` is smaller and CPU only. On a CPU, one radiograph takes about 6 to 15 seconds. Both run
 `cxas_idc`; to build them yourself, see [`docker/build.sh`](docker/build.sh).
 
 **Interactive viewer.** A small Streamlit app to upload an X-ray and browse the segmented structures. It is built on
@@ -384,6 +384,8 @@ The same options as above, plus `--mode segment` or `--mode extract` (default `s
   (also in the DICOM report); registration with all landmarks, for frontal and lateral X-rays.
 - **Fixed in 0.1.2:** `cxas_feat_extract` and `cxas_register` accept the new models; drawing the CTR and the
   spine-centre distance, and registration on a GPU, work again.
+- **Fixed in 0.1.3:** the landmark measurements, and with them `cxas_idc`, failed with NumPy 2 (pip installs; the
+  Docker images were not affected); runnable demo notebooks for all of the above in [`demos/`](demos).
 
 Nothing was removed; the UNet remains the default. CXAS 0.1 needs Python 3.10 or newer.
 
