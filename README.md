@@ -13,8 +13,9 @@
 
 
 
-This repository provides a way to generate fine-grained segmentations and extract understandable features of Chest X-Rays. 
-Models were trained using Multi-Label Segmentation on the [PAX-Ray++ dataset](https://zenodo.org/records/16920313).
+This repository provides fine-grained anatomy segmentation, **named anatomical landmarks** and understandable
+features of chest X-rays, frontal and lateral, with DICOM SEG and Structured Report output. Models were trained on
+the [PAX-Ray++ dataset](https://zenodo.org/records/16920313).
 
 We provide a demo with gradio on huggingface.co for Chest X-Ray [**anatomy segmentation**](https://huggingface.co/spaces/cmseibold/cxas-demo).
 
@@ -191,46 +192,128 @@ affine_matrix = result.affine_matrix        # 2x3 transformation matrix
 metadata = result.metadata                   # dict with transformation details
 ```
 
-## New in 0.1: Mask2Former anatomy models, named landmarks, DICOM SEG/SR output
+## New in 0.1
 
-**Model `M2F_anatomy_v2`.** A Mask2Former anatomy segmentor on a DINOv3 ViT-S/16 encoder, one model per view:
-the frontal model knows 187 structures (the 159 CXAS classes plus sub-diaphragmatic regions, humeri, head and
-further lung subdivisions), the lateral model the 177 PAXRay++ structures. It predicts at the training resolution
-(shortest edge 512) and upsamples each structure's logits once, to the image's native resolution. The 159 CXAS
-classes fill the usual `segmentation_preds`, so feature extraction and registration work unchanged; the additional
-structures are returned in `extra_segmentation`. The view comes from the DICOM `ViewPosition`; when it is missing,
-CXAS decides it from the frontal model's lungs (99.5% correct on 400 MIMIC-CXR images).
+- **Mask2Former anatomy models** (`M2F_anatomy_v2`): one model per view, masks at native resolution, more robust on real radiographs than the UNet.
+- **Named anatomical landmarks**: 132 clinically curated landmark definitions, predicted on frontal and lateral radiographs.
+- **DICOM in, DICOM out** (`cxas_idc`): a DICOM SEG and a landmark Structured Report per radiograph, for Imaging Data Commons / MHub workflows.
+- **Docker images** for x86-64 with all weights inside, GPU or CPU.
+
+The original UNet stays available and remains the default of `CXAS()`.
+
+## Anatomy segmentation models
+
+| Model | Views | Structures | Encoder | Output resolution |
+|---|---|---|---|---|
+| `UNet_ResNet50_default` | frontal | 159 | ResNet-50 | 512 x 512, resized to the image |
+| `M2F_anatomy_v2` | frontal | 187 | DINOv3 ViT-S/16 | native |
+| `M2F_anatomy_v2` | lateral | 177 | RAD-DINO ViT-B/14 | native |
+
+`M2F_anatomy_v2` predicts at the training resolution (shortest edge 512) and upsamples each structure's logits once,
+to the image's native resolution. The 159 CXAS classes fill the usual `segmentation_preds`, so feature extraction
+and registration work unchanged; the frontal model's further structures (regions below the hemidiaphragms, image
+quadrants, humeri, head, lung subdivisions) are returned in `extra_segmentation`. The view comes from the DICOM
+`ViewPosition`; when it is missing, CXAS decides it from the frontal model's lungs (99.5% correct on 400
+MIMIC-CXR images).
 
 ```python
 from cxas import CXAS
-model = CXAS(model_name="M2F_anatomy_v2", gpus="0")
+model = CXAS(model_name="M2F_anatomy_v2", gpus="0")   # or gpus="cpu"
 pred = model.process_file("image.dcm")
 pred["view"], pred["extra_segmentation"][0].keys()
 ```
 
-**Named landmarks.** 132 clinically curated landmark definitions (311 view-specific structure–landmark pairs)
-from *Semantic landmark detection in chest radiographs* (Seibold, Havemann, Vinu, Fink; under review), predicted
-by its joint dense RAD-DINO model. The inference code ships with CXAS (from
-[cxr-landmarks](https://github.com/ConstantinSeibold/cxr-landmarks), which holds the training, label rules and
-evaluation); the landmark definitions and literature are in `cxas/landmarks/data/`:
+## Named anatomical landmarks
+
+<img src="./readme_images/landmarks.png" alt="Predicted named landmarks on a frontal and a lateral chest radiograph" style="width:900px;"/>
+
+<sub>Predicted landmarks, coloured by anatomical region, over the predicted mask outlines. Frontal: an unseen NIH
+ChestX-ray14 radiograph (NIH Clinical Center). Lateral: a PAXRay++ test image (CT projection).</sub>
+
+Quantitative readouts such as the cardiothoracic ratio, the costophrenic angles or device-tip positions are
+defined by anatomical landmarks. CXAS predicts **132 named landmarks** (the carina, the left hemidiaphragm dome,
+the cavoatrial junction, vertebral corners, ...), not points indexed along a contour. They come from
+*Semantic landmark detection in chest radiographs* (Seibold, Havemann, Vinu, Fink; under review):
+
+- **Curated definitions.** 317 candidate landmarks from the clinical literature (53 sources, 27 clinical groups)
+  were rated by two reviewers with a medical background; a board-certified radiologist decided the final set of
+  132 definitions, or 311 view-specific structure–landmark pairs (203 frontal, 108 lateral).
+- **Geometric rules.** Each landmark is a rule on one or two anatomy masks: an extreme point in a direction, a
+  contact point between structures, a point on a centerline, or a centroid. Applied to the CT-projected masks of
+  PAXRay++, the rules give the training labels.
+- **One model, both views.** A RAD-DINO ViT-B/14 encoder with a landmark-heatmap decoder and a mask decoder,
+  trained jointly.
+
+<details>
+<summary>The 25 clinical groups (number of definitions)</summary>
+
+Cardiothoracic ratio (4) · Costophrenic angles / sulci (15) · Cardiophrenic angles (6) · Diaphragm contour &
+height (2) · Lung apex & lateral lung margin (4) · Hila (2) · Mediastinal lines & stripes (1) · Mediastinal borders &
+width (3) · Aortic knob & arch (3) · Aortopulmonary window (1) · Pulmonary trunk & arteries (1) · Carina & main
+bronchi (5) · Tracheal course (3) · Device-tip reference: cavoatrial junction (2) · Oesophagus, GE junction & gastric
+bubble (4) · Cardiac chambers & contour (8) · Sternum (5) · Clavicles & SC/AC joints (2) · Vertebrae & spinal
+alignment (16) · Ribs & rib cartilage (3) · Lung zones (region anchors) (8) · Lobes & interlobar fissures
+(1) · Scapulae (positioning) (1) · Vessel centerlines (shape descriptors) (21) · Other organ centroids (11)
+
+Definitions, rules, review outcome and literature per landmark: [`cxas/landmarks/data/landmarks.csv`](cxas/landmarks/data/landmarks.csv);
+groups: [`groups.csv`](cxas/landmarks/data/groups.csv); sources: [`references.csv`](cxas/landmarks/data/references.csv).
+</details>
+
+**Python.** The view must be given (`"frontal"` or `"lateral"`); coordinates are in the input image's pixels.
 
 ```python
 from cxas.landmarks import LandmarkDetector
-lms = LandmarkDetector(device="cuda:0").predict(image_rgb_uint8, view="frontal")
-# [{"class": "trachea", "landmark": "carina", "x": ..., "y": ..., "confidence": ...}, ...]
+det = LandmarkDetector(device="cuda:0")                  # or device="cpu"
+lms = det.predict(image_rgb_uint8, view="frontal")
+# [{"class": "trachea", "landmark": "carina", "x": 812.4, "y": 690.1, "confidence": 0.93}, ...]
+lms = det.predict(image_rgb_uint8, view="frontal", min_confidence=0.1)   # drop low-confidence points
 ```
 
-**DICOM in, DICOM out (Imaging Data Commons / MHub).** `cxas_idc` takes DICOM files or folders and writes, per
-radiograph, one multi-segment DICOM SEG (native resolution, lossless JPEG 2000) and one TID 1500 Structured
-Report with a POINT per landmark, both referencing the source image:
+`det.predict_with_masks(...)` also returns the model's own mask per structure (COCO RLE).
+
+**Command line.** `cxas_idc` predicts the landmarks along with the segmentation and writes them twice:
+`landmarks_sr.dcm`, a DICOM Structured Report (TID 1500) with one POINT per landmark referencing the source image,
+and `result.json`, with every landmark's class, name, pixel coordinates, confidence and an `in_sr` flag.
+
+```bash
+cxas_idc -i /data/dicom -o /data/out                      # view from DICOM, else detected
+cxas_idc -i image.dcm -o out --landmark-min-confidence 0.2
+cxas_idc -i image.dcm -o out --no-landmarks
+```
+
+**Confidence.** A landmark's confidence is its heatmap peak. When a structure is not visible the heatmap has no
+real peak and the position is arbitrary, so landmarks below 0.1 are left out of the Structured Report by default
+(about 4% on typical radiographs); `result.json` keeps all of them.
+
+**Accuracy** (from the paper; OKS-AP with per-landmark tolerances):
+
+| Test set | OKS-AP | PCK@0.1 |
+|---|---|---|
+| PAXRay++ test (CT-projected, silver labels) | 36.8 | 80.6 |
+| 50 MIMIC-CXR radiographs, two readers (gold standard) | 51.1 | 76.7 |
+| Reader vs. reader on the same 50 radiographs | 50.6 | 78.3 |
+
+On the real-radiograph gold standard the model's error is close to the disagreement between two readers.
+Diagnostic criteria measured on the landmarks (cardiothoracic ratio, costophrenic-angle blunting, Cobb angle,
+Hoffman–Rigler sign, ...) separate report-derived labels on MIMIC-CXR better than the same criteria on the UNet's
+masks. Training, the label rules and the evaluation are in
+[cxr-landmarks](https://github.com/ConstantinSeibold/cxr-landmarks); CXAS contains the inference code.
+
+## DICOM in, DICOM out (Imaging Data Commons / MHub)
+
+`cxas_idc` takes DICOM files or folders and writes, per radiograph, one multi-segment DICOM SEG (native resolution,
+lossless JPEG 2000) and the landmark Structured Report, both referencing the source image:
 
 ```bash
 cxas_idc -i /data/dicom -o /data/out            # <out>/<SOPInstanceUID>/{seg.dcm, landmarks_sr.dcm, result.json}
 cxas_idc -i image.dcm -o out --no-landmarks --view frontal --cxas-classes-only
 ```
 
-The model code ships with CXAS (`cxas/models/m2f`, plain PyTorch + transformers; trained with qseg), so
-`pip install cxas` is enough. The Docker image below additionally bakes in all weights.
+It uses the GPU when one is available (`-g auto`). All model code ships with CXAS (`cxas/models/m2f`,
+`cxas/landmarks`; plain PyTorch + transformers), so `pip install cxas` is enough; weights download on first use
+from [cmseibold/cxas-models](https://huggingface.co/cmseibold/cxas-models) and
+[cmseibold/cxr-landmarks](https://huggingface.co/cmseibold/cxr-landmarks) (MIT). The Docker images below
+additionally bake in all weights.
 
 ## Docker Usage
 
@@ -304,4 +387,10 @@ url       = {https://bmvc2022.mpi-inf.mpg.de/0058.pdf}
 }
 
 
+@misc{seibold2026landmarks,
+  title  = {Semantic landmark detection in chest radiographs},
+  author = {Seibold, Constantin and Havemann, Nils and Vinu, David and Fink, Matthias A.},
+  note   = {Under review},
+  year   = {2026}
+}
 ```
