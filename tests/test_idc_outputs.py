@@ -195,3 +195,76 @@ class TestWeightChecksums(unittest.TestCase):
         open(p, "wb").write(b"tampered")
         with self.assertRaises(RuntimeError):
             verify_sha256(d, os.path.join(d, "SHA256SUMS"), "M2F/")
+
+
+class TestUnits(unittest.TestCase):
+    def test_spacing_precedence(self):
+        from pydicom.dataset import Dataset
+        from cxas.units import physical_spacing
+
+        ds = Dataset(); ds.ImagerPixelSpacing = [0.2, 0.2]; ds.PixelSpacing = [0.18, 0.17]
+        self.assertEqual(physical_spacing(ds)["source"], "PixelSpacing")
+        self.assertEqual((physical_spacing(ds)["row_mm"], physical_spacing(ds)["col_mm"]), (0.18, 0.17))
+        ds = Dataset(); ds.ImagerPixelSpacing = [0.2, 0.2]; ds.EstimatedRadiographicMagnificationFactor = 1.25
+        self.assertAlmostEqual(physical_spacing(ds)["row_mm"], 0.16)
+        ds = Dataset(); ds.ImagerPixelSpacing = [0.2, 0.2]; ds.DistanceSourceToDetector = 1800; ds.DistanceSourceToPatient = 1500
+        self.assertAlmostEqual(physical_spacing(ds)["col_mm"], 0.2 / 1.2)
+        ds = Dataset(); ds.ImagerPixelSpacing = [0.2, 0.2]
+        self.assertIn("detector", physical_spacing(ds)["source"])
+        self.assertIsNone(physical_spacing(Dataset()))
+
+    def test_area_and_perimeter_on_a_stretched_grid(self):
+        import cv2
+        from cxas.units import features_in_mm
+        # a disc of radius 100 mm on a 2000 (rows) x 1000 (cols) image with 0.2 mm pixels, resized to 512 x 512
+        rows, cols, mm = 2000, 1000, 0.2
+        yy, xx = np.mgrid[:rows, :cols]
+        disc = ((yy - 1000) * mm) ** 2 + ((xx - 500) * mm) ** 2 <= 100 ** 2
+        grid = cv2.resize(disc.astype(np.uint8), (512, 512), interpolation=cv2.INTER_NEAREST).astype(bool)
+        mask = np.zeros((159, 512, 512), bool); mask[0] = grid
+        spacing = {"row_mm": mm, "col_mm": mm, "source": "test"}
+        area = features_in_mm("area", {"spine_area": float(grid.sum())}, mask, spacing, (rows, cols))
+        self.assertAlmostEqual(area["spine_area_mm2"] / (np.pi * 100 ** 2), 1.0, delta=0.02)
+        per = features_in_mm("perimeter", {}, mask, spacing, (rows, cols))
+        self.assertAlmostEqual(per["spine_perimeter_mm"] / (2 * np.pi * 100), 1.0, delta=0.02)
+        self.assertEqual(features_in_mm("area", {}, mask, None, (rows, cols)), {})
+
+
+class TestLandmarkMeasurementsAndRegistration(unittest.TestCase):
+    def test_ctr(self):
+        from cxas.landmarks.measurements import measure
+        lms = [{"class": "left lung", "landmark": "ctr_thorax", "x": 900, "y": 500, "confidence": 0.9},
+               {"class": "right lung", "landmark": "ctr_thorax", "x": 100, "y": 500, "confidence": 0.9},
+               {"class": "heart", "landmark": "left_cardiac_border", "x": 700, "y": 600, "confidence": 0.9},
+               {"class": "heart", "landmark": "right_cardiac_border", "x": 300, "y": 600, "confidence": 0.9}]
+        m = measure(lms, "frontal", spacing={"row_mm": 0.2, "col_mm": 0.2})
+        self.assertAlmostEqual(m["ctr"], 0.5)
+        self.assertAlmostEqual(m["thorax_width_mm"], 160.0)
+
+    def _ref(self, n=40, seed=0):
+        rng = np.random.RandomState(seed)
+        return {(f"c{i}", "p"): rng.uniform(80, 430, 2) for i in range(n)}
+
+    def test_recovers_a_similarity_and_ignores_an_outlier(self):
+        from cxas.registration.landmark_fit import fit_landmarks
+        ref = self._ref()
+        a, s, t = np.deg2rad(7), 1.15, np.array([20.0, -35.0])
+        R = s * np.array([[np.cos(a), -np.sin(a)], [np.sin(a), np.cos(a)]])
+        # image points that the true transform maps onto the reference: p = R^-1 (ref - t)
+        lms = [{"class": c, "landmark": n, "x": q[0], "y": q[1], "confidence": 0.9}
+               for (c, n), r in ref.items() for q in [np.linalg.solve(R, r - t)]]
+        lms[0]["x"] += 300                                           # one grossly misplaced landmark
+        M, info = fit_landmarks(lms, ref, (512, 512))
+        self.assertTrue(np.allclose(M[:, :2], R, atol=1e-3) and np.allclose(M[:, 2], t, atol=0.5))
+        self.assertEqual(info["n_inliers"], len(ref) - 1)
+
+    def test_mirrored_lateral(self):
+        from cxas.registration.landmark_fit import fit_landmarks
+        ref = self._ref(seed=1)
+        lms = [{"class": c, "landmark": n, "x": 511.0 - r[0], "y": r[1], "confidence": 0.9} for (c, n), r in ref.items()]
+        M, info = fit_landmarks(lms, ref, (512, 512), allow_mirror=True)
+        self.assertTrue(info["mirrored"])
+        p = np.array([[l["x"], l["y"]] for l in lms])
+        self.assertLess(np.abs(p @ M[:, :2].T + M[:, 2] - np.array(list(ref.values()))).max(), 1e-6)
+        M2, info2 = fit_landmarks(lms, ref, (512, 512), allow_mirror=False)
+        self.assertGreater(info2["rms_residual_px"], 10 * info["rms_residual_px"] + 1)
