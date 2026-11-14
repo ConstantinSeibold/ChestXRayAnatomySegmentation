@@ -10,6 +10,7 @@ from .file_io import FileLoader, FileSaver, get_folder_loader
 from .models import get_model
 from .extraction import Extractor
 from .helper import set_gpus, get_available_devices, find_max_overlap
+from .units import features_in_mm
 
 
 def to_feature_grid(mask: torch.Tensor, data: torch.Tensor) -> np.ndarray:
@@ -255,12 +256,15 @@ class CXAS(nn.Module):
             return_file=True
         )
 
+        grid = to_feature_grid(predictions["segmentation_preds"][0], predictions["data"][0])
         feat_dict = self.extractor.extract(
-            file=to_feature_grid(predictions["segmentation_preds"][0], predictions["data"][0]),
+            file=grid,
             image=predictions['data'][0].mean(0,keepdim=True).cpu().numpy(),
             method=feat_to_extract,
             draw=draw,
         )
+        feat_dict.update(features_in_mm(feat_to_extract, feat_dict, grid, predictions.get("spacing"),
+                                        predictions["file_size"][0]))
 
         if "score" in feat_dict.keys():
             print(
@@ -359,12 +363,16 @@ class CXAS(nn.Module):
                 predictions = self.model(file_dict)
 
             for i in range(len(predictions["segmentation_preds"])):
+                grid = to_feature_grid(predictions["segmentation_preds"][i], predictions["data"][i])
                 extractions = self.extractor.extract(
-                    file=to_feature_grid(predictions["segmentation_preds"][i], predictions["data"][i]),
+                    file=grid,
                     image=predictions['data'][i].mean(0,keepdim=True).cpu().numpy(),
                     method=feat_to_extract,
                     draw=False,
                 )
+                spacings = predictions.get("spacing") or [None] * len(predictions["segmentation_preds"])
+                extractions.update(features_in_mm(feat_to_extract, extractions, grid, spacings[i],
+                                                  predictions["file_size"][i]))
                 scores += [
                     {
                         **{
