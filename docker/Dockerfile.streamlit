@@ -6,7 +6,7 @@
 #   docker run --rm -p 8501:8501 cxas-interactive        # then open http://localhost:8501
 # Bump CXAS_IMAGE together with the package version.
 
-ARG CXAS_IMAGE=cseibold/cxas:0.1.2-cpu
+ARG CXAS_IMAGE=cseibold/cxas:0.1.3-cpu
 FROM ${CXAS_IMAGE}
 
 USER root
