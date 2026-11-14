@@ -24,7 +24,7 @@ RUN pip install --no-cache-dir "numpy==1.26.4" "torch==${TORCH_VERSION}" "torchv
 
 # pinned runtime stack (models, highdicom output)
 RUN pip install --no-cache-dir "numpy==1.26.4" \
-        "transformers==4.57.1" "safetensors==0.6.2" "huggingface_hub==0.36.0" "PyYAML==6.0.2" \
+        "transformers==5.9.0" "safetensors==0.8.0" "huggingface_hub==1.20.1" "PyYAML==6.0.2" \
         "pycocotools==2.0.10" "opencv-python-headless==4.10.0.84" "scikit-image==0.24.0" "scipy==1.14.1" \
         "pydicom==3.0.1" "highdicom==0.26.1" "pylibjpeg==2.1.0" "pylibjpeg-openjpeg==2.3.0" \
         "SimpleITK==2.4.0" "pandas==2.2.3" "matplotlib==3.9.2" "colorcet==3.1.0" "scikit-learn==1.5.2" \

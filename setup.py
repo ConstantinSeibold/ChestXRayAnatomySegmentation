@@ -40,7 +40,9 @@ setup(
         "pylibjpeg-openjpeg>=2.3",
         "safetensors",
         "huggingface_hub",
-        "transformers>=4.40",
+        # >= 5.9: the models were trained with 5.9; transformers 4.x computes the DINOv3 encoder slightly
+        # differently (frontal masks drift, worst structure IoU 0.74)
+        "transformers>=5.9",
         "scipy",
         "pyyaml",
         "scikit-image",
