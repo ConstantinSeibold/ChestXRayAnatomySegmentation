@@ -184,11 +184,11 @@ def main():
     fr, la = panels
     cols = figure_colors()
     titles = ["Heart & great vessels", "Bones", "Lung zones", "Named landmarks", "Lateral: anatomy + landmarks"]
-    fig = plt.figure(figsize=(5 * 3.2 + 0.4, 3.2 + 0.95), facecolor=BG)
+    fig = plt.figure(figsize=(5 * 3.2 + 0.4, 3.2 + 0.55), facecolor=BG)
     gap = 0.004
     w = (1 - 6 * gap) / 5
     for i, t in enumerate(titles):
-        ax = fig.add_axes([gap + i * (w + gap), 0.20, w, 0.78])
+        ax = fig.add_axes([gap + i * (w + gap), 0.135, w, 0.855])
         ax.set_axis_off()
         pnl = la if i == 4 else fr
         ax.imshow(pnl["img"], cmap="gray", vmin=0, vmax=255)
@@ -205,22 +205,7 @@ def main():
             draw_masks(ax, pnl["masks"], LATERAL, cols, S)
             draw_landmarks(ax, pnl["lms"], region, "lateral", pnl["s"], pnl["s"], pnl["ox"], pnl["oy"], S)
         ax.set_xlim(0, S); ax.set_ylim(S, 0)
-        fig.text(gap + i * (w + gap) + w / 2, 0.135, t, color=INK, ha="center", fontsize=11)
-    # landmark colour legend, centred under the two landmark panels; measured text widths, so spacing is even
-    renderer = fig.canvas.get_renderer()
-    items = []
-    for r in LEGEND:
-        t = fig.text(0, 0.05, r, color=MUTED, fontsize=8, va="center")
-        items.append((r, t, t.get_window_extent(renderer).width / fig.bbox.width))
-    dot, pad = 0.011, 0.014
-    total = sum(dot + wd for _, _, wd in items) + pad * (len(items) - 1)
-    x = gap + 3 * (w + gap) + (2 * w + gap - total) / 2
-    for r, t, wd in items:
-        fig.text(x, 0.05, "●", color=REGION_COLOR[r], fontsize=10, va="center")
-        t.set_x(x + dot)
-        x += dot + wd + pad
-    fig.text(gap + 1.5 * (w + gap) + w / 2, 0.05, "Segmentation: M2F_anatomy_v2, at the image's own resolution",
-             color=MUTED, fontsize=8, va="center", ha="center")
+        fig.text(gap + i * (w + gap) + w / 2, 0.06, t, color=INK, ha="center", va="center", fontsize=11)
     fig.savefig(a.out, dpi=150, facecolor=BG)
     print("wrote", a.out)
 
