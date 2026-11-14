@@ -194,33 +194,40 @@ metadata = result.metadata                   # dict with transformation details
 
 ## New in 0.1
 
-- **Mask2Former anatomy models** (`M2F_anatomy_v2`): one model per view, masks at native resolution, more robust on real radiographs than the UNet.
-- **Named anatomical landmarks**: 132 clinically curated landmark definitions, predicted on frontal and lateral radiographs.
-- **DICOM in, DICOM out** (`cxas_idc`): a DICOM SEG and a landmark Structured Report per radiograph, for Imaging Data Commons / MHub workflows.
-- **Docker images** for x86-64 with all weights inside, GPU or CPU.
+- **Named anatomical landmarks.** 132 clinically curated landmarks (carina, cardiac borders, costophrenic angles,
+  vertebral corners, ...) on frontal and lateral radiographs. [Details](#named-anatomical-landmarks).
+- **New segmentation models** for frontal and lateral radiographs. They are sharper than the UNet, cover more
+  structures and hold up better on unusual images. [Details](#anatomy-segmentation-models).
+- **DICOM output that DICOM tools and the Imaging Data Commons can use.** CXAS already wrote DICOM SEG, but every
+  segment was labelled "Lung, Right" and each structure went into its own file. Now one SEG holds all structures,
+  plus a Structured Report with the landmarks. [Details](#dicom-in-dicom-out-imaging-data-commons--mhub).
+- **Docker images that run on standard servers** (x86-64), with or without a GPU, all models included. The 2024
+  images only ran on Apple-silicon Macs (arm64).
 
-The original UNet stays available and remains the default of `CXAS()`.
+Nothing is taken away: the original UNet is still there and is still the default of `CXAS()`.
 
 ## Anatomy segmentation models
 
-| Model | Views | Structures | Encoder | Output resolution |
+| Model | Views | Structures | Encoder | Mask resolution |
 |---|---|---|---|---|
-| `UNet_ResNet50_default` | frontal | 159 | ResNet-50 | 512 x 512, resized to the image |
-| `M2F_anatomy_v2` | frontal | 187 | DINOv3 ViT-S/16 | native |
-| `M2F_anatomy_v2` | lateral | 177 | RAD-DINO ViT-B/14 | native |
+| `UNet_ResNet50_default` (default) | frontal | 159 | ResNet-50 | 512 x 512, stretched to the image |
+| `M2F_anatomy_v2` | frontal | 187 | DINOv3 ViT-S/16 | the image's own resolution |
+| `M2F_anatomy_v2` | lateral | 177 | RAD-DINO ViT-B/14 | the image's own resolution |
 
-`M2F_anatomy_v2` predicts at the training resolution (shortest edge 512) and upsamples each structure's logits once,
-to the image's native resolution. The 159 CXAS classes fill the usual `segmentation_preds`, so feature extraction
-and registration work unchanged; the frontal model's further structures (regions below the hemidiaphragms, image
-quadrants, humeri, head, lung subdivisions) are returned in `extra_segmentation`. The view comes from the DICOM
-`ViewPosition`; when it is missing, CXAS decides it from the frontal model's lungs (99.5% correct on 400
-MIMIC-CXR images).
+Pick the new models with `model_name="M2F_anatomy_v2"`. They return the same 159 structures as the UNet, in the
+same place, so feature extraction and registration work as before. The frontal model knows a few more (the head,
+the humeri, the regions below the hemidiaphragms, image quadrants, lung subdivisions); those are in
+`extra_segmentation`.
+
+CXAS picks the frontal or lateral model by itself: from the DICOM tag `ViewPosition`, or, when that is missing,
+from the image (99.5% correct on 400 MIMIC-CXR radiographs).
 
 ```python
 from cxas import CXAS
 model = CXAS(model_name="M2F_anatomy_v2", gpus="0")   # or gpus="cpu"
 pred = model.process_file("image.dcm")
-pred["view"], pred["extra_segmentation"][0].keys()
+pred["view"]                                 # "frontal" or "lateral"
+pred["extra_segmentation"][0].keys()         # structures beyond the 159
 ```
 
 ## Named anatomical landmarks
@@ -301,19 +308,30 @@ masks. Training, the label rules and the evaluation are in
 
 ## DICOM in, DICOM out (Imaging Data Commons / MHub)
 
-`cxas_idc` takes DICOM files or folders and writes, per radiograph, one multi-segment DICOM SEG (native resolution,
-lossless JPEG 2000) and the landmark Structured Report, both referencing the source image:
+`cxas_idc` reads DICOM files or whole folders and writes, for every radiograph, a folder named after the image's
+SOPInstanceUID with three files:
+
+- `seg.dcm`: one DICOM Segmentation with every structure as its own segment, at the image's own resolution
+  (lossless).
+- `landmarks_sr.dcm`: a DICOM Structured Report (TID 1500) with one point per landmark.
+- `result.json`: the same results in plain JSON.
+
+Both DICOM objects reference the source image, so viewers and the Imaging Data Commons can show them on top of it.
 
 ```bash
-cxas_idc -i /data/dicom -o /data/out            # <out>/<SOPInstanceUID>/{seg.dcm, landmarks_sr.dcm, result.json}
+cxas_idc -i /data/dicom -o /data/out
 cxas_idc -i image.dcm -o out --no-landmarks --view frontal --cxas-classes-only
 ```
 
-It uses the GPU when one is available (`-g auto`). All model code ships with CXAS (`cxas/models/m2f`,
-`cxas/landmarks`; plain PyTorch + transformers), so `pip install cxas` is enough; weights download on first use
-from [cmseibold/cxas-models](https://huggingface.co/cmseibold/cxas-models) and
-[cmseibold/cxr-landmarks](https://huggingface.co/cmseibold/cxr-landmarks) (MIT). The Docker images below
-additionally bake in all weights.
+Compared with CXAS 0.0.x, segments now carry their own name instead of "Lung, Right", all structures share one
+file instead of 159, and no patient-position tags are invented for radiographs that do not have them. The older
+commands (`cxas_segment ... -ot dicom-seg`) write this corrected SEG too.
+
+`cxas_idc` uses the GPU when there is one. `pip install cxas` is all you need: the model code is part of the
+package, and the weights download on first use from
+[cmseibold/cxas-models](https://huggingface.co/cmseibold/cxas-models) and
+[cmseibold/cxr-landmarks](https://huggingface.co/cmseibold/cxr-landmarks) (MIT). The Docker images below already
+contain them.
 
 ## Docker Usage
 
