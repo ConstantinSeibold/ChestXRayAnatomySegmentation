@@ -59,7 +59,10 @@ class Registrator:
         self,
         model,
         reference_path: Optional[str] = None,
-        do_correction: bool = True
+        do_correction: bool = True,
+        method: str = "t4t10",
+        view: Optional[str] = None,
+        landmark_reference_path: Optional[str] = None,
     ):
         """
         Initialize the registrator.
@@ -71,6 +74,15 @@ class Registrator:
         """
         self.model = model
         self.do_correction = do_correction
+        # "t4t10": the two vertebral-body centres from the segmentation (default, as before);
+        # "landmarks": a robust similarity fit to all named landmarks (frontal and lateral)
+        if method not in ("t4t10", "landmarks"):
+            raise ValueError("method must be 't4t10' or 'landmarks'")
+        self.method = method
+        self.view = view                     # None: from the DICOM ViewPosition if known, else frontal
+        self._landmark_ref_path = landmark_reference_path
+        self._landmark_ref = None
+        self._landmark_detector = None
 
         # Load reference
         self.reference = load_reference(reference_path)
@@ -113,9 +125,56 @@ class Registrator:
     ) -> torch.Tensor:
         """Extract pooled features from backbone."""
         with torch.no_grad():
-            backbone = self.model.model.backbone
+            backbone = getattr(self.model.model, "backbone", None)
+            if backbone is None:
+                # The orientation/colour reference (reference_features.npz) holds UNet features, so the check runs on
+                # the UNet backbone whichever model segments; loaded once, only when the segmentor is not the UNet.
+                backbone = self._unet_backbone(data.device)
             backbone_dict = backbone(data)
             return backbone_dict["feats_pooled"]
+
+    def _unet_backbone(self, device):
+        if getattr(self, "_unet_bb", None) is None:
+            from ..models import get_model
+            gpus = "cpu" if device.type == "cpu" else str(device.index or 0)
+            self._unet_bb = get_model("UNet_ResNet50_default", gpus).backbone.eval()
+        return self._unet_bb
+
+    def _register_by_landmarks(self, filename, image, segmentation, orientation_meta, view, save_mask):
+        """Similarity transform fitted to the named landmarks (see landmark_fit.py)."""
+        from .landmark_fit import fit_landmarks, load_landmark_reference
+        if self._landmark_detector is None:
+            from ..landmarks import LandmarkDetector
+            self._landmark_detector = LandmarkDetector(device=str(self._get_device()))
+            self._landmark_ref = load_landmark_reference(self._landmark_ref_path)
+        img = np.ascontiguousarray((image if image.ndim == 3 else np.repeat(image[..., None], 3, -1)).astype(np.uint8))
+        detected = view not in ("frontal", "lateral")
+        candidates = ("frontal", "lateral") if detected else (view,)
+        best = None
+        for v in candidates:
+            lms = self._landmark_detector.predict(img, view=v)
+            matrix, info = fit_landmarks(lms, self._landmark_ref[v], image.shape[:2], allow_mirror=(v == "lateral"))
+            # view unknown (no ViewPosition): keep the view whose landmarks fit its reference better
+            score = info.get("rms_residual_px", np.inf) / np.hypot(*image.shape[:2]) if matrix is not None else np.inf
+            if best is None or score < best[0]:
+                best = (score, v, matrix, info)
+        _, view, matrix, info = best
+        meta = {**orientation_meta, "method": "landmarks", "view": view, "view_detected": detected, "fit": info}
+        if matrix is None:
+            return RegistrationResult(filename=filename, registered_image=image,
+                                      registered_mask=segmentation if save_mask else None,
+                                      affine_matrix=get_identity_transform(),
+                                      metadata={**meta, "registration_success": False, "error": info.get("error")},
+                                      success=False, error=info.get("error"))
+        matrix = matrix.astype(np.float64)
+        return RegistrationResult(
+            filename=filename, registered_image=apply_affine(image, matrix),
+            registered_mask=_registered_mask(segmentation, image.shape, matrix) if save_mask else None,
+            affine_matrix=matrix,
+            # a mirrored lateral: decompose the rotation/scale part, the mirror is reported by fit.mirrored
+            metadata={**meta, "registration_success": True, "transform": decompose_affine(
+                np.hstack([matrix[:, :2] @ np.diag([-1.0, 1.0]), matrix[:, 2:]]) if info.get("mirrored") else matrix)},
+            success=True)
 
     def _correct_orientation(
         self,
@@ -182,7 +241,8 @@ class Registrator:
         if isinstance(filename, list):
             filename = filename[0]
 
-        data = file_dict["data"]
+        # the folder loader keeps images on the CPU; run on the model's device
+        data = file_dict["data"].to(self._get_device())
         orig_data = file_dict["orig_data"]
         if isinstance(orig_data, list):
             orig_data = orig_data[0]
@@ -207,12 +267,22 @@ class Registrator:
             with torch.no_grad():
                 predictions = self.model.model({
                     "data": data_corrected,
+                    # the query-based models predict from the original image
+                    "orig_data": [np.ascontiguousarray(np.transpose(orig_corrected, (2, 0, 1)))],
                     "filename": [filename],
                     "file_size": [file_size]
                 })
 
-            # Get segmentation at 512x512 (model output size)
-            segmentation = predictions["segmentation_preds"][0].cpu().numpy()
+            # Segmentation on the 512x512 grid of the model input (M2F_anatomy_v2 predicts at native resolution)
+            from ..segmentor import to_feature_grid
+            segmentation = to_feature_grid(predictions["segmentation_preds"][0], data_corrected[0])
+
+            if self.method == "landmarks":
+                view = self.view or file_dict.get("view")
+                if isinstance(view, list):
+                    view = view[0]
+                return self._register_by_landmarks(filename, orig_corrected, segmentation, orientation_meta,
+                                                   view, save_mask)
 
             # Step 3: Landmark extraction
             landmarks = self.landmark_extractor.extract(segmentation)
@@ -351,6 +421,12 @@ class Registrator:
                 success=False,
                 error=str(e)
             )
+
+
+def _registered_mask(segmentation, shape, affine_matrix):
+    seg_resized = F.interpolate(torch.tensor(segmentation).float().unsqueeze(0), size=(shape[0], shape[1]),
+                                mode="nearest")[0].numpy().astype(bool)
+    return apply_affine_to_mask(seg_resized, affine_matrix)
 
 
 def save_registration_result(

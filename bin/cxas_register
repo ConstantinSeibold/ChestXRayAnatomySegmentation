@@ -58,7 +58,7 @@ def parse_arguments() -> argparse.Namespace:
 
     parser.add_argument(
         "-m", "--model",
-        choices=["UNet_ResNet50_default"],
+        choices=["UNet_ResNet50_default", "M2F_anatomy_v2"],
         default="UNet_ResNet50_default",
         help="Model used for inference (default: UNet_ResNet50_default)."
     )
@@ -67,6 +67,21 @@ def parse_arguments() -> argparse.Namespace:
         "--no-correction",
         action="store_true",
         help="Skip orientation/color correction."
+    )
+
+    parser.add_argument(
+        "--method",
+        choices=["t4t10", "landmarks"],
+        default="t4t10",
+        help="'t4t10': align the T4 and T10 vertebrae (default). 'landmarks': robust fit to all named "
+             "landmarks; also works for lateral views."
+    )
+
+    parser.add_argument(
+        "--view",
+        choices=["frontal", "lateral"],
+        default=None,
+        help="View for --method landmarks (default: from the DICOM ViewPosition, else frontal)."
     )
 
     parser.add_argument(
@@ -267,7 +282,9 @@ def main() -> None:
     registrator = Registrator(
         model=model,
         reference_path=reference_path,
-        do_correction=not args.no_correction
+        do_correction=not args.no_correction,
+        method=args.method,
+        view=args.view,
     )
 
     input_path = Path(args.input)

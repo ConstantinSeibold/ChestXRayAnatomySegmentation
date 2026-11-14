@@ -64,6 +64,8 @@ def main(argv=None) -> int:
 
     from .segmentor import CXAS
     from .io_utils.dicomseg_2d import write_landmark_sr, write_seg
+    from .landmarks.measurements import UNITS, measure
+    from .units import landmarks_in_mm, physical_spacing
 
     if a.gpus == "auto":
         a.gpus = "0" if torch.cuda.is_available() else "cpu"
@@ -113,19 +115,25 @@ def main(argv=None) -> int:
                 masks = {n: full[i] for i, n in enumerate(names)}
                 scores = {}
             seg_path = write_seg(f, masks, os.path.join(out_dir, "seg.dcm"), algo, _version())
-            lms, sr_path = [], None
+            lms, sr_path, measures = [], None, {}
+            spacing = physical_spacing(pydicom.dcmread(f, stop_before_pixels=True))
             if det is not None:
                 img = np.ascontiguousarray(np.asarray(pred["orig_data"]).transpose(1, 2, 0))
                 lms = det.predict(img, view=view)
                 for lm in lms:
                     lm["in_sr"] = bool(lm["confidence"] >= a.landmark_min_confidence)
+                measures = measure(lms, view, spacing=spacing, min_confidence=a.landmark_min_confidence)
+                lms = landmarks_in_mm(lms, spacing)
                 sr_path = write_landmark_sr(f, lms, os.path.join(out_dir, "landmarks_sr.dcm"),
                                             "CXAS landmarks_v1", _version(),
-                                            min_confidence=a.landmark_min_confidence)
+                                            min_confidence=a.landmark_min_confidence,
+                                            measurements=measures, units=UNITS)
             json.dump({"input": os.path.abspath(f), "view": view, "dicom_view_position": str(ds.get("ViewPosition", "")),
                        "model": a.model, "cxas_version": _version(), "seg": seg_path, "landmarks_sr": sr_path,
-                       "structures": scores, "landmark_min_confidence": a.landmark_min_confidence,
-                       "landmarks": lms},
+                       "structures": scores, "spacing": spacing,
+                       "measurements": {k: (None if v != v else v) for k, v in measures.items()},
+                       "measurement_units": {k: UNITS.get(k) for k in measures},
+                       "landmark_min_confidence": a.landmark_min_confidence, "landmarks": lms},
                       open(os.path.join(out_dir, "result.json"), "w"), indent=1)
             n_ok += 1
             print(f"{f}: view={view} structures={sum(bool(np.asarray(m).any()) for m in masks.values())} "

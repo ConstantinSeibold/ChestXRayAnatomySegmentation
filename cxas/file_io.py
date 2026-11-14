@@ -50,6 +50,9 @@ def dicom_to_unit_array(ds, array: np.ndarray = None) -> np.ndarray:
         array = array / array.max()
     return array
 
+from cxas.units import physical_spacing
+
+
 def view_of_dicom(ds) -> str:
     """'frontal' | 'lateral' from ViewPosition (0018,5101), else from the view code sequence; None if unknown."""
     from cxas.models.qseg_backend import view_from_position
@@ -300,6 +303,7 @@ class FileLoader:
             "filename": image_path,
             "file_size": orig_file_size,
             "view": view_of_dicom(ds),
+            "spacing": physical_spacing(ds),
         }
 
 

@@ -1,0 +1,2054 @@
+{
+"source": "Imaging Data Commons, CC BY collections (LIDC-IDRI, COVID-19-NY-SBU, COVID-19-AR, RIDER Pilot, ACRIN-NSCLC-FDG-PET, CMB, TCGA-BLCA, VAREPOP-APOLLO): landmarks predicted by the CXAS landmark model, generalised Procrustes mean (median), laterals mirrored to face right. Series: scripts/landmark_reference_idc_series.txt. Built with scripts/build_landmark_reference.py.",
+"frame": "512 x 512, positions normalised by image size",
+"views": {
+"frontal": {
+"n_images": 405,
+"landmarks": [
+{
+"class": "anterior 10th rib left",
+"landmark": "anterior_end",
+"x": 478.282,
+"y": 523.418,
+"n": 333
+},
+{
+"class": "anterior 10th rib right",
+"landmark": "anterior_end",
+"x": 55.86,
+"y": 540.149,
+"n": 343
+},
+{
+"class": "anterior 1st rib left",
+"landmark": "anterior_end",
+"x": 312.298,
+"y": 131.665,
+"n": 331
+},
+{
+"class": "anterior 1st rib right",
+"landmark": "anterior_end",
+"x": 192.714,
+"y": 138.363,
+"n": 329
+},
+{
+"class": "anterior 2nd rib left",
+"landmark": "anterior_end",
+"x": 326.765,
+"y": 171.688,
+"n": 336
+},
+{
+"class": "anterior 2nd rib right",
+"landmark": "anterior_end",
+"x": 182.707,
+"y": 178.094,
+"n": 329
+},
+{
+"class": "anterior 3rd rib left",
+"landmark": "anterior_end",
+"x": 343.587,
+"y": 223.433,
+"n": 309
+},
+{
+"class": "anterior 3rd rib right",
+"landmark": "anterior_end",
+"x": 170.653,
+"y": 231.068,
+"n": 323
+},
+{
+"class": "anterior 4th rib left",
+"landmark": "anterior_end",
+"x": 362.403,
+"y": 282.542,
+"n": 315
+},
+{
+"class": "anterior 4th rib right",
+"landmark": "anterior_end",
+"x": 155.577,
+"y": 288.222,
+"n": 314
+},
+{
+"class": "anterior 5th rib left",
+"landmark": "anterior_end",
+"x": 379.337,
+"y": 334.942,
+"n": 314
+},
+{
+"class": "anterior 5th rib right",
+"landmark": "anterior_end",
+"x": 143.44,
+"y": 341.015,
+"n": 302
+},
+{
+"class": "anterior 6th rib left",
+"landmark": "anterior_end",
+"x": 404.428,
+"y": 387.001,
+"n": 346
+},
+{
+"class": "anterior 6th rib right",
+"landmark": "anterior_end",
+"x": 126.649,
+"y": 393.805,
+"n": 326
+},
+{
+"class": "anterior 7th rib left",
+"landmark": "anterior_end",
+"x": 437.182,
+"y": 433.695,
+"n": 313
+},
+{
+"class": "anterior 7th rib right",
+"landmark": "anterior_end",
+"x": 100.754,
+"y": 445.814,
+"n": 334
+},
+{
+"class": "anterior 8th rib left",
+"landmark": "anterior_end",
+"x": 463.811,
+"y": 479.096,
+"n": 313
+},
+{
+"class": "anterior 8th rib right",
+"landmark": "anterior_end",
+"x": 76.072,
+"y": 493.346,
+"n": 328
+},
+{
+"class": "anterior 9th rib left",
+"landmark": "anterior_end",
+"x": 473.929,
+"y": 505.071,
+"n": 343
+},
+{
+"class": "anterior 9th rib right",
+"landmark": "anterior_end",
+"x": 59.167,
+"y": 519.105,
+"n": 354
+},
+{
+"class": "aorta",
+"landmark": "cl_0",
+"x": 280.906,
+"y": 166.363,
+"n": 387
+},
+{
+"class": "aorta",
+"landmark": "cl_1",
+"x": 272.691,
+"y": 254.008,
+"n": 369
+},
+{
+"class": "aorta",
+"landmark": "cl_2",
+"x": 284.407,
+"y": 345.706,
+"n": 371
+},
+{
+"class": "aorta",
+"landmark": "cl_3",
+"x": 279.578,
+"y": 444.102,
+"n": 359
+},
+{
+"class": "aortic arch",
+"landmark": "ap_window_aortic",
+"x": 301.819,
+"y": 197.649,
+"n": 386
+},
+{
+"class": "aortic arch",
+"landmark": "knob",
+"x": 307.157,
+"y": 168.854,
+"n": 398
+},
+{
+"class": "aortic arch",
+"landmark": "summit",
+"x": 277.675,
+"y": 141.821,
+"n": 401
+},
+{
+"class": "ascending aorta",
+"landmark": "cl_0",
+"x": 281.936,
+"y": 197.856,
+"n": 394
+},
+{
+"class": "ascending aorta",
+"landmark": "cl_1",
+"x": 246.385,
+"y": 246.87,
+"n": 398
+},
+{
+"class": "ascending aorta",
+"landmark": "cl_2",
+"x": 269.664,
+"y": 305.542,
+"n": 387
+},
+{
+"class": "clavicle left",
+"landmark": "sternoclavicular_clavicular",
+"x": 276.282,
+"y": 98.661,
+"n": 391
+},
+{
+"class": "clavicle right",
+"landmark": "acromioclavicular_clavicular",
+"x": 6.086,
+"y": 60.652,
+"n": 307
+},
+{
+"class": "clavicle right",
+"landmark": "sternoclavicular_clavicular",
+"x": 223.593,
+"y": 102.442,
+"n": 394
+},
+{
+"class": "descending aorta",
+"landmark": "cl_0",
+"x": 288.637,
+"y": 206.413,
+"n": 397
+},
+{
+"class": "descending aorta",
+"landmark": "cl_1",
+"x": 286.218,
+"y": 313.718,
+"n": 393
+},
+{
+"class": "descending aorta",
+"landmark": "cl_2",
+"x": 279.858,
+"y": 426.666,
+"n": 378
+},
+{
+"class": "descending aorta",
+"landmark": "cl_3",
+"x": 276.784,
+"y": 539.736,
+"n": 297
+},
+{
+"class": "esophagus",
+"landmark": "gej_esophageal",
+"x": 284.388,
+"y": 423.615,
+"n": 284
+},
+{
+"class": "heart",
+"landmark": "apex",
+"x": 390.376,
+"y": 408.491,
+"n": 355
+},
+{
+"class": "heart",
+"landmark": "cardiophrenic_cardiac_left",
+"x": 399.434,
+"y": 390.47,
+"n": 348
+},
+{
+"class": "heart",
+"landmark": "cardiophrenic_cardiac_right",
+"x": 198.665,
+"y": 375.563,
+"n": 391
+},
+{
+"class": "heart",
+"landmark": "cardiophrenic_left_limb_diaphragm",
+"x": 427.946,
+"y": 389.91,
+"n": 349
+},
+{
+"class": "heart",
+"landmark": "cardiophrenic_left_limb_heart",
+"x": 399.535,
+"y": 362.588,
+"n": 343
+},
+{
+"class": "heart",
+"landmark": "cardiophrenic_right_limb_diaphragm",
+"x": 171.618,
+"y": 372.596,
+"n": 390
+},
+{
+"class": "heart",
+"landmark": "cardiophrenic_right_limb_heart",
+"x": 194.84,
+"y": 347.2,
+"n": 392
+},
+{
+"class": "heart",
+"landmark": "left_cardiac_border",
+"x": 400.445,
+"y": 361.847,
+"n": 387
+},
+{
+"class": "heart",
+"landmark": "right_cardiac_border",
+"x": 192.866,
+"y": 332.249,
+"n": 369
+},
+{
+"class": "heart",
+"landmark": "waist_cardiac",
+"x": 310.591,
+"y": 249.567,
+"n": 377
+},
+{
+"class": "heart atrium left",
+"landmark": "double_density",
+"x": 224.128,
+"y": 301.408,
+"n": 402
+},
+{
+"class": "heart atrium left",
+"landmark": "la_appendage",
+"x": 375.055,
+"y": 311.609,
+"n": 387
+},
+{
+"class": "inferior vena cava",
+"landmark": "ivc_ra_caval",
+"x": 232.567,
+"y": 362.456,
+"n": 361
+},
+{
+"class": "kidney left",
+"landmark": "center",
+"x": 366.096,
+"y": 523.547,
+"n": 270
+},
+{
+"class": "kidney right",
+"landmark": "center",
+"x": 168.209,
+"y": 539.014,
+"n": 241
+},
+{
+"class": "left apical zone lung",
+"landmark": "apex",
+"x": 317.64,
+"y": 53.483,
+"n": 386
+},
+{
+"class": "left apical zone lung",
+"landmark": "center",
+"x": 331.247,
+"y": 100.958,
+"n": 398
+},
+{
+"class": "left hemidiaphragm",
+"landmark": "dome",
+"x": 406.376,
+"y": 385.93,
+"n": 354
+},
+{
+"class": "left lung",
+"landmark": "costophrenic_limb_diaphragm",
+"x": 460.468,
+"y": 412.88,
+"n": 373
+},
+{
+"class": "left lung",
+"landmark": "costophrenic_limb_wall",
+"x": 476.834,
+"y": 403.733,
+"n": 375
+},
+{
+"class": "left lung",
+"landmark": "costophrenic_pulmonary",
+"x": 478.104,
+"y": 433.374,
+"n": 367
+},
+{
+"class": "left lung",
+"landmark": "ctr_thorax",
+"x": 472.732,
+"y": 367.696,
+"n": 304
+},
+{
+"class": "left lung",
+"landmark": "hilum",
+"x": 343.709,
+"y": 230.911,
+"n": 391
+},
+{
+"class": "left lung",
+"landmark": "lateral_margin",
+"x": 445.934,
+"y": 227.407,
+"n": 392
+},
+{
+"class": "left lung base",
+"landmark": "center",
+"x": 384.039,
+"y": 392.071,
+"n": 379
+},
+{
+"class": "left mid zone lung",
+"landmark": "center",
+"x": 361.231,
+"y": 263.106,
+"n": 394
+},
+{
+"class": "left upper zone lung",
+"landmark": "center",
+"x": 339.266,
+"y": 135.213,
+"n": 400
+},
+{
+"class": "liver",
+"landmark": "center",
+"x": 183.592,
+"y": 466.481,
+"n": 341
+},
+{
+"class": "lung middle lobe right",
+"landmark": "minor_fissure",
+"x": 154.173,
+"y": 260.191,
+"n": 382
+},
+{
+"class": "posterior 10th rib left",
+"landmark": "rib_head",
+"x": 285.782,
+"y": 342.493,
+"n": 378
+},
+{
+"class": "posterior 10th rib left",
+"landmark": "rib_slope_limb",
+"x": 335.127,
+"y": 353.168,
+"n": 382
+},
+{
+"class": "posterior 10th rib right",
+"landmark": "rib_head",
+"x": 232.225,
+"y": 343.818,
+"n": 391
+},
+{
+"class": "posterior 10th rib right",
+"landmark": "rib_slope_limb",
+"x": 185.315,
+"y": 359.058,
+"n": 392
+},
+{
+"class": "posterior 11th rib left",
+"landmark": "rib_head",
+"x": 293.556,
+"y": 397.13,
+"n": 381
+},
+{
+"class": "posterior 11th rib left",
+"landmark": "rib_slope_limb",
+"x": 339.94,
+"y": 414.238,
+"n": 368
+},
+{
+"class": "posterior 11th rib right",
+"landmark": "rib_head",
+"x": 228.496,
+"y": 399.336,
+"n": 387
+},
+{
+"class": "posterior 11th rib right",
+"landmark": "rib_slope_limb",
+"x": 184.767,
+"y": 419.625,
+"n": 378
+},
+{
+"class": "posterior 12th rib left",
+"landmark": "rib_head",
+"x": 296.638,
+"y": 455.315,
+"n": 383
+},
+{
+"class": "posterior 12th rib left",
+"landmark": "rib_slope_limb",
+"x": 335.118,
+"y": 475.89,
+"n": 358
+},
+{
+"class": "posterior 12th rib right",
+"landmark": "rib_head",
+"x": 230.275,
+"y": 458.694,
+"n": 390
+},
+{
+"class": "posterior 12th rib right",
+"landmark": "rib_slope_limb",
+"x": 194.382,
+"y": 482.547,
+"n": 350
+},
+{
+"class": "posterior 1st rib left",
+"landmark": "rib_head",
+"x": 298.296,
+"y": 41.262,
+"n": 343
+},
+{
+"class": "posterior 1st rib left",
+"landmark": "rib_slope_limb",
+"x": 340.161,
+"y": 59.855,
+"n": 363
+},
+{
+"class": "posterior 1st rib right",
+"landmark": "rib_head",
+"x": 198.51,
+"y": 48.421,
+"n": 352
+},
+{
+"class": "posterior 1st rib right",
+"landmark": "rib_slope_limb",
+"x": 159.282,
+"y": 69.986,
+"n": 371
+},
+{
+"class": "posterior 2nd rib left",
+"landmark": "rib_head",
+"x": 286.404,
+"y": 61.169,
+"n": 361
+},
+{
+"class": "posterior 2nd rib left",
+"landmark": "rib_slope_limb",
+"x": 330.06,
+"y": 50.152,
+"n": 363
+},
+{
+"class": "posterior 2nd rib right",
+"landmark": "rib_head",
+"x": 212.028,
+"y": 65.846,
+"n": 361
+},
+{
+"class": "posterior 2nd rib right",
+"landmark": "rib_slope_limb",
+"x": 167.743,
+"y": 60.125,
+"n": 370
+},
+{
+"class": "posterior 3rd rib left",
+"landmark": "rib_head",
+"x": 275.353,
+"y": 91.734,
+"n": 363
+},
+{
+"class": "posterior 3rd rib left",
+"landmark": "rib_slope_limb",
+"x": 316.048,
+"y": 74.01,
+"n": 364
+},
+{
+"class": "posterior 3rd rib right",
+"landmark": "rib_head",
+"x": 226.465,
+"y": 95.188,
+"n": 375
+},
+{
+"class": "posterior 3rd rib right",
+"landmark": "rib_slope_limb",
+"x": 184.095,
+"y": 80.52,
+"n": 367
+},
+{
+"class": "posterior 4th rib left",
+"landmark": "rib_head",
+"x": 274.176,
+"y": 119.389,
+"n": 377
+},
+{
+"class": "posterior 4th rib left",
+"landmark": "rib_slope_limb",
+"x": 316.296,
+"y": 104.655,
+"n": 371
+},
+{
+"class": "posterior 4th rib right",
+"landmark": "rib_head",
+"x": 228.875,
+"y": 120.048,
+"n": 378
+},
+{
+"class": "posterior 4th rib right",
+"landmark": "rib_slope_limb",
+"x": 185.537,
+"y": 108.772,
+"n": 385
+},
+{
+"class": "posterior 5th rib left",
+"landmark": "rib_head",
+"x": 273.657,
+"y": 148.157,
+"n": 386
+},
+{
+"class": "posterior 5th rib left",
+"landmark": "rib_slope_limb",
+"x": 317.829,
+"y": 138.089,
+"n": 378
+},
+{
+"class": "posterior 5th rib right",
+"landmark": "rib_head",
+"x": 228.843,
+"y": 146.807,
+"n": 381
+},
+{
+"class": "posterior 5th rib right",
+"landmark": "rib_slope_limb",
+"x": 183.858,
+"y": 140.742,
+"n": 382
+},
+{
+"class": "posterior 6th rib left",
+"landmark": "rib_head",
+"x": 274.259,
+"y": 180.129,
+"n": 377
+},
+{
+"class": "posterior 6th rib left",
+"landmark": "rib_slope_limb",
+"x": 320.58,
+"y": 174.831,
+"n": 383
+},
+{
+"class": "posterior 6th rib right",
+"landmark": "rib_head",
+"x": 228.774,
+"y": 178.866,
+"n": 387
+},
+{
+"class": "posterior 6th rib right",
+"landmark": "rib_slope_limb",
+"x": 182.683,
+"y": 179.394,
+"n": 386
+},
+{
+"class": "posterior 7th rib left",
+"landmark": "rib_head",
+"x": 275.693,
+"y": 214.689,
+"n": 388
+},
+{
+"class": "posterior 7th rib left",
+"landmark": "rib_slope_limb",
+"x": 323.162,
+"y": 214.837,
+"n": 382
+},
+{
+"class": "posterior 7th rib right",
+"landmark": "rib_head",
+"x": 229.518,
+"y": 216.424,
+"n": 392
+},
+{
+"class": "posterior 7th rib right",
+"landmark": "rib_slope_limb",
+"x": 182.711,
+"y": 219.91,
+"n": 388
+},
+{
+"class": "posterior 8th rib left",
+"landmark": "rib_head",
+"x": 278.209,
+"y": 252.406,
+"n": 386
+},
+{
+"class": "posterior 8th rib left",
+"landmark": "rib_slope_limb",
+"x": 327.627,
+"y": 257.691,
+"n": 377
+},
+{
+"class": "posterior 8th rib right",
+"landmark": "rib_head",
+"x": 230.887,
+"y": 255.646,
+"n": 391
+},
+{
+"class": "posterior 8th rib right",
+"landmark": "rib_slope_limb",
+"x": 183.372,
+"y": 264.553,
+"n": 396
+},
+{
+"class": "posterior 9th rib left",
+"landmark": "rib_head",
+"x": 281.083,
+"y": 294.074,
+"n": 385
+},
+{
+"class": "posterior 9th rib left",
+"landmark": "rib_slope_limb",
+"x": 331.105,
+"y": 303.981,
+"n": 384
+},
+{
+"class": "posterior 9th rib right",
+"landmark": "rib_head",
+"x": 232.381,
+"y": 296.66,
+"n": 393
+},
+{
+"class": "posterior 9th rib right",
+"landmark": "rib_slope_limb",
+"x": 183.747,
+"y": 310.224,
+"n": 392
+},
+{
+"class": "pulmonary trunc",
+"landmark": "pa_segment",
+"x": 312.718,
+"y": 210.038,
+"n": 348
+},
+{
+"class": "right apical zone lung",
+"landmark": "apex",
+"x": 182.978,
+"y": 61.766,
+"n": 389
+},
+{
+"class": "right apical zone lung",
+"landmark": "center",
+"x": 175.819,
+"y": 109.662,
+"n": 398
+},
+{
+"class": "right hemidiaphragm",
+"landmark": "dome",
+"x": 133.745,
+"y": 367.757,
+"n": 359
+},
+{
+"class": "right lung",
+"landmark": "costophrenic_limb_diaphragm",
+"x": 61.505,
+"y": 413.724,
+"n": 395
+},
+{
+"class": "right lung",
+"landmark": "costophrenic_limb_wall",
+"x": 46.935,
+"y": 407.826,
+"n": 394
+},
+{
+"class": "right lung",
+"landmark": "costophrenic_pulmonary",
+"x": 46.776,
+"y": 437.871,
+"n": 389
+},
+{
+"class": "right lung",
+"landmark": "ctr_thorax",
+"x": 50.072,
+"y": 378.632,
+"n": 388
+},
+{
+"class": "right lung",
+"landmark": "hilum",
+"x": 183.305,
+"y": 244.007,
+"n": 377
+},
+{
+"class": "right lung",
+"landmark": "lateral_margin",
+"x": 63.898,
+"y": 250.483,
+"n": 395
+},
+{
+"class": "right lung base",
+"landmark": "center",
+"x": 150.542,
+"y": 404.514,
+"n": 380
+},
+{
+"class": "right mid zone lung",
+"landmark": "center",
+"x": 160.553,
+"y": 275.802,
+"n": 394
+},
+{
+"class": "right upper zone lung",
+"landmark": "center",
+"x": 168.801,
+"y": 144.023,
+"n": 402
+},
+{
+"class": "scapula left",
+"landmark": "inferior_angle",
+"x": 435.829,
+"y": 268.188,
+"n": 383
+},
+{
+"class": "scapula right",
+"landmark": "inferior_angle",
+"x": 62.348,
+"y": 289.319,
+"n": 382
+},
+{
+"class": "sternum",
+"landmark": "jugular_notch",
+"x": 235.012,
+"y": 113.699,
+"n": 383
+},
+{
+"class": "stomach",
+"landmark": "center",
+"x": 340.503,
+"y": 471.827,
+"n": 220
+},
+{
+"class": "trachea",
+"landmark": "axis_lower",
+"x": 244.302,
+"y": 159.985,
+"n": 398
+},
+{
+"class": "trachea",
+"landmark": "axis_upper",
+"x": 248.613,
+"y": 75.002,
+"n": 398
+},
+{
+"class": "trachea",
+"landmark": "clavicular_level",
+"x": 248.301,
+"y": 100.851,
+"n": 392
+},
+{
+"class": "trachea",
+"landmark": "right_tracheobronchial_angle",
+"x": 227.435,
+"y": 197.916,
+"n": 401
+},
+{
+"class": "tracheal bifurcation",
+"landmark": "carina",
+"x": 246.927,
+"y": 219.2,
+"n": 401
+},
+{
+"class": "tracheal bifurcation",
+"landmark": "left_main_bronchus",
+"x": 280.187,
+"y": 235.489,
+"n": 400
+},
+{
+"class": "tracheal bifurcation",
+"landmark": "right_main_bronchus",
+"x": 222.406,
+"y": 228.381,
+"n": 401
+},
+{
+"class": "tracheal bifurcation",
+"landmark": "subcarinal_limb_left",
+"x": 267.279,
+"y": 238.632,
+"n": 399
+},
+{
+"class": "tracheal bifurcation",
+"landmark": "subcarinal_limb_right",
+"x": 229.136,
+"y": 242.19,
+"n": 401
+},
+{
+"class": "upper mediastinum",
+"landmark": "mw_right",
+"x": 220.937,
+"y": 171.003,
+"n": 382
+},
+{
+"class": "vertebrae L1",
+"landmark": "inferior_left",
+"x": 300.262,
+"y": 527.291,
+"n": 231
+},
+{
+"class": "vertebrae L1",
+"landmark": "inferior_right",
+"x": 232.051,
+"y": 532.793,
+"n": 227
+},
+{
+"class": "vertebrae L1",
+"landmark": "superior_left",
+"x": 297.106,
+"y": 479.715,
+"n": 348
+},
+{
+"class": "vertebrae L1",
+"landmark": "superior_right",
+"x": 230.673,
+"y": 483.622,
+"n": 358
+},
+{
+"class": "vertebrae L2",
+"landmark": "superior_left",
+"x": 299.325,
+"y": 526.869,
+"n": 237
+},
+{
+"class": "vertebrae L2",
+"landmark": "superior_right",
+"x": 232.328,
+"y": 530.899,
+"n": 243
+},
+{
+"class": "vertebrae T1",
+"landmark": "inferior_left",
+"x": 274.992,
+"y": 58.588,
+"n": 394
+},
+{
+"class": "vertebrae T1",
+"landmark": "inferior_right",
+"x": 221.681,
+"y": 60.903,
+"n": 392
+},
+{
+"class": "vertebrae T1",
+"landmark": "superior_left",
+"x": 279.974,
+"y": 24.176,
+"n": 343
+},
+{
+"class": "vertebrae T1",
+"landmark": "superior_right",
+"x": 213.147,
+"y": 27.702,
+"n": 345
+},
+{
+"class": "vertebrae T10",
+"landmark": "inferior_left",
+"x": 289.449,
+"y": 388.759,
+"n": 400
+},
+{
+"class": "vertebrae T10",
+"landmark": "inferior_right",
+"x": 229.217,
+"y": 392.309,
+"n": 396
+},
+{
+"class": "vertebrae T10",
+"landmark": "superior_left",
+"x": 288.841,
+"y": 340.409,
+"n": 400
+},
+{
+"class": "vertebrae T10",
+"landmark": "superior_right",
+"x": 226.215,
+"y": 342.751,
+"n": 393
+},
+{
+"class": "vertebrae T11",
+"landmark": "inferior_left",
+"x": 292.035,
+"y": 438.364,
+"n": 386
+},
+{
+"class": "vertebrae T11",
+"landmark": "inferior_right",
+"x": 232.63,
+"y": 441.69,
+"n": 391
+},
+{
+"class": "vertebrae T11",
+"landmark": "superior_left",
+"x": 291.266,
+"y": 384.419,
+"n": 402
+},
+{
+"class": "vertebrae T11",
+"landmark": "superior_right",
+"x": 228.012,
+"y": 387.425,
+"n": 398
+},
+{
+"class": "vertebrae T12",
+"landmark": "inferior_left",
+"x": 292.191,
+"y": 492.562,
+"n": 335
+},
+{
+"class": "vertebrae T12",
+"landmark": "inferior_right",
+"x": 236.417,
+"y": 493.931,
+"n": 339
+},
+{
+"class": "vertebrae T12",
+"landmark": "superior_left",
+"x": 294.615,
+"y": 432.446,
+"n": 392
+},
+{
+"class": "vertebrae T12",
+"landmark": "superior_right",
+"x": 228.842,
+"y": 435.426,
+"n": 392
+},
+{
+"class": "vertebrae T2",
+"landmark": "inferior_left",
+"x": 273.41,
+"y": 95.522,
+"n": 398
+},
+{
+"class": "vertebrae T2",
+"landmark": "inferior_right",
+"x": 227.586,
+"y": 96.784,
+"n": 397
+},
+{
+"class": "vertebrae T2",
+"landmark": "superior_left",
+"x": 276.899,
+"y": 45.969,
+"n": 384
+},
+{
+"class": "vertebrae T2",
+"landmark": "superior_right",
+"x": 219.116,
+"y": 48.505,
+"n": 384
+},
+{
+"class": "vertebrae T3",
+"landmark": "inferior_left",
+"x": 273.845,
+"y": 122.417,
+"n": 401
+},
+{
+"class": "vertebrae T3",
+"landmark": "inferior_right",
+"x": 229.738,
+"y": 124.817,
+"n": 400
+},
+{
+"class": "vertebrae T3",
+"landmark": "superior_left",
+"x": 277.182,
+"y": 72.028,
+"n": 393
+},
+{
+"class": "vertebrae T3",
+"landmark": "superior_right",
+"x": 221.608,
+"y": 73.484,
+"n": 394
+},
+{
+"class": "vertebrae T4",
+"landmark": "inferior_left",
+"x": 273.638,
+"y": 153.501,
+"n": 400
+},
+{
+"class": "vertebrae T4",
+"landmark": "inferior_right",
+"x": 229.868,
+"y": 156.044,
+"n": 400
+},
+{
+"class": "vertebrae T4",
+"landmark": "superior_left",
+"x": 277.311,
+"y": 103.014,
+"n": 399
+},
+{
+"class": "vertebrae T4",
+"landmark": "superior_right",
+"x": 220.957,
+"y": 103.745,
+"n": 400
+},
+{
+"class": "vertebrae T5",
+"landmark": "inferior_left",
+"x": 273.979,
+"y": 188.296,
+"n": 398
+},
+{
+"class": "vertebrae T5",
+"landmark": "inferior_right",
+"x": 228.019,
+"y": 190.76,
+"n": 398
+},
+{
+"class": "vertebrae T5",
+"landmark": "superior_left",
+"x": 276.81,
+"y": 137.13,
+"n": 400
+},
+{
+"class": "vertebrae T5",
+"landmark": "superior_right",
+"x": 221.422,
+"y": 138.077,
+"n": 401
+},
+{
+"class": "vertebrae T6",
+"landmark": "inferior_left",
+"x": 276.087,
+"y": 224.457,
+"n": 399
+},
+{
+"class": "vertebrae T6",
+"landmark": "inferior_right",
+"x": 226.693,
+"y": 227.262,
+"n": 400
+},
+{
+"class": "vertebrae T6",
+"landmark": "superior_left",
+"x": 277.546,
+"y": 173.726,
+"n": 401
+},
+{
+"class": "vertebrae T6",
+"landmark": "superior_right",
+"x": 222.169,
+"y": 175.984,
+"n": 399
+},
+{
+"class": "vertebrae T7",
+"landmark": "inferior_left",
+"x": 278.71,
+"y": 262.319,
+"n": 401
+},
+{
+"class": "vertebrae T7",
+"landmark": "inferior_right",
+"x": 227.165,
+"y": 264.839,
+"n": 398
+},
+{
+"class": "vertebrae T7",
+"landmark": "superior_left",
+"x": 279.2,
+"y": 215.143,
+"n": 400
+},
+{
+"class": "vertebrae T7",
+"landmark": "superior_right",
+"x": 223.409,
+"y": 217.669,
+"n": 401
+},
+{
+"class": "vertebrae T8",
+"landmark": "inferior_left",
+"x": 281.948,
+"y": 301.348,
+"n": 400
+},
+{
+"class": "vertebrae T8",
+"landmark": "inferior_right",
+"x": 228.165,
+"y": 303.774,
+"n": 401
+},
+{
+"class": "vertebrae T8",
+"landmark": "superior_left",
+"x": 281.526,
+"y": 257.709,
+"n": 396
+},
+{
+"class": "vertebrae T8",
+"landmark": "superior_right",
+"x": 225.428,
+"y": 259.984,
+"n": 394
+},
+{
+"class": "vertebrae T9",
+"landmark": "inferior_left",
+"x": 285.935,
+"y": 344.364,
+"n": 398
+},
+{
+"class": "vertebrae T9",
+"landmark": "inferior_right",
+"x": 229.109,
+"y": 346.862,
+"n": 399
+},
+{
+"class": "vertebrae T9",
+"landmark": "superior_left",
+"x": 285.185,
+"y": 299.186,
+"n": 398
+},
+{
+"class": "vertebrae T9",
+"landmark": "superior_right",
+"x": 226.5,
+"y": 301.589,
+"n": 398
+}
+]
+},
+"lateral": {
+"n_images": 124,
+"landmarks": [
+{
+"class": "anterior mediastinum",
+"landmark": "retrosternal_anterior",
+"x": 367.012,
+"y": 190.369,
+"n": 105
+},
+{
+"class": "aorta",
+"landmark": "cl_1",
+"x": 262.812,
+"y": 150.697,
+"n": 121
+},
+{
+"class": "aorta",
+"landmark": "cl_2",
+"x": 187.682,
+"y": 236.468,
+"n": 122
+},
+{
+"class": "aorta",
+"landmark": "cl_3",
+"x": 223.889,
+"y": 371.279,
+"n": 122
+},
+{
+"class": "aortic arch",
+"landmark": "summit",
+"x": 245.404,
+"y": 122.849,
+"n": 118
+},
+{
+"class": "apical zone lung",
+"landmark": "apex",
+"x": 212.273,
+"y": 45.383,
+"n": 108
+},
+{
+"class": "apical zone lung",
+"landmark": "center",
+"x": 212.805,
+"y": 81.25,
+"n": 119
+},
+{
+"class": "ascending aorta",
+"landmark": "cl_0",
+"x": 265.751,
+"y": 169.435,
+"n": 121
+},
+{
+"class": "ascending aorta",
+"landmark": "cl_1",
+"x": 307.128,
+"y": 207.386,
+"n": 121
+},
+{
+"class": "ascending aorta",
+"landmark": "cl_2",
+"x": 301.544,
+"y": 265.011,
+"n": 121
+},
+{
+"class": "ascending aorta",
+"landmark": "retrosternal_posterior",
+"x": 332.613,
+"y": 192.165,
+"n": 103
+},
+{
+"class": "descending aorta",
+"landmark": "cl_0",
+"x": 222.314,
+"y": 170.492,
+"n": 123
+},
+{
+"class": "descending aorta",
+"landmark": "cl_1",
+"x": 191.216,
+"y": 268.833,
+"n": 120
+},
+{
+"class": "descending aorta",
+"landmark": "cl_2",
+"x": 229.383,
+"y": 385.553,
+"n": 120
+},
+{
+"class": "descending aorta",
+"landmark": "cl_3",
+"x": 268.03,
+"y": 502.614,
+"n": 82
+},
+{
+"class": "diaphragm",
+"landmark": "anterior_costophrenic",
+"x": 394.144,
+"y": 335.764,
+"n": 112
+},
+{
+"class": "diaphragm",
+"landmark": "anterior_costophrenic_limb_diaphragm",
+"x": 372.606,
+"y": 332.48,
+"n": 115
+},
+{
+"class": "diaphragm",
+"landmark": "anterior_costophrenic_limb_wall",
+"x": 396.064,
+"y": 309.891,
+"n": 113
+},
+{
+"class": "diaphragm",
+"landmark": "dome",
+"x": 315.157,
+"y": 317.848,
+"n": 79
+},
+{
+"class": "diaphragm",
+"landmark": "posterior_costophrenic",
+"x": 126.667,
+"y": 431.756,
+"n": 115
+},
+{
+"class": "diaphragm",
+"landmark": "posterior_costophrenic_limb_diaphragm",
+"x": 129.921,
+"y": 412.121,
+"n": 115
+},
+{
+"class": "diaphragm",
+"landmark": "posterior_costophrenic_limb_wall",
+"x": 120.713,
+"y": 409.133,
+"n": 116
+},
+{
+"class": "diaphragm",
+"landmark": "sternodiaphragmatic_limb_diaphragm",
+"x": 352.889,
+"y": 328.328,
+"n": 117
+},
+{
+"class": "diaphragm",
+"landmark": "sternodiaphragmatic_limb_sternum",
+"x": 390.911,
+"y": 291.698,
+"n": 115
+},
+{
+"class": "diaphragm",
+"landmark": "sternodiaphragmatic_vertex",
+"x": 396.455,
+"y": 335.401,
+"n": 112
+},
+{
+"class": "esophagus",
+"landmark": "gej_esophageal",
+"x": 265.388,
+"y": 368.732,
+"n": 98
+},
+{
+"class": "heart",
+"landmark": "anterior_border",
+"x": 387.596,
+"y": 303.147,
+"n": 104
+},
+{
+"class": "heart",
+"landmark": "apex",
+"x": 385.533,
+"y": 335.056,
+"n": 117
+},
+{
+"class": "heart",
+"landmark": "hoffman_rigler",
+"x": 224.495,
+"y": 269.075,
+"n": 117
+},
+{
+"class": "heart",
+"landmark": "posterior_border",
+"x": 221.045,
+"y": 251.165,
+"n": 117
+},
+{
+"class": "inferior vena cava",
+"landmark": "ivc_ra_caval",
+"x": 276.144,
+"y": 309.371,
+"n": 117
+},
+{
+"class": "liver",
+"landmark": "center",
+"x": 299.972,
+"y": 422.194,
+"n": 114
+},
+{
+"class": "lung base",
+"landmark": "center",
+"x": 224.032,
+"y": 128.996,
+"n": 121
+},
+{
+"class": "mid zone lung",
+"landmark": "center",
+"x": 239.294,
+"y": 247.411,
+"n": 119
+},
+{
+"class": "pancreas",
+"landmark": "center",
+"x": 294.894,
+"y": 460.821,
+"n": 76
+},
+{
+"class": "sternum",
+"landmark": "jugular_notch",
+"x": 333.007,
+"y": 83.687,
+"n": 119
+},
+{
+"class": "sternum",
+"landmark": "manubriosternal_limb_body",
+"x": 374.427,
+"y": 184.966,
+"n": 100
+},
+{
+"class": "sternum",
+"landmark": "manubriosternal_limb_manubrium",
+"x": 344.154,
+"y": 128.405,
+"n": 95
+},
+{
+"class": "sternum",
+"landmark": "sternal_angle",
+"x": 361.756,
+"y": 147.535,
+"n": 101
+},
+{
+"class": "stomach",
+"landmark": "center",
+"x": 319.05,
+"y": 427.419,
+"n": 70
+},
+{
+"class": "upper zone lung",
+"landmark": "center",
+"x": 230.835,
+"y": 363.829,
+"n": 105
+},
+{
+"class": "vertebrae L1",
+"landmark": "antero_inferior",
+"x": 233.397,
+"y": 454.528,
+"n": 103
+},
+{
+"class": "vertebrae L1",
+"landmark": "antero_superior",
+"x": 219.099,
+"y": 412.073,
+"n": 116
+},
+{
+"class": "vertebrae L1",
+"landmark": "postero_inferior",
+"x": 170.169,
+"y": 465.526,
+"n": 86
+},
+{
+"class": "vertebrae L1",
+"landmark": "postero_superior",
+"x": 168.164,
+"y": 419.645,
+"n": 116
+},
+{
+"class": "vertebrae L2",
+"landmark": "antero_superior",
+"x": 238.818,
+"y": 455.061,
+"n": 102
+},
+{
+"class": "vertebrae L2",
+"landmark": "postero_superior",
+"x": 183.243,
+"y": 461.416,
+"n": 93
+},
+{
+"class": "vertebrae T1",
+"landmark": "antero_inferior",
+"x": 230.823,
+"y": 66.62,
+"n": 120
+},
+{
+"class": "vertebrae T1",
+"landmark": "antero_superior",
+"x": 227.839,
+"y": 19.826,
+"n": 72
+},
+{
+"class": "vertebrae T1",
+"landmark": "postero_inferior",
+"x": 189.149,
+"y": 48.669,
+"n": 118
+},
+{
+"class": "vertebrae T1",
+"landmark": "postero_superior",
+"x": 190.76,
+"y": 15.974,
+"n": 81
+},
+{
+"class": "vertebrae T10",
+"landmark": "antero_inferior",
+"x": 188.031,
+"y": 332.889,
+"n": 121
+},
+{
+"class": "vertebrae T10",
+"landmark": "antero_superior",
+"x": 180.209,
+"y": 296.199,
+"n": 120
+},
+{
+"class": "vertebrae T10",
+"landmark": "postero_inferior",
+"x": 134.903,
+"y": 338.276,
+"n": 121
+},
+{
+"class": "vertebrae T10",
+"landmark": "postero_superior",
+"x": 130.818,
+"y": 300.236,
+"n": 120
+},
+{
+"class": "vertebrae T11",
+"landmark": "antero_inferior",
+"x": 198.651,
+"y": 369.562,
+"n": 118
+},
+{
+"class": "vertebrae T11",
+"landmark": "antero_superior",
+"x": 189.446,
+"y": 333.175,
+"n": 121
+},
+{
+"class": "vertebrae T11",
+"landmark": "postero_inferior",
+"x": 145.196,
+"y": 378.504,
+"n": 119
+},
+{
+"class": "vertebrae T11",
+"landmark": "postero_superior",
+"x": 139.674,
+"y": 338.596,
+"n": 121
+},
+{
+"class": "vertebrae T12",
+"landmark": "antero_inferior",
+"x": 214.38,
+"y": 410.071,
+"n": 114
+},
+{
+"class": "vertebrae T12",
+"landmark": "antero_superior",
+"x": 202.353,
+"y": 369.925,
+"n": 121
+},
+{
+"class": "vertebrae T12",
+"landmark": "postero_inferior",
+"x": 157.709,
+"y": 416.898,
+"n": 111
+},
+{
+"class": "vertebrae T12",
+"landmark": "postero_superior",
+"x": 152.575,
+"y": 378.178,
+"n": 118
+},
+{
+"class": "vertebrae T2",
+"landmark": "antero_inferior",
+"x": 215.535,
+"y": 90.531,
+"n": 121
+},
+{
+"class": "vertebrae T2",
+"landmark": "antero_superior",
+"x": 218.038,
+"y": 55.009,
+"n": 90
+},
+{
+"class": "vertebrae T2",
+"landmark": "postero_inferior",
+"x": 169.698,
+"y": 69.242,
+"n": 120
+},
+{
+"class": "vertebrae T2",
+"landmark": "postero_superior",
+"x": 172.569,
+"y": 32.668,
+"n": 105
+},
+{
+"class": "vertebrae T3",
+"landmark": "antero_inferior",
+"x": 200.913,
+"y": 118.017,
+"n": 122
+},
+{
+"class": "vertebrae T3",
+"landmark": "antero_superior",
+"x": 206.735,
+"y": 87.681,
+"n": 113
+},
+{
+"class": "vertebrae T3",
+"landmark": "postero_inferior",
+"x": 150.634,
+"y": 96.167,
+"n": 118
+},
+{
+"class": "vertebrae T3",
+"landmark": "postero_superior",
+"x": 153.384,
+"y": 57.111,
+"n": 117
+},
+{
+"class": "vertebrae T4",
+"landmark": "antero_inferior",
+"x": 188.988,
+"y": 144.8,
+"n": 121
+},
+{
+"class": "vertebrae T4",
+"landmark": "antero_superior",
+"x": 197.862,
+"y": 116.75,
+"n": 108
+},
+{
+"class": "vertebrae T4",
+"landmark": "postero_inferior",
+"x": 139.174,
+"y": 125.833,
+"n": 118
+},
+{
+"class": "vertebrae T4",
+"landmark": "postero_superior",
+"x": 139.699,
+"y": 87.232,
+"n": 121
+},
+{
+"class": "vertebrae T5",
+"landmark": "antero_inferior",
+"x": 178.639,
+"y": 171.797,
+"n": 118
+},
+{
+"class": "vertebrae T5",
+"landmark": "antero_superior",
+"x": 185.966,
+"y": 143.658,
+"n": 118
+},
+{
+"class": "vertebrae T5",
+"landmark": "postero_inferior",
+"x": 133.866,
+"y": 161.588,
+"n": 118
+},
+{
+"class": "vertebrae T5",
+"landmark": "postero_superior",
+"x": 128.784,
+"y": 119.151,
+"n": 120
+},
+{
+"class": "vertebrae T6",
+"landmark": "antero_inferior",
+"x": 173.121,
+"y": 200.674,
+"n": 120
+},
+{
+"class": "vertebrae T6",
+"landmark": "antero_superior",
+"x": 177.768,
+"y": 170.906,
+"n": 119
+},
+{
+"class": "vertebrae T6",
+"landmark": "postero_inferior",
+"x": 126.481,
+"y": 194.774,
+"n": 119
+},
+{
+"class": "vertebrae T6",
+"landmark": "postero_superior",
+"x": 121.277,
+"y": 152.199,
+"n": 120
+},
+{
+"class": "vertebrae T7",
+"landmark": "antero_inferior",
+"x": 172.463,
+"y": 232.076,
+"n": 120
+},
+{
+"class": "vertebrae T7",
+"landmark": "antero_superior",
+"x": 172.476,
+"y": 200.519,
+"n": 120
+},
+{
+"class": "vertebrae T7",
+"landmark": "postero_inferior",
+"x": 121.776,
+"y": 230.16,
+"n": 119
+},
+{
+"class": "vertebrae T7",
+"landmark": "postero_superior",
+"x": 116.935,
+"y": 188.077,
+"n": 119
+},
+{
+"class": "vertebrae T8",
+"landmark": "antero_inferior",
+"x": 173.65,
+"y": 263.028,
+"n": 120
+},
+{
+"class": "vertebrae T8",
+"landmark": "antero_superior",
+"x": 172.654,
+"y": 232.052,
+"n": 120
+},
+{
+"class": "vertebrae T8",
+"landmark": "postero_inferior",
+"x": 122.995,
+"y": 264.725,
+"n": 119
+},
+{
+"class": "vertebrae T8",
+"landmark": "postero_superior",
+"x": 117.405,
+"y": 226.726,
+"n": 120
+},
+{
+"class": "vertebrae T9",
+"landmark": "antero_inferior",
+"x": 179.093,
+"y": 296.436,
+"n": 120
+},
+{
+"class": "vertebrae T9",
+"landmark": "antero_superior",
+"x": 174.849,
+"y": 261.807,
+"n": 120
+},
+{
+"class": "vertebrae T9",
+"landmark": "postero_inferior",
+"x": 129.192,
+"y": 300.621,
+"n": 120
+},
+{
+"class": "vertebrae T9",
+"landmark": "postero_superior",
+"x": 123.374,
+"y": 264.15,
+"n": 119
+}
+]
+}
+},
+"citation": "Fedorov A, et al. National Cancer Institute Imaging Data Commons. Radiographics 2023; collections under CC BY 3.0 / 4.0 as listed per series in the IDC."
+}

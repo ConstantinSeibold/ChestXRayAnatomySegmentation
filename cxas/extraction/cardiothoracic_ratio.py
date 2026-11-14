@@ -1,7 +1,7 @@
 import numpy as np
 from PIL import Image
 from cxas.label_mapper import label_mapper
-from cxas.extraction.draw_helpers import draw_point, draw_line
+from cxas.extraction.draw_helpers import as_pil, draw_point, draw_line
 
 
 def get_cardiothoracic_ratio(npy, img=None, draw=False):
@@ -72,6 +72,8 @@ def get_cardiothoracic_ratio(npy, img=None, draw=False):
     ):
         return {
             "score": -1,
+            "cardiac_width": -1,
+            "thoracic_width": -1,
             "drawing": Image.new("RGB", (npy.shape[1], npy.shape[2]), "black"),
         }
 
@@ -88,7 +90,7 @@ def get_cardiothoracic_ratio(npy, img=None, draw=False):
         if img is None:
             img = Image.new("RGB", (npy.shape[1], npy.shape[2]), "black")
         else:
-            pass
+            img = as_pil(img)
 
         width = 8
 
@@ -121,5 +123,5 @@ def get_cardiothoracic_ratio(npy, img=None, draw=False):
         img = draw_point(img, (midline1[1], midline1[0]), "#E76F51", width * 2)
         img = draw_point(img, (midline2[1], midline2[0]), "#E76F51", width * 2)
 
-        return {"score": (mrd + mld) / ID, "drawing": img}
-    return {"score": (mrd + mld) / ID}
+        return {"score": (mrd + mld) / ID, "cardiac_width": mrd + mld, "thoracic_width": ID, "drawing": img}
+    return {"score": (mrd + mld) / ID, "cardiac_width": mrd + mld, "thoracic_width": ID}
