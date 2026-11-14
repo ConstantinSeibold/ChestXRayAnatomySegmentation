@@ -285,11 +285,11 @@ Ready-made images with all models inside, so no downloads are needed when they r
 docker run --rm --gpus all -v /path/to/dicom:/data/in:ro -v /path/to/results:/data/out cseibold/cxas:latest -i /data/in -o /data/out
 
 # CPU only (smaller image)
-docker run --rm -v /path/to/dicom:/data/in:ro -v /path/to/results:/data/out cseibold/cxas:0.1.1-cpu -i /data/in -o /data/out
+docker run --rm -v /path/to/dicom:/data/in:ro -v /path/to/results:/data/out cseibold/cxas:0.1.2-cpu -i /data/in -o /data/out
 ```
 
-`cseibold/cxas:latest` (= `0.1.1-cu128`) uses an NVIDIA GPU when there is one and the CPU otherwise.
-`cseibold/cxas:0.1.1-cpu` is smaller and CPU only. On a CPU, one radiograph takes about 6 to 15 seconds. Both run
+`cseibold/cxas:latest` (= `0.1.2-cu128`) uses an NVIDIA GPU when there is one and the CPU otherwise.
+`cseibold/cxas:0.1.2-cpu` is smaller and CPU only. On a CPU, one radiograph takes about 6 to 15 seconds. Both run
 `cxas_idc`; to build them yourself, see [`docker/build.sh`](docker/build.sh).
 
 The older `cseibold/cxas:cli` and `cseibold/cxas:interactive` images (2024) only run on Apple-silicon Macs. To

@@ -7,7 +7,7 @@ long_description = (this_directory / "docs/shortREADME.rst").read_text()
 
 setup(
     name="cxas",
-    version="0.1.1",
+    version="0.1.2",
     description="Anatomy segmentation (159+ structures) and named landmarks for chest X-rays, with DICOM SEG/SR output.",
     long_description=long_description,
     long_description_content_type="text/x-rst",

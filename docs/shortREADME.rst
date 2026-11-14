@@ -26,8 +26,8 @@ DICOM in, DICOM SEG + SR out (new in 0.1)
 ``cxas_idc -i {DICOM file or directory} -o {output directory}``
 
 Per radiograph: one multi-segment DICOM SEG, a TID 1500 Structured Report with the landmarks, and a
-``result.json``. Uses the GPU when available (``-g auto``). Docker images: ``cseibold/cxas:0.1.1-cu128``
-(GPU or CPU) and ``cseibold/cxas:0.1.1-cpu``.
+``result.json``. Uses the GPU when available (``-g auto``). Docker images: ``cseibold/cxas:0.1.2-cu128``
+(GPU or CPU) and ``cseibold/cxas:0.1.2-cpu``.
 
 
 --------------------------------------
